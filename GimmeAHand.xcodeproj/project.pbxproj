@@ -13,6 +13,9 @@
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
 		244B0BDB25F99E39001A71EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BDA25F99E39001A71EB /* Assets.xcassets */; };
 		244B0BDE25F99E39001A71EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */; };
+		244B0BEB25F9DC68001A71EB /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BEA25F9DC68001A71EB /* Profile.storyboard */; };
+		244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BED25F9DC72001A71EB /* Homepage.storyboard */; };
+		244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF025F9DC7D001A71EB /* Orders.storyboard */; };
 		5DD4E490803F6DB57800990A /* Pods_GimmeAHand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		244B0BDA25F99E39001A71EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		244B0BDD25F99E39001A71EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		244B0BDF25F99E39001A71EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		244B0BEA25F9DC68001A71EB /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		244B0BED25F9DC72001A71EB /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
+		244B0BF025F9DC7D001A71EB /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		6883E3D16711B53B9CED2B6B /* Pods-GimmeAHand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.release.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.release.xcconfig"; sourceTree = "<group>"; };
 		6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GimmeAHand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70914C3B6457422486243F35 /* Pods-GimmeAHand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.debug.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.debug.xcconfig"; sourceTree = "<group>"; };
@@ -75,6 +81,9 @@
 				244B0BD325F99E38001A71EB /* SceneDelegate.swift */,
 				244B0BD525F99E38001A71EB /* ViewController.swift */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
+				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
+				244B0BF025F9DC7D001A71EB /* Orders.storyboard */,
+				244B0BEA25F9DC68001A71EB /* Profile.storyboard */,
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
 				244B0BDF25F99E39001A71EB /* Info.plist */,
@@ -151,7 +160,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				244B0BDE25F99E39001A71EB /* LaunchScreen.storyboard in Resources */,
+				244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */,
 				244B0BDB25F99E39001A71EB /* Assets.xcassets in Resources */,
+				244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */,
+				244B0BEB25F9DC68001A71EB /* Profile.storyboard in Resources */,
 				244B0BD925F99E38001A71EB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
