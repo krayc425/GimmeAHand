@@ -17,6 +17,7 @@
 		244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BED25F9DC72001A71EB /* Homepage.storyboard */; };
 		244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF025F9DC7D001A71EB /* Orders.storyboard */; };
 		244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */; };
+		24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE7A5025FC3674005B965A /* LoginTableViewController.swift */; };
 		5DD4E490803F6DB57800990A /* Pods_GimmeAHand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		244B0BED25F9DC72001A71EB /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		244B0BF025F9DC7D001A71EB /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
+		24FE7A5025FC3674005B965A /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		6883E3D16711B53B9CED2B6B /* Pods-GimmeAHand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.release.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.release.xcconfig"; sourceTree = "<group>"; };
 		6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GimmeAHand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70914C3B6457422486243F35 /* Pods-GimmeAHand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.debug.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.debug.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				244B0BD125F99E38001A71EB /* AppDelegate.swift */,
 				244B0BD325F99E38001A71EB /* SceneDelegate.swift */,
 				244B0BD525F99E38001A71EB /* ViewController.swift */,
+				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				244B0BD625F99E38001A71EB /* ViewController.swift in Sources */,
+				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
 				244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */,
 				244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */,
 			);
