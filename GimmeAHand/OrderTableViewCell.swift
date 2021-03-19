@@ -9,18 +9,18 @@ import UIKit
 
 class OrderTableViewCell: UITableViewCell {
     
+    static let reuseIdentifier: String = "OrderTableViewCell"
+    
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
-    
-    static let reuseIdentifier: String = "OrderTableViewCell"
 
     func config(_ model: OrderModel) {
         nameLabel.text = model.name
-        descriptionLabel.text = model.orderDescription
-        amountLabel.text = String(format: "$%.2f", model.amount)
-        statusLabel.text = model.status
+        dateLabel.text = model.createdDateString
+        amountLabel.text = model.amountString
+        statusLabel.text = model.statusString
     }
 
 }

@@ -37,7 +37,7 @@ class LoginTableViewController: UITableViewController {
         // TODO: Add login logic
         debugPrint("Login!!!")
         SVProgressHUD.show(withStatus: "Login")
-        SVProgressHUD.dismiss(withDelay: kHUDDuration)
+        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration)
     }
 
 }

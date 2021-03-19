@@ -25,7 +25,7 @@ class OrderTableViewController: UITableViewController {
         segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         
         for i in 0..<10 {
-            let newOrder = OrderModel(i, "order_name_\(i)", "blahblahblah", Float(i) * 10.0, "OK")
+            let newOrder = OrderModel(id: i, name: "order_name_\(i)", description: "blahblahblah", amount: Float(i) * 10.0, status: .finished, date: Date())
             modelArray.append(newOrder)
         }
     }

@@ -43,8 +43,8 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7i-Jd-ooa">
-                                                    <rect key="frame" x="0.0" y="25.5" width="195" height="32.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7i-Jd-ooa">
+                                                    <rect key="frame" x="0.0" y="37.5" width="195" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" systemColor="systemGrayColor"/>
                                                     <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="amountLabel" destination="73I-MW-Nc6" id="54x-Pn-DXF"/>
-                                    <outlet property="descriptionLabel" destination="h7i-Jd-ooa" id="eUl-3M-OlE"/>
+                                    <outlet property="dateLabel" destination="h7i-Jd-ooa" id="gKR-nQ-7sl"/>
                                     <outlet property="nameLabel" destination="GOU-T8-eMf" id="aqG-UZ-JhK"/>
                                     <outlet property="statusLabel" destination="G94-6a-1gt" id="GCE-7I-lfR"/>
                                 </connections>
@@ -120,7 +120,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="LdS-LU-7rH"/>
                     <connections>
-                        <outlet property="informationLabel" destination="6p8-Nq-dGE" id="MUu-oy-W6i"/>
+                        <outlet property="informationLabel" destination="6p8-Nq-dGE" id="ukM-0f-qCO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jC4-2r-Bp0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -7,4 +7,13 @@
 
 import Foundation
 
-let kHUDDuration: TimeInterval = 2.0
+struct GHConstant {
+    
+    static let kHUDDuration: TimeInterval = 2.0
+    static let kDateFormatter: DateFormatter = {
+        let fmt = DateFormatter()
+        fmt.dateFormat = "MMM dd, yyyy"
+        return fmt
+    }()
+    
+}
