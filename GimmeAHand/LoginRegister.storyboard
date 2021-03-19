@@ -94,7 +94,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3k-cj-Yc7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3k-cj-Yc7">
                                                     <rect key="frame" x="16" y="11" width="120" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="JEZ-M2-7kC"/>
@@ -116,12 +116,41 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ckb-ha-2cO">
+                                        <rect key="frame" x="16" y="184.5" width="343" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ckb-ha-2cO" id="kP4-0c-aCK">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7W-vB-XNf">
+                                                    <rect key="frame" x="16" y="11" width="120" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="jED-rv-0NZ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rx6-b6-nbv">
+                                                    <rect key="frame" x="278" y="6.6666666666666679" width="51" height="31.000000000000004"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="rx6-b6-nbv" secondAttribute="trailing" id="hyt-pK-Ksh"/>
+                                                <constraint firstItem="k7W-vB-XNf" firstAttribute="top" secondItem="kP4-0c-aCK" secondAttribute="topMargin" id="iK8-fC-ahr"/>
+                                                <constraint firstItem="rx6-b6-nbv" firstAttribute="centerY" secondItem="kP4-0c-aCK" secondAttribute="centerY" id="ngh-SE-seA"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="k7W-vB-XNf" secondAttribute="bottom" id="pnV-Dn-O2B"/>
+                                                <constraint firstItem="k7W-vB-XNf" firstAttribute="leading" secondItem="kP4-0c-aCK" secondAttribute="leadingMargin" id="rkR-61-QCW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="zE6-eI-I5v">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="fy2-WX-wSg">
-                                        <rect key="frame" x="16" y="220.5" width="343" height="60"/>
+                                        <rect key="frame" x="16" y="264" width="343" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fy2-WX-wSg" id="C2B-tZ-9vs">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
@@ -164,9 +193,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="xRz-iP-zh4" id="QIK-lg-6FP"/>
-                        <outlet property="faceIDSwitch" destination="6Pw-5P-W3K" id="YQX-9H-S0c"/>
+                        <outlet property="faceIDSwitch" destination="rx6-b6-nbv" id="9lN-m9-N78"/>
                         <outlet property="loginButton" destination="Bgv-JG-x4t" id="fHL-3j-Qwd"/>
                         <outlet property="passwordTextField" destination="JJx-Wd-3VL" id="cCd-0I-502"/>
+                        <outlet property="rememberMeSwitch" destination="6Pw-5P-W3K" id="KA8-VS-6Ug"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weK-OI-axO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

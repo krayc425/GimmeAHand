@@ -12,6 +12,7 @@ class LoginTableViewController: UITableViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var rememberMeSwitch: UISwitch!
     @IBOutlet weak var faceIDSwitch: UISwitch!
     @IBOutlet weak var loginButton: UIButton!
 
