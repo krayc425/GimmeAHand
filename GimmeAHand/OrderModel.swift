@@ -15,10 +15,8 @@ class OrderModel: NSObject {
     var amount: Float
     var status: GHOrderStatus
     var createdDate: Date
-    
-    var statusString: String {
-        return status.displayString
-    }
+    var category: GHOrderCategory
+
     var amountString: String {
         return String(format: "$%.2f", amount)
     }
@@ -31,13 +29,15 @@ class OrderModel: NSObject {
          description: String,
          amount: Float,
          status: GHOrderStatus,
-         date: Date) {
+         date: Date,
+         category: GHOrderCategory) {
         self.id = id
         self.name = name
         self.orderDescription = description
         self.amount = amount
         self.status = status
         self.createdDate = date
+        self.category = category
     }
     
 }

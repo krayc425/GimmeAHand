@@ -24,8 +24,14 @@ class OrderTableViewController: UITableViewController {
         navigationItem.titleView = segmentedControl
         segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         
-        for i in 0..<10 {
-            let newOrder = OrderModel(id: i, name: "order_name_\(i)", description: "blahblahblah", amount: Float(i) * 10.0, status: .finished, date: Date())
+        for i in 0..<20 {
+            let newOrder = OrderModel(id: i,
+                                      name: "order_name_\(i)",
+                                      description: "blahblahblah",
+                                      amount: Float.random(in: 0..<10),
+                                      status: GHOrderStatus.allCases.randomElement()!,
+                                      date: Date(),
+                                      category: GHOrderCategory.allCases.randomElement()!)
             modelArray.append(newOrder)
         }
     }

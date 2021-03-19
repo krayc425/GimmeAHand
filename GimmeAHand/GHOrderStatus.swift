@@ -5,23 +5,30 @@
 //  Created by Kuixi Song on 3/18/21.
 //
 
-enum GHOrderStatus: String {
+import UIKit
+
+enum GHOrderStatus: String, CaseIterable {
     
     case created
     case inprogress
     case cancelled
     case finished
     
-    var displayString: String {
+    // TODO: Use what colors...
+    func decorate(_ label: inout UILabel) {
         switch self {
         case .created:
-            return "Created"
+            label.text = "Created"
+            label.textColor = .systemOrange
         case .inprogress:
-            return "In Progress"
+            label.text = "In Progress"
+            label.textColor = .systemBlue
         case .finished:
-            return "Finished"
+            label.text = "Finished"
+            label.textColor = .systemGreen
         case .cancelled:
-            return "Cancelled"
+            label.text = "Cancelled"
+            label.textColor = .systemRed
         }
     }
     
