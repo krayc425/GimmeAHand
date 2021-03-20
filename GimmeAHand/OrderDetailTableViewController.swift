@@ -19,14 +19,20 @@ class OrderDetailTableViewController: UITableViewController {
     @IBOutlet weak var orderCreaterLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var fullMapButton: UIButton!
+    @IBOutlet weak var navigateButton: UIButton!
     
     var orderModel: OrderModel? = nil
-    let locationManager = CLLocationManager()
+    let locationManager = MapHelper.shared.locationManager
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.rowHeight = UITableView.automaticDimension
+        
+        [mapView, fullMapButton, navigateButton].forEach {
+            $0?.setRoundCorner()
+        }
         
         setupMapView()
         setupOrderModel()
@@ -34,12 +40,8 @@ class OrderDetailTableViewController: UITableViewController {
     
     func setupMapView() {
         mapView.delegate = self
-        mapView.showsUserLocation = true
-        
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyReduced
-        locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
+        mapView.showsUserLocation = true
         
         updateUserLocation(mapView.userLocation)
     }
@@ -66,6 +68,14 @@ class OrderDetailTableViewController: UITableViewController {
         let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
         let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
         mapView.setRegion(region, animated: true)
+    }
+    
+    @IBAction func navigateAction(_ sender: UIButton) {
+        guard let model = orderModel, sender == navigateButton else {
+            return
+        }
+        debugPrint("navigate!")
+        MapHelper.shared.navigate(37.0, -122.0, model.name)
     }
 
 }

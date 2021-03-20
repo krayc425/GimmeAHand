@@ -43,7 +43,7 @@ class CommunitySearchTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = doneBarButtonItem
         doneBarButtonItem.isEnabled = false
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CommunitySearchTableViewCell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "communitySearchTableViewCellId")
         tableView.tableFooterView = UIView()
         
         doneBarButtonItem.addObserver(self, forKeyPath: "selectedCommunityIndexPath", options: .new, context: nil)
@@ -74,9 +74,11 @@ class CommunitySearchTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CommunitySearchTableViewCell", for: indexPath)
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "communitySearchTableViewCellId")
 
         cell.textLabel?.text = communities[indexPath.row]
+        cell.detailTextLabel?.text = "0.5 miles from you"
+        cell.detailTextLabel?.textColor = .secondaryLabel
         
         if let selectedIndexPath = selectedCommunityIndexPath, selectedIndexPath == indexPath {
             cell.accessoryType = .checkmark

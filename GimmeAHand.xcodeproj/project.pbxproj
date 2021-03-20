@@ -13,6 +13,9 @@
 		24015ABC2606084400AE95DD /* OrderDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24015ABB2606084400AE95DD /* OrderDetail.storyboard */; };
 		24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015ABF260608D200AE95DD /* HomepageTableViewController.swift */; };
 		24015AC32606090600AE95DD /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015AC22606090600AE95DD /* OrderTableViewCell.xib */; };
+		24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AC626069FF900AE95DD /* UIViewExtensions.swift */; };
+		24015ACB2606A09D00AE95DD /* OrderMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */; };
+		24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015ACE2606A85400AE95DD /* MapHelper.swift */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
@@ -39,6 +42,9 @@
 		24015ABB2606084400AE95DD /* OrderDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetail.storyboard; sourceTree = "<group>"; };
 		24015ABF260608D200AE95DD /* HomepageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageTableViewController.swift; sourceTree = "<group>"; };
 		24015AC22606090600AE95DD /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
+		24015AC626069FF900AE95DD /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMapViewController.swift; sourceTree = "<group>"; };
+		24015ACE2606A85400AE95DD /* MapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,10 +119,12 @@
 				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
 				24015AC22606090600AE95DD /* OrderTableViewCell.xib */,
 				C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */,
+				24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */,
 				24FBC8C4260024870015238A /* OrderModel.swift */,
 				24015A9E26044CE000AE95DD /* GHOrderCategory.swift */,
 				24015A962604417100AE95DD /* GHOrderStatus.swift */,
 				24FE7A5425FC4052005B965A /* GHConstants.swift */,
+				24015AC626069FF900AE95DD /* UIViewExtensions.swift */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
@@ -126,6 +134,7 @@
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
 				244B0BDF25F99E39001A71EB /* Info.plist */,
+				24015ACE2606A85400AE95DD /* MapHelper.swift */,
 			);
 			path = GimmeAHand;
 			sourceTree = "<group>";
@@ -267,7 +276,10 @@
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,
 				244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */,
+				24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */,
+				24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */,
 				24FBC8C5260024870015238A /* OrderModel.swift in Sources */,
+				24015ACB2606A09D00AE95DD /* OrderMapViewController.swift in Sources */,
 				24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */,
 				24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */,
 				24015A9F26044CE000AE95DD /* GHOrderCategory.swift in Sources */,
