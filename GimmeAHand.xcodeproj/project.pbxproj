@@ -22,10 +22,10 @@
 		24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C0260024590015238A /* OrderTableViewController.swift */; };
 		24FBC8C5260024870015238A /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C4260024870015238A /* OrderModel.swift */; };
 		24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C92600260B0015238A /* OrderTableViewCell.swift */; };
-		24FBC8CE26002E2C0015238A /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8CD26002E2C0015238A /* OrderDetailViewController.swift */; };
 		24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE7A5025FC3674005B965A /* LoginTableViewController.swift */; };
 		24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE7A5425FC4052005B965A /* GHConstants.swift */; };
 		5DD4E490803F6DB57800990A /* Pods_GimmeAHand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */; };
+		C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,12 +46,12 @@
 		24FBC8C0260024590015238A /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		24FBC8C4260024870015238A /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		24FBC8C92600260B0015238A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
-		24FBC8CD26002E2C0015238A /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
 		24FE7A5025FC3674005B965A /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		24FE7A5425FC4052005B965A /* GHConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHConstants.swift; sourceTree = "<group>"; };
 		6883E3D16711B53B9CED2B6B /* Pods-GimmeAHand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.release.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.release.xcconfig"; sourceTree = "<group>"; };
 		6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GimmeAHand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70914C3B6457422486243F35 /* Pods-GimmeAHand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.debug.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.debug.xcconfig"; sourceTree = "<group>"; };
+		C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +100,8 @@
 				244B0BD525F99E38001A71EB /* ViewController.swift */,
 				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
 				24FBC8C0260024590015238A /* OrderTableViewController.swift */,
-				24FBC8CD26002E2C0015238A /* OrderDetailViewController.swift */,
 				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
+				C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */,
 				24FBC8C4260024870015238A /* OrderModel.swift */,
 				24015A9E26044CE000AE95DD /* GHOrderCategory.swift */,
 				24015A962604417100AE95DD /* GHOrderStatus.swift */,
@@ -245,8 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24FBC8CE26002E2C0015238A /* OrderDetailViewController.swift in Sources */,
 				244B0BD625F99E38001A71EB /* ViewController.swift in Sources */,
+				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,
