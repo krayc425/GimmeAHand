@@ -29,8 +29,7 @@ class RegisterTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func registerAction(_ sender: UIButton)
-    {
+    @IBAction func registerAction(_ sender: UIButton) {
         guard sender == registerButton else {
             debugPrint("Invalid Button!")
             return
@@ -62,6 +61,8 @@ extension RegisterTableViewController: UITextFieldDelegate {
         } else if textField == passwordTextField {
             passwordTextField.resignFirstResponder()
             confirmTextField.becomeFirstResponder()
+        } else {
+            confirmTextField.resignFirstResponder()
         }
         return true
     }

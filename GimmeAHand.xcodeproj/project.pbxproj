@@ -101,6 +101,7 @@
 				244B0BD325F99E38001A71EB /* SceneDelegate.swift */,
 				244B0BD525F99E38001A71EB /* ViewController.swift */,
 				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
+				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
 				24FBC8C0260024590015238A /* OrderTableViewController.swift */,
 				24FBC8CD26002E2C0015238A /* OrderDetailViewController.swift */,
 				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
@@ -116,7 +117,6 @@
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
 				244B0BDF25F99E39001A71EB /* Info.plist */,
-				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
 			);
 			path = GimmeAHand;
 			sourceTree = "<group>";
