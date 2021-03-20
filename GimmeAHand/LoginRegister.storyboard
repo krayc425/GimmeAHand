@@ -452,6 +452,9 @@
                                                         <constraint firstAttribute="width" secondItem="g5q-4h-W9T" secondAttribute="height" multiplier="1:1" id="KwZ-SQ-6qb"/>
                                                     </constraints>
                                                     <state key="normal" image="plus" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="addCommunityAction:" destination="KeH-T5-wTr" eventType="touchUpInside" id="sNi-r3-asN"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

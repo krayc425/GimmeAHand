@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015A962604417100AE95DD /* GHOrderStatus.swift */; };
 		24015A9F26044CE000AE95DD /* GHOrderCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015A9E26044CE000AE95DD /* GHOrderCategory.swift */; };
+		24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD625F99E38001A71EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD525F99E38001A71EB /* ViewController.swift */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		24015A962604417100AE95DD /* GHOrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderStatus.swift; sourceTree = "<group>"; };
 		24015A9E26044CE000AE95DD /* GHOrderCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderCategory.swift; sourceTree = "<group>"; };
+		24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitySearchTableViewController.swift; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				244B0BD525F99E38001A71EB /* ViewController.swift */,
 				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
 				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
+				24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */,
 				24FBC8C0260024590015238A /* OrderTableViewController.swift */,
 				24FBC8CD26002E2C0015238A /* OrderDetailViewController.swift */,
 				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
@@ -250,6 +253,7 @@
 			files = (
 				24FBC8CE26002E2C0015238A /* OrderDetailViewController.swift in Sources */,
 				244B0BD625F99E38001A71EB /* ViewController.swift in Sources */,
+				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,

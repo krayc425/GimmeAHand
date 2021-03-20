@@ -40,7 +40,21 @@ class RegisterTableViewController: UITableViewController {
     func register() {
         debugPrint("Register!!")
     }
+    
+    @IBAction func addCommunityAction(_ sender: UIButton) {
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
+        
+        present(communityViewController, animated: true)
+    }
 
+}
+
+extension RegisterTableViewController: CommunitySearchTableViewControllerDelegate {
+    
+    func didSelectCommunity(_ community: String) {
+        debugPrint("Selected \(community)")
+    }
+    
 }
 
 extension RegisterTableViewController: UITextFieldDelegate {
