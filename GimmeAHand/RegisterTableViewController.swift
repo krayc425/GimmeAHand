@@ -45,7 +45,7 @@ class RegisterTableViewController: UITableViewController {
     
     func register() {
         debugPrint("Register!!")
-        SVProgressHUD.show(withStatus: "Login")
+        SVProgressHUD.show(withStatus: "Register")
         SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {
             UIView.transition(with: UIApplication.shared.windows.first!,
                               duration: GHConstant.kStoryboardTransitionDuration,
@@ -97,7 +97,7 @@ class RegisterTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44.0
+        return indexPath.section == 3 ? 50.0 : 44.0
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
