@@ -22,6 +22,8 @@
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>&quot;GimmeAHand&quot; needs access to your location to find nearby communities and orders.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>&quot;GimmeAHand&quot; needs access to Face ID to authenticate your identity</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

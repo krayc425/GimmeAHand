@@ -11,6 +11,7 @@ import MapKit
 class OrderMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    
     let locationManager = MapHelper.shared.locationManager
 
     override func viewDidLoad() {

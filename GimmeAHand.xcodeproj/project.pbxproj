@@ -16,6 +16,7 @@
 		24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AC626069FF900AE95DD /* UIViewExtensions.swift */; };
 		24015ACB2606A09D00AE95DD /* OrderMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */; };
 		24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015ACE2606A85400AE95DD /* MapHelper.swift */; };
+		24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		24015AC626069FF900AE95DD /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderMapViewController.swift; sourceTree = "<group>"; };
 		24015ACE2606A85400AE95DD /* MapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
+		24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateTableViewController.swift; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				244B0BD125F99E38001A71EB /* AppDelegate.swift */,
 				244B0BD325F99E38001A71EB /* SceneDelegate.swift */,
+				24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */,
 				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
 				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
 				24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */,
@@ -121,6 +124,7 @@
 				C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */,
 				24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */,
 				24FBC8C4260024870015238A /* OrderModel.swift */,
+				24015ACE2606A85400AE95DD /* MapHelper.swift */,
 				24015A9E26044CE000AE95DD /* GHOrderCategory.swift */,
 				24015A962604417100AE95DD /* GHOrderStatus.swift */,
 				24FE7A5425FC4052005B965A /* GHConstants.swift */,
@@ -134,7 +138,6 @@
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
 				244B0BDF25F99E39001A71EB /* Info.plist */,
-				24015ACE2606A85400AE95DD /* MapHelper.swift */,
 			);
 			path = GimmeAHand;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
+				24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */,
 				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,
 				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,

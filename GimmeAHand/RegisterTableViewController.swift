@@ -8,7 +8,7 @@
 import UIKit
 import SVProgressHUD
 
-class RegisterTableViewController: UITableViewController {
+class RegisterTableViewController: AuthenticateTableViewController {
     
     static let communitySection = 2
     
@@ -44,15 +44,11 @@ class RegisterTableViewController: UITableViewController {
     }
     
     func register() {
+        // TODO: add register logic
         debugPrint("Register!!")
         SVProgressHUD.show(withStatus: "Register")
         SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {
-            UIView.transition(with: UIApplication.shared.windows.first!,
-                              duration: GHConstant.kStoryboardTransitionDuration,
-                              options: .transitionFlipFromLeft,
-                              animations: {
-                                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-            })
+            super.transitionToMain()
         }
     }
     

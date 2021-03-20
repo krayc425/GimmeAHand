@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import LocalAuthentication
 import SVProgressHUD
 
-class LoginTableViewController: UITableViewController {
+class LoginTableViewController: AuthenticateTableViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -19,7 +20,6 @@ class LoginTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
         [emailTextField, passwordTextField].forEach { (textField) in
             textField?.delegate = self
         }
@@ -36,14 +36,33 @@ class LoginTableViewController: UITableViewController {
     func login() {
         // TODO: Add login logic
         debugPrint("Login!!!")
+        if faceIDSwitch.isOn {
+            beginFaceID()
+            return
+        }
         SVProgressHUD.show(withStatus: "Login")
         SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {
-            UIView.transition(with: UIApplication.shared.windows.first!,
-                              duration: GHConstant.kStoryboardTransitionDuration,
-                              options: .transitionFlipFromLeft,
-                              animations: {
-                                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-            })
+            super.transitionToMain()
+        }
+    }
+    
+    func beginFaceID() {
+        let context = LAContext()
+        var error: NSError?
+
+        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
+            return debugPrint(error?.localizedDescription)
+        }
+
+        let reason = "Face ID authentication"
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { isAuthorized, error in
+            guard isAuthorized else {
+                return debugPrint(error?.localizedDescription)
+            }
+            debugPrint("success")
+            DispatchQueue.main.async {
+                super.transitionToMain()
+            }
         }
     }
 

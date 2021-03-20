@@ -14,10 +14,13 @@ class HomepageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Make sure that there is a path top to bottom, that can determine the height of current cell
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil),
                            forCellReuseIdentifier: OrderTableViewCell.reuseIdentifier)
+        // pull to refresh
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        tableView.refreshControl = refreshControl
         
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
@@ -28,6 +31,15 @@ class HomepageTableViewController: UITableViewController {
                                       date: Date(),
                                       category: GHOrderCategory.allCases.randomElement()!)
             modelArray.append(newOrder)
+        }
+    }
+    
+    @objc func refreshAction(_ sender: UIRefreshControl) {
+        if sender.isRefreshing {
+            // TODO: pull latest data
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                sender.endRefreshing()
+            }
         }
     }
 
@@ -44,7 +56,6 @@ class HomepageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as! OrderTableViewCell
 
-        // Configure the cell...
         cell.config(modelArray[indexPath.row])
 
         return cell
@@ -52,16 +63,12 @@ class HomepageTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        // navigate to order detail view controller
         performSegue(withIdentifier: "orderDetailSegue", sender: modelArray[indexPath.row])
     }
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
         if segue.identifier == "orderDetailSegue" {
             guard let model = sender as? OrderModel else {
                 return

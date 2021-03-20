@@ -75,6 +75,7 @@ class OrderDetailTableViewController: UITableViewController {
             return
         }
         debugPrint("navigate!")
+        // TODO: add navigation logic
         MapHelper.shared.navigate(37.0, -122.0, model.name)
     }
 
