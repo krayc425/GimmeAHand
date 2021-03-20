@@ -9,25 +9,22 @@ import UIKit
 
 enum GHOrderStatus: String, CaseIterable {
     
-    case created
-    case inprogress
-    case cancelled
-    case finished
+    case created = "Created"
+    case inprogress = "In Progress"
+    case cancelled = "Cancelled"
+    case finished = "Finished"
     
     // TODO: Use what colors...
     func decorate(_ label: inout UILabel) {
+        label.text = self.rawValue
         switch self {
         case .created:
-            label.text = "Created"
             label.textColor = .systemOrange
         case .inprogress:
-            label.text = "In Progress"
             label.textColor = .systemBlue
         case .finished:
-            label.text = "Finished"
             label.textColor = .systemGreen
         case .cancelled:
-            label.text = "Cancelled"
             label.textColor = .systemRed
         }
     }

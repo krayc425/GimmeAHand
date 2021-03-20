@@ -10,12 +10,12 @@ import UIKit
 enum GHOrderCategory: String, CaseIterable {
     
     // TODO: can add more categories
-    case printing
-    case carpool
-    case supermarket
-    case shipping
-    case umbrella
-    case takeout
+    case printing = "Printing"
+    case carpool = "Car Pool"
+    case supermarket = "Supermarket"
+    case shipping = "Shipping"
+    case umbrella = "Umbrella"
+    case takeout = "Takeout"
     
     func fill(in imageView: inout UIImageView) {
         switch self {
