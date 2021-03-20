@@ -28,14 +28,14 @@ class CommunitySearchTableViewController: UITableViewController {
     var delegate: CommunitySearchTableViewControllerDelegate?
     var selectedCommunityIndexPath: IndexPath? {
         didSet {
-            navigationItem.rightBarButtonItem!.isEnabled = selectedCommunityIndexPath != nil
+            navigationItem.rightBarButtonItem?.isEnabled = selectedCommunityIndexPath != nil
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Search for a Community"
+        title = "Select a Community"
         
         let backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissAction))
         navigationItem.leftBarButtonItem = backBarButtonItem
