@@ -9,27 +9,40 @@ import UIKit
 
 class OrderDetailTableViewController: UITableViewController {
 
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var createdDateLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var orderRecieverLabel: UILabel!
+    @IBOutlet weak var orderCreaterLabel: UILabel!
+    @IBOutlet weak var amountLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    var orderModel: OrderModel? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        guard let model = orderModel else {
+            return
+        }
+        
+        // set label values
+        statusLabel.text = model.status.rawValue
+        categoryLabel.text = model.category.rawValue
+        if model.orderDescription.count == 0 {
+            descriptionLabel.text = "N/A"
+        } else {
+            descriptionLabel.text = model.orderDescription
+        }
+        createdDateLabel.text = model.createdDateString
+        orderCreaterLabel.text = model.name
+        amountLabel.text = model.amountString
+        
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
