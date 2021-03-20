@@ -28,17 +28,16 @@
         <!--Gimme A Hand-->
         <scene sceneID="NyU-ue-dIE">
             <objects>
-                <tableViewController id="2H8-Do-LVL" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZHA-Jr-qdq">
+                <tableViewController id="2H8-Do-LVL" customClass="HomepageTableViewController" customModule="GimmeAHand" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZHA-Jr-qdq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aNY-rC-U7h">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aNY-rC-U7h" id="uTQ-VK-xce">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -49,16 +48,30 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Gimme A Hand" id="R6P-Zj-4Qr">
+                        <barButtonItem key="leftBarButtonItem" image="slider.horizontal.3" catalog="system" id="uex-S1-eVu"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3FX-PC-2ug">
                             <connections>
                                 <segue destination="aJ9-Lj-khq" kind="presentation" id="TCp-gY-9Hf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="gaQ-m3-hpu" kind="show" identifier="orderDetailSegue" id="yLf-Yo-MVL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihQ-2u-esX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="757" y="159"/>
+        </scene>
+        <!--OrderDetail-->
+        <scene sceneID="jXg-Vj-bRs">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OrderDetail" id="gaQ-m3-hpu" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Uts-6G-BqK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ke8-gQ-bHc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757" y="578"/>
         </scene>
         <!--New Order-->
         <scene sceneID="TRU-By-HWM">
@@ -110,6 +123,7 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

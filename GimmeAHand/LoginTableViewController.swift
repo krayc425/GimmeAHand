@@ -37,7 +37,14 @@ class LoginTableViewController: UITableViewController {
         // TODO: Add login logic
         debugPrint("Login!!!")
         SVProgressHUD.show(withStatus: "Login")
-        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration)
+        SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {
+            UIView.transition(with: UIApplication.shared.windows.first!,
+                              duration: GHConstant.kStoryboardTransitionDuration,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            })
+        }
     }
 
 }

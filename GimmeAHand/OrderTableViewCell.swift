@@ -9,7 +9,7 @@ import UIKit
 
 class OrderTableViewCell: UITableViewCell {
     
-    static let reuseIdentifier: String = "OrderTableViewCell"
+    static let reuseIdentifier: String = "orderTableViewCellId"
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!

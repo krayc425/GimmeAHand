@@ -1,13 +1,13 @@
 //
-//  OrderTableViewController.swift
+//  HomepageTableViewController.swift
 //  GimmeAHand
 //
-//  Created by Kuixi Song on 3/15/21.
+//  Created by Kuixi Song on 3/20/21.
 //
 
 import UIKit
 
-class OrderTableViewController: UITableViewController {
+class HomepageTableViewController: UITableViewController {
 
     var modelArray: [OrderModel] = []
     
@@ -19,13 +19,6 @@ class OrderTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil),
                            forCellReuseIdentifier: OrderTableViewCell.reuseIdentifier)
         
-        // Add a UISegmentedControl to choose between placed and taken orders
-        let segmentedControl = UISegmentedControl(items: ["Placed", "Taken"])
-        segmentedControl.frame = CGRect(x: 0, y: 0, width: 300.0, height: segmentedControl.frame.height)
-        segmentedControl.selectedSegmentIndex = 0
-        navigationItem.titleView = segmentedControl
-        segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
-        
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
                                       name: "Order \(i)",
@@ -36,10 +29,6 @@ class OrderTableViewController: UITableViewController {
                                       category: GHOrderCategory.allCases.randomElement()!)
             modelArray.append(newOrder)
         }
-    }
-    
-    @objc func segmentValueChanged(_ sender: UISegmentedControl) {
-        debugPrint(sender.selectedSegmentIndex)
     }
 
     // MARK: - Table view data source

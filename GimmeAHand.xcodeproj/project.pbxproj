@@ -10,9 +10,11 @@
 		24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015A962604417100AE95DD /* GHOrderStatus.swift */; };
 		24015A9F26044CE000AE95DD /* GHOrderCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015A9E26044CE000AE95DD /* GHOrderCategory.swift */; };
 		24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */; };
+		24015ABC2606084400AE95DD /* OrderDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24015ABB2606084400AE95DD /* OrderDetail.storyboard */; };
+		24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015ABF260608D200AE95DD /* HomepageTableViewController.swift */; };
+		24015AC32606090600AE95DD /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015AC22606090600AE95DD /* OrderTableViewCell.xib */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
-		244B0BD625F99E38001A71EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD525F99E38001A71EB /* ViewController.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
 		244B0BDB25F99E39001A71EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BDA25F99E39001A71EB /* Assets.xcassets */; };
 		244B0BDE25F99E39001A71EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */; };
@@ -34,10 +36,12 @@
 		24015A962604417100AE95DD /* GHOrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderStatus.swift; sourceTree = "<group>"; };
 		24015A9E26044CE000AE95DD /* GHOrderCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderCategory.swift; sourceTree = "<group>"; };
 		24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunitySearchTableViewController.swift; sourceTree = "<group>"; };
+		24015ABB2606084400AE95DD /* OrderDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderDetail.storyboard; sourceTree = "<group>"; };
+		24015ABF260608D200AE95DD /* HomepageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageTableViewController.swift; sourceTree = "<group>"; };
+		24015AC22606090600AE95DD /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		244B0BD525F99E38001A71EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		244B0BD825F99E38001A71EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		244B0BDA25F99E39001A71EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		244B0BDD25F99E39001A71EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,12 +105,13 @@
 			children = (
 				244B0BD125F99E38001A71EB /* AppDelegate.swift */,
 				244B0BD325F99E38001A71EB /* SceneDelegate.swift */,
-				244B0BD525F99E38001A71EB /* ViewController.swift */,
 				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
 				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
 				24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */,
+				24015ABF260608D200AE95DD /* HomepageTableViewController.swift */,
 				24FBC8C0260024590015238A /* OrderTableViewController.swift */,
 				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
+				24015AC22606090600AE95DD /* OrderTableViewCell.xib */,
 				C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */,
 				24FBC8C4260024870015238A /* OrderModel.swift */,
 				24015A9E26044CE000AE95DD /* GHOrderCategory.swift */,
@@ -116,6 +121,7 @@
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
 				244B0BF025F9DC7D001A71EB /* Orders.storyboard */,
+				24015ABB2606084400AE95DD /* OrderDetail.storyboard */,
 				244B0BEA25F9DC68001A71EB /* Profile.storyboard */,
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
@@ -195,7 +201,9 @@
 				244B0BDE25F99E39001A71EB /* LaunchScreen.storyboard in Resources */,
 				244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */,
 				244B0BDB25F99E39001A71EB /* Assets.xcassets in Resources */,
+				24015AC32606090600AE95DD /* OrderTableViewCell.xib in Resources */,
 				244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */,
+				24015ABC2606084400AE95DD /* OrderDetail.storyboard in Resources */,
 				244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */,
 				244B0BEB25F9DC68001A71EB /* Profile.storyboard in Resources */,
 				244B0BD925F99E38001A71EB /* Main.storyboard in Resources */,
@@ -251,8 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				244B0BD625F99E38001A71EB /* ViewController.swift in Sources */,
 				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
+				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,
 				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,

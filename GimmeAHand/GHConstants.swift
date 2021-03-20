@@ -10,6 +10,7 @@ import Foundation
 struct GHConstant {
     
     static let kHUDDuration: TimeInterval = 2.0
+    static let kStoryboardTransitionDuration: TimeInterval = 0.5
     static let kDateFormatter: DateFormatter = {
         let fmt = DateFormatter()
         fmt.dateFormat = "MMM dd, yyyy"

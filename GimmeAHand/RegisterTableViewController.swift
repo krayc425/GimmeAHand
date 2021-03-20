@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class RegisterTableViewController: UITableViewController {
     
@@ -44,6 +45,15 @@ class RegisterTableViewController: UITableViewController {
     
     func register() {
         debugPrint("Register!!")
+        SVProgressHUD.show(withStatus: "Login")
+        SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {
+            UIView.transition(with: UIApplication.shared.windows.first!,
+                              duration: GHConstant.kStoryboardTransitionDuration,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            })
+        }
     }
     
     @IBAction func addCommunityAction(_ sender: UIButton) {

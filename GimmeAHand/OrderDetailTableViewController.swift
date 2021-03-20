@@ -34,13 +34,14 @@ class OrderDetailTableViewController: UITableViewController {
     
     func setupMapView() {
         mapView.delegate = self
+        mapView.showsUserLocation = true
         
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyReduced
         locationManager.distanceFilter = kCLDistanceFilterNone
         locationManager.startUpdatingLocation()
         
-        mapView.showsUserLocation = true
+        updateUserLocation(mapView.userLocation)
     }
     
     func setupOrderModel() {
@@ -60,15 +61,19 @@ class OrderDetailTableViewController: UITableViewController {
         createdDateLabel.text = model.createdDateString
         amountLabel.text = model.amountString
     }
+    
+    func updateUserLocation(_ userLocation: MKUserLocation) {
+        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+        let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+    }
 
 }
 
 extension OrderDetailTableViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-        let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
+        updateUserLocation(userLocation)
     }
     
 }
