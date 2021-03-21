@@ -8,5 +8,6 @@ target 'GimmeAHand' do
   # Pods for GimmeAHand
   pod 'IQKeyboardManagerSwift'
   pod 'SVProgressHUD'
+  pod 'RangeSeekSlider'
 
 end

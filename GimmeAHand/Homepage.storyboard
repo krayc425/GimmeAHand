@@ -103,10 +103,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjh-os-Plw">
-                                                    <rect key="frame" x="111" y="0.0" width="263" height="44"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjh-os-Plw">
+                                                    <rect key="frame" x="111" y="0.0" width="243" height="44"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -114,7 +114,7 @@
                                                 <constraint firstItem="QUs-Nu-ZOP" firstAttribute="leading" secondItem="lwQ-yD-zeV" secondAttribute="leading" constant="16" id="J4p-XH-TLx"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gjh-os-Plw" secondAttribute="bottom" id="YiN-kj-eNU"/>
                                                 <constraint firstItem="Gjh-os-Plw" firstAttribute="leading" secondItem="QUs-Nu-ZOP" secondAttribute="trailing" constant="15" id="apq-Lt-2sO"/>
-                                                <constraint firstAttribute="trailing" secondItem="Gjh-os-Plw" secondAttribute="trailing" id="avQ-b4-eqH"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Gjh-os-Plw" secondAttribute="trailing" id="avQ-b4-eqH"/>
                                                 <constraint firstItem="Gjh-os-Plw" firstAttribute="top" secondItem="lwQ-yD-zeV" secondAttribute="top" id="j5e-Oq-DL6"/>
                                                 <constraint firstItem="QUs-Nu-ZOP" firstAttribute="top" secondItem="lwQ-yD-zeV" secondAttribute="topMargin" id="jez-Zk-6qe"/>
                                             </constraints>
@@ -136,10 +136,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3T-mN-FYF">
+                                                    <rect key="frame" x="251" y="11.5" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="C5F-Wd-WfH" firstAttribute="leading" secondItem="a6X-Jq-EaR" secondAttribute="leading" constant="16" id="8Bl-tp-Ic9"/>
+                                                <constraint firstItem="n3T-mN-FYF" firstAttribute="trailing" secondItem="a6X-Jq-EaR" secondAttribute="trailingMargin" id="8Cr-TO-h9M"/>
                                                 <constraint firstItem="C5F-Wd-WfH" firstAttribute="top" secondItem="a6X-Jq-EaR" secondAttribute="topMargin" id="EIw-Z4-2EK"/>
+                                                <constraint firstItem="n3T-mN-FYF" firstAttribute="centerY" secondItem="a6X-Jq-EaR" secondAttribute="centerY" id="Mkb-yP-R5X"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -221,10 +229,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-vB-FgC">
+                                                    <rect key="frame" x="251" y="11.5" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iaa-vB-FgC" secondAttribute="trailing" id="coG-Ef-svX"/>
                                                 <constraint firstItem="Vlg-Wf-d7t" firstAttribute="top" secondItem="J91-tV-kem" secondAttribute="topMargin" id="ehS-BO-q0K"/>
                                                 <constraint firstItem="Vlg-Wf-d7t" firstAttribute="leading" secondItem="J91-tV-kem" secondAttribute="leading" constant="16" id="hzF-RK-McN"/>
+                                                <constraint firstItem="iaa-vB-FgC" firstAttribute="centerY" secondItem="J91-tV-kem" secondAttribute="centerY" id="mPk-Tu-GeG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -244,8 +260,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-yd-BFV">
+                                                    <rect key="frame" x="251" y="11.5" width="84" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fQp-yd-BFV" secondAttribute="trailing" id="RyP-R7-hGM"/>
+                                                <constraint firstItem="fQp-yd-BFV" firstAttribute="centerY" secondItem="4H5-rO-o35" secondAttribute="centerY" id="S7R-My-2IQ"/>
                                                 <constraint firstItem="uvP-7v-PKB" firstAttribute="top" secondItem="4H5-rO-o35" secondAttribute="topMargin" id="ilc-bj-jaC"/>
                                                 <constraint firstItem="uvP-7v-PKB" firstAttribute="leading" secondItem="4H5-rO-o35" secondAttribute="leading" constant="16" id="oIf-1o-DuX"/>
                                             </constraints>
@@ -258,7 +282,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips(USD$)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rta-cc-Hvu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips (USD$)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rta-cc-Hvu">
                                                     <rect key="frame" x="16" y="11" width="110" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="kom-D5-1pm"/>
@@ -268,18 +292,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bes-zI-3XU">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bes-zI-3XU">
                                                     <rect key="frame" x="141" y="0.0" width="253" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="253" id="3i2-BN-HNh"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bes-zI-3XU" firstAttribute="leading" secondItem="rta-cc-Hvu" secondAttribute="trailing" constant="15" id="2qe-9u-eYj"/>
-                                                <constraint firstAttribute="trailing" secondItem="bes-zI-3XU" secondAttribute="trailing" id="8Kk-it-DJe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bes-zI-3XU" secondAttribute="trailing" id="8Kk-it-DJe"/>
                                                 <constraint firstItem="rta-cc-Hvu" firstAttribute="leading" secondItem="68r-k0-8NB" secondAttribute="leading" constant="16" id="F0p-0m-xRI"/>
                                                 <constraint firstItem="rta-cc-Hvu" firstAttribute="centerY" secondItem="bes-zI-3XU" secondAttribute="centerY" id="VUh-HG-IG0"/>
                                                 <constraint firstItem="rta-cc-Hvu" firstAttribute="top" secondItem="68r-k0-8NB" secondAttribute="topMargin" id="ZaX-iu-4Bj"/>
@@ -348,13 +372,14 @@
                             <outlet property="delegate" destination="H8s-1C-13o" id="Pzk-Ui-llH"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Order" id="yBh-7C-gW7">
-                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="uFQ-67-aEk"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="New Order" id="yBh-7C-gW7"/>
                     <connections>
+                        <outlet property="categoryLabel" destination="n3T-mN-FYF" id="2zI-gP-GdM"/>
+                        <outlet property="communityLabel" destination="iaa-vB-FgC" id="mvj-Dk-F21"/>
                         <outlet property="createButton" destination="1Dl-wR-sBQ" id="a7y-VV-1U7"/>
                         <outlet property="descriptionTextField" destination="0UF-Xz-q3l" id="PJ7-8I-Jfq"/>
                         <outlet property="endDateField" destination="Vpm-mp-zc7" id="9sc-yc-oaj"/>
+                        <outlet property="paymentLabel" destination="fQp-yd-BFV" id="g6Z-iQ-bZz"/>
                         <outlet property="startDateField" destination="8QV-LF-PxD" id="NST-hM-Ttm"/>
                         <outlet property="tipTextField" destination="bes-zI-3XU" id="TSU-Fc-NAt"/>
                         <outlet property="titleTextField" destination="Gjh-os-Plw" id="YYW-Jb-W2o"/>

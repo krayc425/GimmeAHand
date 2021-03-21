@@ -18,7 +18,7 @@ class OrderModel: NSObject {
     var category: GHOrderCategory
 
     var amountString: String {
-        return String(format: "$%.2f", amount)
+        return GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: Double(amount)))!
     }
     var createdDateString: String {
         return GHConstant.kDateFormatter.string(from: createdDate)
