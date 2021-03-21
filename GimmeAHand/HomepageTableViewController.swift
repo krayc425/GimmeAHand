@@ -25,7 +25,7 @@ class HomepageTableViewController: UITableViewController {
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
                                       name: "Order \(i)",
-                                      description: "blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah",
+                                      description: "blahblahblah",
                                       amount: Float.random(in: 0..<10),
                                       status: GHOrderStatus.allCases.randomElement()!,
                                       date: Date(),
@@ -41,6 +41,12 @@ class HomepageTableViewController: UITableViewController {
                 sender.endRefreshing()
             }
         }
+    }
+    
+    @IBAction func communityAction(_ sender: UIBarButtonItem) {
+        debugPrint("select community")
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
+        present(communityViewController, animated: true)
     }
 
     // MARK: - Table view data source
@@ -79,4 +85,13 @@ class HomepageTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension HomepageTableViewController: CommunitySearchTableViewControllerDelegate {
+    
+    func didSelectCommunity(_ community: String) {
+        navigationItem.title = community
+        // TODO: load orders based on the community
+    }
+    
 }

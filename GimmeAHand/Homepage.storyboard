@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-149" y="159"/>
         </scene>
-        <!--Gimme A Hand-->
+        <!--All Communities-->
         <scene sceneID="NyU-ue-dIE">
             <objects>
                 <tableViewController id="2H8-Do-LVL" customClass="HomepageTableViewController" customModule="GimmeAHand" customModuleProvider="target" sceneMemberID="viewController">
@@ -47,8 +47,12 @@
                             <outlet property="delegate" destination="2H8-Do-LVL" id="vJs-fk-ufF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Gimme A Hand" id="R6P-Zj-4Qr">
-                        <barButtonItem key="leftBarButtonItem" image="slider.horizontal.3" catalog="system" id="uex-S1-eVu"/>
+                    <navigationItem key="navigationItem" title="All Communities" id="R6P-Zj-4Qr">
+                        <barButtonItem key="leftBarButtonItem" image="person.3" catalog="system" id="uex-S1-eVu">
+                            <connections>
+                                <action selector="communityAction:" destination="2H8-Do-LVL" id="saa-Qy-de3"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3FX-PC-2ug">
                             <connections>
                                 <segue destination="aJ9-Lj-khq" kind="presentation" id="TCp-gY-9Hf"/>
@@ -123,7 +127,7 @@
     </scenes>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
