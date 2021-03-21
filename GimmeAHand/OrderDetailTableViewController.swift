@@ -23,6 +23,7 @@ class OrderDetailTableViewController: UITableViewController {
     @IBOutlet weak var navigateButton: UIButton!
     
     var orderModel: OrderModel? = nil
+    var isFromHomepage: Bool = false
     let locationManager = MapHelper.shared.locationManager
 
     override func viewDidLoad() {
@@ -77,6 +78,20 @@ class OrderDetailTableViewController: UITableViewController {
         debugPrint("navigate!")
         // TODO: add navigation logic
         MapHelper.shared.navigate(37.0, -122.0, model.name)
+    }
+    
+    @IBAction func takeOrderAction(_ sender: UIButton) {
+        guard isFromHomepage else {
+            return
+        }
+        debugPrint("take order!")
+        // TODO: take order logic
+    }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return isFromHomepage ? 3 : 2
     }
 
 }

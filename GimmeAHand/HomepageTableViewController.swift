@@ -25,7 +25,7 @@ class HomepageTableViewController: UITableViewController {
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
                                       name: "Order \(i)",
-                                      description: "blahblahblah",
+                                      description: "blahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblahblah",
                                       amount: Float.random(in: 0..<10),
                                       status: GHOrderStatus.allCases.randomElement()!,
                                       date: Date(),
@@ -75,6 +75,7 @@ class HomepageTableViewController: UITableViewController {
             }
             let destinationViewController = segue.destination as! OrderDetailTableViewController
             destinationViewController.orderModel = model
+            destinationViewController.isFromHomepage = true
         }
     }
 

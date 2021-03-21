@@ -79,6 +79,7 @@ class OrderTableViewController: UITableViewController {
             }
             let destinationViewController = segue.destination as! OrderDetailTableViewController
             destinationViewController.orderModel = model
+            destinationViewController.isFromHomepage = false
         }
     }
 
