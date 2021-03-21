@@ -34,6 +34,7 @@
 		24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE7A5425FC4052005B965A /* GHConstants.swift */; };
 		5DD4E490803F6DB57800990A /* Pods_GimmeAHand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */; };
 		C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */; };
+		D83494432606D28B00FE8920 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83494422606D28B00FE8920 /* ProfileTableViewController.swift */; };
 		FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4290EC260571D50015847B /* RegisterTableViewController.swift */; };
 		FDF7307E2606ECFE00E186D2 /* CreateOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDF7307D2606ECFE00E186D2 /* CreateOrderTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -70,6 +71,7 @@
 		6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GimmeAHand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70914C3B6457422486243F35 /* Pods-GimmeAHand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.debug.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.debug.xcconfig"; sourceTree = "<group>"; };
 		C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewController.swift; sourceTree = "<group>"; };
+		D83494422606D28B00FE8920 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		FD4290EC260571D50015847B /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
 		FDF7307D2606ECFE00E186D2 /* CreateOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrderTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +183,7 @@
 				244B0BF025F9DC7D001A71EB /* Orders.storyboard */,
 				24015ABB2606084400AE95DD /* OrderDetail.storyboard */,
 				244B0BEA25F9DC68001A71EB /* Profile.storyboard */,
+				D83494422606D28B00FE8920 /* ProfileTableViewController.swift */,
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
 				244B0BDF25F99E39001A71EB /* Info.plist */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDF7307E2606ECFE00E186D2 /* CreateOrderTableViewController.swift in Sources */,
+				D83494432606D28B00FE8920 /* ProfileTableViewController.swift in Sources */,
 				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
 				24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */,
 				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,

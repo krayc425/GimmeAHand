@@ -75,8 +75,8 @@ class HomepageTableViewController: UITableViewController {
             let updateButtonColor = { (button: UIButton, selected: Bool) in
                 if selected {
                     button.backgroundColor = .link
-                    button.setTitleColor(.systemBackground, for: .normal)
-                    button.tintColor = .systemBackground
+                    button.setTitleColor(.white, for: .normal)
+                    button.tintColor = .white
                 } else {
                     button.backgroundColor = .systemBackground
                     button.setTitleColor(.link, for: .normal)
