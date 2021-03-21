@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTableViewController: UITableViewController {
+class ProfileTableViewController: UITableViewController, UINavigationControllerDelegate {
     
     struct CellPositions {
         struct Section {
@@ -46,6 +46,7 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var aboutMeLabel: UILabel!
     @IBOutlet weak var changePasswordBotton: UIButton!
     @IBOutlet weak var logoutBotton: UIButton!
+    @IBOutlet weak var avatarImageView: UIImageView!
     
     var selectedCommunities: [String] = []
 
@@ -69,7 +70,7 @@ class ProfileTableViewController: UITableViewController {
     }
     
     @IBAction func changePasswordAction(_ sender: UIButton) {
-        let ac = UIAlertController(title: "Edit Password", message: "Please specify a new password.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Change Password", message: "Please specify a new password.", preferredStyle: .alert)
         
         ac.addTextField{(passwordText) -> Void in
             passwordText.placeholder = "10-20 letters/digits/(!@#$%^&*)"
@@ -99,6 +100,14 @@ class ProfileTableViewController: UITableViewController {
             })
         }))
         present(ac, animated: true)
+    }
+    
+    func presentImagePicker(with sourceType: UIImagePickerController.SourceType) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = sourceType
+        present(imagePicker, animated: true)
     }
     
     private func isCommunityIndexPath(_ indexPath: IndexPath) -> Bool {
@@ -168,9 +177,16 @@ class ProfileTableViewController: UITableViewController {
         
         if indexPath.section == CellPositions.Section.photo && indexPath.row == CellPositions.Row.photo {
             let ac = UIAlertController(title: "Edit Photo", message: "How would you like to edit your photo?", preferredStyle: .actionSheet)
-            
-            ac.addAction(UIAlertAction(title: "Photo Library", style: .default))
-            ac.addAction(UIAlertAction(title: "Camera", style: .default))
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+                ac.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { _ in
+                    self.presentImagePicker(with: .photoLibrary)
+                }))
+            }
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                ac.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+                    self.presentImagePicker(with: .camera)
+                }))
+            }
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             present(ac, animated: true)
         } else if indexPath.section == CellPositions.Section.email && indexPath.row == CellPositions.Row.email {
@@ -252,6 +268,26 @@ extension ProfileTableViewController: CommunitySearchTableViewControllerDelegate
     func didSelectCommunity(_ community: String) {
         selectedCommunities.append(community)
         tableView.reloadData()
+    }
+    
+}
+
+extension ProfileTableViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        defer {
+            picker.dismiss(animated: true)
+        }
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.avatarImageView.image = image
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
     }
     
 }
