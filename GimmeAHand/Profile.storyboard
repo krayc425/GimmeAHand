@@ -69,15 +69,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="john.doe@example.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoO-DL-PXU">
-                                                    <rect key="frame" x="152" y="12" width="191" height="20.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <rect key="frame" x="153" y="12" width="182" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="21b-Mw-F9R" firstAttribute="leading" secondItem="vTI-eK-GeV" secondAttribute="leading" constant="16" id="Qjh-bf-st9"/>
-                                                <constraint firstAttribute="trailing" secondItem="OoO-DL-PXU" secondAttribute="trailing" id="TMC-eO-iem"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="OoO-DL-PXU" secondAttribute="trailing" id="TMC-eO-iem"/>
                                                 <constraint firstItem="21b-Mw-F9R" firstAttribute="centerY" secondItem="vTI-eK-GeV" secondAttribute="centerY" id="cPo-OX-tzy"/>
                                                 <constraint firstItem="OoO-DL-PXU" firstAttribute="centerY" secondItem="vTI-eK-GeV" secondAttribute="centerY" id="nWE-w5-NJB"/>
                                             </constraints>
@@ -100,14 +100,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SDV-iS-8YH">
-                                                    <rect key="frame" x="303" y="12" width="40" height="20.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <rect key="frame" x="297.5" y="12" width="37.5" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="SDV-iS-8YH" secondAttribute="trailing" id="cAu-i9-eXl"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SDV-iS-8YH" secondAttribute="trailing" id="cAu-i9-eXl"/>
                                                 <constraint firstItem="SDV-iS-8YH" firstAttribute="centerY" secondItem="gac-0l-Ag8" secondAttribute="centerY" id="gCC-ns-a8B"/>
                                                 <constraint firstItem="FoH-3W-O8L" firstAttribute="leading" secondItem="gac-0l-Ag8" secondAttribute="leading" constant="16" id="hXM-tg-OZg"/>
                                                 <constraint firstItem="FoH-3W-O8L" firstAttribute="centerY" secondItem="gac-0l-Ag8" secondAttribute="centerY" id="nEI-iY-3dn"/>
@@ -131,8 +131,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Doe" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGn-ao-zNn">
-                                                    <rect key="frame" x="311" y="12" width="32" height="20.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <rect key="frame" x="304" y="12" width="31" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -141,7 +141,7 @@
                                                 <constraint firstItem="R0s-EP-VZt" firstAttribute="centerY" secondItem="Vx5-B8-DWw" secondAttribute="centerY" id="DG3-ex-Pb1"/>
                                                 <constraint firstItem="oGn-ao-zNn" firstAttribute="centerY" secondItem="Vx5-B8-DWw" secondAttribute="centerY" id="Sbd-P6-cI5"/>
                                                 <constraint firstItem="R0s-EP-VZt" firstAttribute="leading" secondItem="Vx5-B8-DWw" secondAttribute="leading" constant="16" id="muI-uV-kld"/>
-                                                <constraint firstAttribute="trailing" secondItem="oGn-ao-zNn" secondAttribute="trailing" id="prH-c6-ant"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="oGn-ao-zNn" secondAttribute="trailing" id="prH-c6-ant"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -162,8 +162,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111-222-3333" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9r-vx-cDh">
-                                                    <rect key="frame" x="230" y="12" width="113" height="20.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <rect key="frame" x="227" y="12" width="108" height="20.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -171,7 +171,7 @@
                                             <constraints>
                                                 <constraint firstItem="f9r-vx-cDh" firstAttribute="centerY" secondItem="My7-VD-5DM" secondAttribute="centerY" id="AfF-Xg-UmG"/>
                                                 <constraint firstItem="fnm-7d-QXR" firstAttribute="leading" secondItem="My7-VD-5DM" secondAttribute="leading" constant="16" id="h4U-Hu-YtN"/>
-                                                <constraint firstAttribute="trailing" secondItem="f9r-vx-cDh" secondAttribute="trailing" id="mtJ-4u-D8M"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="f9r-vx-cDh" secondAttribute="trailing" id="mtJ-4u-D8M"/>
                                                 <constraint firstItem="fnm-7d-QXR" firstAttribute="centerY" secondItem="My7-VD-5DM" secondAttribute="centerY" id="naP-d9-M1a"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -196,9 +196,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOL~" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rex-PX-efW">
-                                                    <rect key="frame" x="292" y="12" width="43" height="20.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sk;djglkjsdglkjsahdsjlksdhgkj;ladghj;ladksghj;sdklhg" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rex-PX-efW">
+                                                    <rect key="frame" x="106" y="11" width="229" height="22"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -206,7 +206,9 @@
                                             <constraints>
                                                 <constraint firstItem="Rex-PX-efW" firstAttribute="trailing" secondItem="zbI-rA-Onh" secondAttribute="trailingMargin" id="4Dw-Zn-twO"/>
                                                 <constraint firstItem="hPc-5f-DXk" firstAttribute="leading" secondItem="zbI-rA-Onh" secondAttribute="leading" constant="16" id="JXI-hO-CAG"/>
-                                                <constraint firstItem="Rex-PX-efW" firstAttribute="centerY" secondItem="zbI-rA-Onh" secondAttribute="centerY" id="LNc-ar-scH"/>
+                                                <constraint firstItem="Rex-PX-efW" firstAttribute="leading" secondItem="hPc-5f-DXk" secondAttribute="trailing" id="LGt-mk-i4m"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Rex-PX-efW" secondAttribute="bottom" id="WBq-6l-1sk"/>
+                                                <constraint firstItem="Rex-PX-efW" firstAttribute="top" secondItem="zbI-rA-Onh" secondAttribute="topMargin" id="fTT-dy-0CC"/>
                                                 <constraint firstItem="hPc-5f-DXk" firstAttribute="centerY" secondItem="zbI-rA-Onh" secondAttribute="centerY" id="rhZ-ZS-ZMn"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -248,15 +250,15 @@
                             </tableViewSection>
                             <tableViewSection id="iXe-MC-e9t">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="EMt-2b-cXa">
-                                        <rect key="frame" x="20" y="528.00000762939453" width="374" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="EMt-2b-cXa">
+                                        <rect key="frame" x="20" y="528.00000762939453" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EMt-2b-cXa" id="IAM-eu-Ntr">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfU-TT-3nR" userLabel="Change Password">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                     <color key="backgroundColor" systemColor="linkColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <state key="normal" title="Change Password">
@@ -279,15 +281,15 @@
                             </tableViewSection>
                             <tableViewSection id="d5A-ws-4dw">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="ScM-6s-5W4">
-                                        <rect key="frame" x="20" y="624.00000762939453" width="374" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="ScM-6s-5W4">
+                                        <rect key="frame" x="20" y="614.00000762939453" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ScM-6s-5W4" id="v0Y-Li-FmE">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpf-7g-Gav">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                     <color key="backgroundColor" systemColor="systemRedColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <state key="normal" title="Logout">
@@ -322,7 +324,7 @@
                         <outlet property="emailLabel" destination="OoO-DL-PXU" id="U1H-Ut-y0Q"/>
                         <outlet property="firstNameLabel" destination="SDV-iS-8YH" id="FaD-lS-zWE"/>
                         <outlet property="lastNameLabel" destination="oGn-ao-zNn" id="tUg-WD-vDR"/>
-                        <outlet property="logoutBottom" destination="Gpf-7g-Gav" id="asf-VM-2yA"/>
+                        <outlet property="logoutBotton" destination="Gpf-7g-Gav" id="asf-VM-2yA"/>
                         <outlet property="phoneLabel" destination="f9r-vx-cDh" id="o4N-Wl-nvJ"/>
                     </connections>
                 </tableViewController>

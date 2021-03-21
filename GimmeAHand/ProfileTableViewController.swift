@@ -8,6 +8,7 @@
 import UIKit
 
 class ProfileTableViewController: UITableViewController {
+    
     struct CellPositions {
         struct Section {
             static let photo = 0
@@ -34,7 +35,7 @@ class ProfileTableViewController: UITableViewController {
         static let firstName = "John"
         static let lastName = "Doe"
         static let phone = "111-222-3333"
-        static let aboutMe = "HAHAHAHAHAHAHA!"
+        static let aboutMe = "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!"
     }
     
     @IBOutlet weak var addCommunityButton: UIButton!
@@ -44,12 +45,15 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var aboutMeLabel: UILabel!
     @IBOutlet weak var changePasswordBotton: UIButton!
-    @IBOutlet weak var logoutBottom: UIButton!
+    @IBOutlet weak var logoutBotton: UIButton!
     
     var selectedCommunities: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProfileCommunityTableViewCell")
         
         emailLabel.text = FakeDatastore.email
@@ -57,155 +61,6 @@ class ProfileTableViewController: UITableViewController {
         lastNameLabel.text = FakeDatastore.lastName
         phoneLabel.text = FakeDatastore.phone
         aboutMeLabel.text = FakeDatastore.aboutMe
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 5
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == CellPositions.Section.community {
-            return 1 + selectedCommunities.count
-        } else {
-            return super.tableView(tableView, numberOfRowsInSection: section)
-        }
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if isCommunityIndexPath(indexPath) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCommunityTableViewCell", for: indexPath)
-            cell.textLabel?.text = selectedCommunities[indexPath.row - 1]
-            return cell
-        } else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-        if isCommunityIndexPath(indexPath) {
-            return super.tableView(tableView, indentationLevelForRowAt: IndexPath(row: 0, section: RegisterTableViewController.communitySection))
-        }
-        return super.tableView(tableView, indentationLevelForRowAt: indexPath)
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == CellPositions.Section.photo && indexPath.row == CellPositions.Row.photo {
-            return 140
-        }
-        
-        return indexPath.section == CellPositions.Section.community ? 50.0 : 44.0
-    }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if isCommunityIndexPath(indexPath) {
-            selectedCommunities.remove(at: indexPath.row - 1)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if isCommunityIndexPath(indexPath) {
-            return UITableViewCell.EditingStyle.delete
-        } else {
-            return super.tableView(tableView, editingStyleForRowAt: indexPath)
-        }
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return isCommunityIndexPath(indexPath)
-    }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Unselect the row.
-        tableView.deselectRow(at: indexPath, animated: false)
-        
-        if indexPath.section == CellPositions.Section.photo && indexPath.row == CellPositions.Row.photo {
-            let ac = UIAlertController(title: "Edit Phone", message: "How would you like to edit your photo?", preferredStyle: .alert)
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "From Photos", style: .default))
-            ac.addAction(UIAlertAction(title: "Open Camera", style: .default))
-            self.present(ac, animated: true)
-        } else if indexPath.section == CellPositions.Section.email && indexPath.row == CellPositions.Row.email {
-            let ac = UIAlertController(title: "Edit Email", message: "Please specify a new email", preferredStyle: .alert)
-            
-            ac.addTextField{(emailText) -> Void in
-                emailText.placeholder = self.emailLabel.text
-            }
-            
-            ac.addTextField{(secondEmailText) -> Void in
-                secondEmailText.placeholder = "Please confirm your new email."
-            }
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {alertAction in
-                let newInput = ac.textFields?.first?.text
-                self.emailLabel.text = newInput
-            }))
-            self.present(ac, animated: true)
-        } else if indexPath.section == CellPositions.Section.firstName && indexPath.row == CellPositions.Row.firstName {
-            let ac = UIAlertController(title: "Edit First Name", message: "Please specify a new first name.", preferredStyle: .alert)
-            
-            ac.addTextField{(firstNameText) -> Void in
-                firstNameText.placeholder = self.firstNameLabel.text
-            }
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {alertAction in
-                let newInput = ac.textFields?.first?.text
-                self.firstNameLabel.text = newInput
-            }))
-            self.present(ac, animated: true)
-        } else if indexPath.section == CellPositions.Section.lastName && indexPath.row == CellPositions.Row.lastName {
-            let ac = UIAlertController(title: "Edit Last Name", message: "Please specify a new last name.", preferredStyle: .alert)
-            
-            ac.addTextField{(lastNameText) -> Void in
-                lastNameText.placeholder = self.lastNameLabel.text
-            }
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {alertAction in
-                let newInput = ac.textFields?.first?.text
-                self.lastNameLabel.text = newInput
-            }))
-            self.present(ac, animated: true)
-        } else if indexPath.section == CellPositions.Section.phone && indexPath.row == CellPositions.Row.phone {
-            let ac = UIAlertController(title: "Edit Phone Number", message: "Please specify a new phone number.", preferredStyle: .alert)
-            
-            ac.addTextField{(phoneText) -> Void in
-                phoneText.placeholder = self.phoneLabel.text
-            }
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {alertAction in
-                let newInput = ac.textFields?.first?.text
-                self.phoneLabel.text = newInput
-            }))
-            self.present(ac, animated: true)
-        } else if indexPath.section == CellPositions.Section.aboutMe && indexPath.row == CellPositions.Row.aboutMe {
-            let ac = UIAlertController(title: "Edit About Me", message: "What would you want to say here?", preferredStyle: .alert)
-            
-            ac.addTextField{(aboutMeText) -> Void in
-                aboutMeText.placeholder = self.aboutMeLabel.text
-            }
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: {alertAction in
-                let newInput = ac.textFields?.first?.text
-                self.aboutMeLabel.text = newInput
-            }))
-            self.present(ac, animated: true)
-        }
     }
     
     @IBAction func addCommunityAction(_ sender: UIButton) {
@@ -228,80 +83,172 @@ class ProfileTableViewController: UITableViewController {
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(ac, animated: true)
+        present(ac, animated: true)
     }
     
     @IBAction func logoutAction(_ sender: UIButton) {
         let ac = UIAlertController(title: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert)
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        ac.addAction(UIAlertAction(title: "Yes", style: .default))
-        self.present(ac, animated: true)
+        ac.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in
+            UIView.transition(with: UIApplication.shared.windows.first!,
+                              duration: GHConstant.kStoryboardTransitionDuration,
+                              options: .transitionFlipFromLeft,
+                              animations: {
+                                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "LoginRegister", bundle: nil).instantiateInitialViewController()
+            })
+        }))
+        present(ac, animated: true)
     }
     
     private func isCommunityIndexPath(_ indexPath: IndexPath) -> Bool {
         return indexPath.section == CellPositions.Section.community && indexPath.row > 0
     }
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == CellPositions.Section.community {
+            return 1 + selectedCommunities.count
+        } else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
+    }
     
-    
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if isCommunityIndexPath(indexPath) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCommunityTableViewCell", for: indexPath)
+            cell.textLabel?.text = selectedCommunities[indexPath.row - 1]
+            return cell
+        } else {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
+        if isCommunityIndexPath(indexPath) {
+            return super.tableView(tableView, indentationLevelForRowAt: IndexPath(row: 0, section: RegisterTableViewController.communitySection))
+        }
+        return super.tableView(tableView, indentationLevelForRowAt: indexPath)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == CellPositions.Section.photo && indexPath.row == CellPositions.Row.photo {
+            return 140.0
+        }
+        return indexPath.section == CellPositions.Section.community ? 50.0 : super.tableView(tableView, heightForRowAt: indexPath)
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        if isCommunityIndexPath(indexPath) {
+            selectedCommunities.remove(at: indexPath.row - 1)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if isCommunityIndexPath(indexPath) {
+            return .delete
+        } else {
+            return super.tableView(tableView, editingStyleForRowAt: indexPath)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return isCommunityIndexPath(indexPath)
     }
-    */
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Unselect the row.
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        if indexPath.section == CellPositions.Section.photo && indexPath.row == CellPositions.Row.photo {
+            let ac = UIAlertController(title: "Edit Photo", message: "How would you like to edit your photo?", preferredStyle: .actionSheet)
+            
+            ac.addAction(UIAlertAction(title: "Photo Library", style: .default))
+            ac.addAction(UIAlertAction(title: "Camera", style: .default))
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            present(ac, animated: true)
+        } else if indexPath.section == CellPositions.Section.email && indexPath.row == CellPositions.Row.email {
+            let ac = UIAlertController(title: "Edit Email", message: "Please specify a new email", preferredStyle: .alert)
+            
+            ac.addTextField { (emailText) -> Void in
+                emailText.placeholder = self.emailLabel.text
+            }
+            
+            ac.addTextField { (secondEmailText) -> Void in
+                secondEmailText.placeholder = "Please confirm your new email."
+            }
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+                let newInput = ac.textFields?.first?.text
+                self.emailLabel.text = newInput
+            }))
+            present(ac, animated: true)
+        } else if indexPath.section == CellPositions.Section.firstName && indexPath.row == CellPositions.Row.firstName {
+            let ac = UIAlertController(title: "Edit First Name", message: "Please specify a new first name.", preferredStyle: .alert)
+            
+            ac.addTextField{(firstNameText) -> Void in
+                firstNameText.placeholder = self.firstNameLabel.text
+            }
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+                let newInput = ac.textFields?.first?.text
+                self.firstNameLabel.text = newInput
+            }))
+            present(ac, animated: true)
+        } else if indexPath.section == CellPositions.Section.lastName && indexPath.row == CellPositions.Row.lastName {
+            let ac = UIAlertController(title: "Edit Last Name", message: "Please specify a new last name.", preferredStyle: .alert)
+            
+            ac.addTextField{(lastNameText) -> Void in
+                lastNameText.placeholder = self.lastNameLabel.text
+            }
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+                let newInput = ac.textFields?.first?.text
+                self.lastNameLabel.text = newInput
+            }))
+            present(ac, animated: true)
+        } else if indexPath.section == CellPositions.Section.phone && indexPath.row == CellPositions.Row.phone {
+            let ac = UIAlertController(title: "Edit Phone Number", message: "Please specify a new phone number.", preferredStyle: .alert)
+            
+            ac.addTextField{(phoneText) -> Void in
+                phoneText.placeholder = self.phoneLabel.text
+            }
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+                let newInput = ac.textFields?.first?.text
+                self.phoneLabel.text = newInput
+            }))
+            present(ac, animated: true)
+        } else if indexPath.section == CellPositions.Section.aboutMe && indexPath.row == CellPositions.Row.aboutMe {
+            let ac = UIAlertController(title: "Edit About Me", message: "What would you want to say here?", preferredStyle: .alert)
+            
+            ac.addTextField{(aboutMeText) -> Void in
+                aboutMeText.placeholder = self.aboutMeLabel.text
+            }
+            
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+                let newInput = ac.textFields?.first?.text
+                self.aboutMeLabel.text = newInput
+            }))
+            present(ac, animated: true)
+        }
     }
-    */
 
 }
 
 extension ProfileTableViewController: CommunitySearchTableViewControllerDelegate {
+    
     func didSelectCommunity(_ community: String) {
         selectedCommunities.append(community)
         tableView.reloadData()
