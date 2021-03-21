@@ -12,6 +12,10 @@ class HomepageTableViewController: UITableViewController {
 
     var modelArray: [OrderModel] = []
     
+    var selectedCategories = Set<String>(GHOrderCategory.allCases.map { $0.rawValue })
+    var selectAmountRange: (CGFloat, CGFloat) = (0.0, 10.0)
+    var selectDistanceRange: (CGFloat, CGFloat) = (0.0, 50.0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,23 +72,84 @@ class HomepageTableViewController: UITableViewController {
     @objc func filterAction(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            showFilterView("Select Categories", UIView())
+            let updateButtonColor = { (button: UIButton, selected: Bool) in
+                if selected {
+                    button.backgroundColor = .link
+                    button.setTitleColor(.systemBackground, for: .normal)
+                    button.tintColor = .systemBackground
+                } else {
+                    button.backgroundColor = .systemBackground
+                    button.setTitleColor(.link, for: .normal)
+                    button.tintColor = .link
+                }
+            }
+            
+            let allCategories = GHOrderCategory.allCases
+            let bigStackView = UIStackView()
+            bigStackView.axis = .vertical
+            bigStackView.spacing = 15.0
+            bigStackView.alignment = .fill
+            bigStackView.distribution = .fillEqually
+            for i in 0...1 {
+                let smallStackView = UIStackView()
+                smallStackView.axis = .horizontal
+                smallStackView.spacing = 15.0
+                for j in 0...2 {
+                    let currentCategory = allCategories[i * 3 + j]
+                    let currentCategoryString = currentCategory.rawValue
+                    let currentCategoryImage = currentCategory.getImage()
+                    let button = UIButton()
+                    button.setTitle(currentCategoryString, for: .normal)
+                    button.setImage(currentCategoryImage, for: .normal)
+                    button.setRoundCorner()
+                    if selectedCategories.contains(currentCategoryString) {
+                        updateButtonColor(button, true)
+                    } else {
+                        updateButtonColor(button, false)
+                    }
+                    button.addAction(UIAction(handler: { [weak self] (action) in
+                        guard let strongSelf = self else {
+                            return
+                        }
+                        UIView.animate(withDuration: 0.1) {
+                            if strongSelf.selectedCategories.contains(currentCategoryString) {
+                                strongSelf.selectedCategories.remove(currentCategoryString)
+                                updateButtonColor(button, false)
+                            } else {
+                                strongSelf.selectedCategories.insert(currentCategoryString)
+                                updateButtonColor(button, true)
+                            }
+                        }
+                    }), for: .touchUpInside)
+                    smallStackView.addArrangedSubview(button)
+                }
+                smallStackView.alignment = .fill
+                smallStackView.distribution = .fillEqually
+                bigStackView.addArrangedSubview(smallStackView)
+            }
+            showFilterView("Select Categories", bigStackView)
         case 1:
             let rangeSlider = RangeSeekSlider()
+            rangeSlider.setupGHStyle()
             rangeSlider.numberFormatter = GHConstant.kAmountFormatter
-            rangeSlider.minLabelFont = UIFont.preferredFont(forTextStyle: .body)
-            rangeSlider.maxLabelFont = UIFont.preferredFont(forTextStyle: .body)
+            rangeSlider.selectedMinValue = selectAmountRange.0
+            rangeSlider.selectedMaxValue = selectAmountRange.1
             rangeSlider.minValue = 0.0
             rangeSlider.maxValue = 10.0
-            showFilterView("Select Amount Range", rangeSlider)
+            rangeSlider.tag = RangeSliderTag.amount.rawValue
+            rangeSlider.delegate = self
+            showFilterView("Set Amount Range", rangeSlider)
         case 2:
             let rangeSlider = RangeSeekSlider()
+            rangeSlider.setupGHStyle()
             rangeSlider.numberFormatter = GHConstant.kDistanceFormatter
-            rangeSlider.minLabelFont = UIFont.preferredFont(forTextStyle: .body)
-            rangeSlider.maxLabelFont = UIFont.preferredFont(forTextStyle: .body)
+            rangeSlider.selectedMinValue = selectDistanceRange.0
+            rangeSlider.selectedMaxValue = selectDistanceRange.1
             rangeSlider.minValue = 0.0
             rangeSlider.maxValue = 50.0
-            showFilterView("Select Distance Range", rangeSlider)
+            rangeSlider.tag = RangeSliderTag.distance.rawValue
+            rangeSlider.delegate = self
+            showFilterView("Set Distance Range", rangeSlider)
         default:
             break
         }
@@ -104,7 +169,7 @@ class HomepageTableViewController: UITableViewController {
             
             // execute animation
             let containerView = UIView(frame: CGRect(x: 0.0, y: self.tableView.frame.height, width: self.tableView.frame.width, height: 300.0))
-            containerView.backgroundColor = .white
+            containerView.backgroundColor = .systemBackground
             containerView.setRoundCorner()
             
             // real animation
@@ -207,6 +272,21 @@ extension HomepageTableViewController: CommunitySearchTableViewControllerDelegat
     func didSelectCommunity(_ community: String) {
         navigationItem.title = community
         // TODO: load orders based on the community
+    }
+    
+}
+
+extension HomepageTableViewController: RangeSeekSliderDelegate {
+    
+    func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
+        switch RangeSliderTag(rawValue: slider.tag) {
+        case .amount:
+            selectAmountRange = (minValue, maxValue)
+        case .distance:
+            selectDistanceRange = (minValue, maxValue)
+        default:
+            break
+        }
     }
     
 }

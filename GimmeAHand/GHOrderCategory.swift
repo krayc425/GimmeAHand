@@ -12,27 +12,31 @@ enum GHOrderCategory: String, CaseIterable {
     // TODO: can add more categories
     case printing = "Printing"
     case carpool = "Car Pool"
-    case supermarket = "Supermarket"
+    case supermarket = "Shopping"
     case shipping = "Shipping"
     case umbrella = "Umbrella"
     case takeout = "Takeout"
     
     func fill(in imageView: inout UIImageView) {
+        imageView.image = getImage()
+        imageView.tintColor = .link
+    }
+    
+    func getImage() -> UIImage? {
         switch self {
         case .printing:
-            imageView.image = UIImage(systemName: "printer.fill")
+            return UIImage(systemName: "printer.fill")
         case .carpool:
-            imageView.image = UIImage(systemName: "car.2.fill")
+            return UIImage(systemName: "car.2.fill")
         case .supermarket:
-            imageView.image = UIImage(systemName: "cart.fill")
+            return UIImage(systemName: "cart.fill")
         case .shipping:
-            imageView.image = UIImage(systemName: "shippingbox.fill")
+            return UIImage(systemName: "shippingbox.fill")
         case .umbrella:
-            imageView.image = UIImage(systemName: "umbrella.fill")
+            return UIImage(systemName: "umbrella.fill")
         case .takeout:
-            imageView.image = UIImage(systemName: "mouth.fill")
+            return UIImage(systemName: "mouth.fill")
         }
-        imageView.tintColor = .link
     }
     
 }
