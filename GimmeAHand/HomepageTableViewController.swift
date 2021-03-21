@@ -87,26 +87,23 @@ class HomepageTableViewController: UITableViewController {
             let allCategories = GHOrderCategory.allCases
             let bigStackView = UIStackView()
             bigStackView.axis = .vertical
-            bigStackView.spacing = 15.0
+            bigStackView.spacing = 10.0
             bigStackView.alignment = .fill
             bigStackView.distribution = .fillEqually
-            for i in 0...1 {
+            for i in 0...2 {
                 let smallStackView = UIStackView()
                 smallStackView.axis = .horizontal
-                smallStackView.spacing = 15.0
-                for j in 0...2 {
-                    let currentCategory = allCategories[i * 3 + j]
+                smallStackView.spacing = 10.0
+                for j in 0...1 {
+                    let currentCategory = allCategories[i * 2 + j]
                     let currentCategoryString = currentCategory.rawValue
                     let currentCategoryImage = currentCategory.getImage()
                     let button = UIButton()
                     button.setTitle(currentCategoryString, for: .normal)
                     button.setImage(currentCategoryImage, for: .normal)
+                    button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10.0);
                     button.setRoundCorner()
-                    if selectedCategories.contains(currentCategoryString) {
-                        updateButtonColor(button, true)
-                    } else {
-                        updateButtonColor(button, false)
-                    }
+                    updateButtonColor(button, selectedCategories.contains(currentCategoryString))
                     button.addAction(UIAction(handler: { [weak self] (action) in
                         guard let strongSelf = self else {
                             return
@@ -161,14 +158,13 @@ class HomepageTableViewController: UITableViewController {
         let blurEffectView = UIVisualEffectView()
         blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-
         UIApplication.shared.windows.first!.addSubview(blurEffectView)
         
         UIView.animate(withDuration: GHConstant.kFilterViewTransitionDuration, delay: 0.0, options: [.curveEaseOut, .transitionFlipFromBottom]) {
             blurEffectView.effect = UIBlurEffect(style: .dark)
             
             // execute animation
-            let containerView = UIView(frame: CGRect(x: 0.0, y: self.tableView.frame.height, width: self.tableView.frame.width, height: 300.0))
+            let containerView = UIView(frame: CGRect(x: 0.0, y: self.tableView.frame.height, width: self.tableView.frame.width, height: 350.0))
             containerView.backgroundColor = .systemBackground
             containerView.setRoundCorner()
             

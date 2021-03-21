@@ -50,7 +50,7 @@ class CommunitySearchTableViewController: UITableViewController {
     }
     
     @objc func dismissAction(_ sender: UIBarButtonItem) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true)
     }
     
     @objc func doneAction(_ sender: UIBarButtonItem) {

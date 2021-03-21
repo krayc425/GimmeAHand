@@ -13,7 +13,7 @@ class CreateOrderTableViewController: UITableViewController {
     @IBOutlet weak var startDateField: UIDatePicker!
     @IBOutlet weak var endDateField: UIDatePicker!
     @IBOutlet weak var tipTextField: UITextField!
-    @IBOutlet weak var descriptionTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var communityLabel: UILabel!
@@ -22,14 +22,23 @@ class CreateOrderTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        descriptionTextView.delegate = self
+        titleTextField.delegate = self
+        tipTextField.delegate = self
+        titleTextField.becomeFirstResponder()
+        
+        startDateField.minimumDate = Date()
+        endDateField.minimumDate = Date()
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 44.0
+        
         let backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissAction))
         navigationItem.leftBarButtonItem = backBarButtonItem
-        
-        descriptionTextField.placeholder = "Detailed Description (Optional)"
     }
     
     @objc func dismissAction(_ sender: UIBarButtonItem) {
-        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true)
     }
 
     @IBAction func createAction(_ sender: UIButton) {
@@ -42,6 +51,7 @@ class CreateOrderTableViewController: UITableViewController {
     
     func createOrder() {
         debugPrint("Create order!")
+        navigationController?.dismiss(animated: true)
     }
     
     // MARK: - Table view data source
@@ -68,6 +78,32 @@ extension CreateOrderTableViewController: CommunitySearchTableViewControllerDele
     
     func didSelectCommunity(_ community: String) {
         communityLabel.text = community
+    }
+    
+}
+
+extension CreateOrderTableViewController: UITextFieldDelegate {
+ 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+}
+
+extension CreateOrderTableViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        var newSize = textView.sizeThatFits(CGSize(width: view.bounds.width - 40.0, height: CGFloat.greatestFiniteMagnitude))
+        if newSize.height < 44 {
+            newSize.height = 44
+        }
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        textView.resignFirstResponder()
     }
     
 }
