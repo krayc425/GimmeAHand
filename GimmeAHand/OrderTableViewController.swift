@@ -33,7 +33,8 @@ class OrderTableViewController: UITableViewController {
                                       amount: Float.random(in: 0..<10),
                                       status: GHOrderStatus.allCases.randomElement()!,
                                       date: Date(),
-                                      category: GHOrderCategory.allCases.randomElement()!)
+                                      category: GHOrderCategory.allCases.randomElement()!,
+                                      community: ["CMU SV", "CMU Pittsburgh"].randomElement()!)
             modelArray.append(newOrder)
         }
     }
@@ -56,7 +57,7 @@ class OrderTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as! OrderTableViewCell
 
         // Configure the cell...
-        cell.config(modelArray[indexPath.row])
+        cell.config(modelArray[indexPath.row], false)
 
         return cell
     }

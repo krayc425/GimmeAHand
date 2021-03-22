@@ -9,8 +9,8 @@ import UIKit
 
 extension UIView {
     
-    func setRoundCorner() {
-        self.layer.cornerRadius = GHConstant.kCornerRadius
+    func setRoundCorner(_ cornerRadius: CGFloat = GHConstant.kCornerRadius) {
+        self.layer.cornerRadius = cornerRadius
         self.layer.masksToBounds = true
     }
     

@@ -16,6 +16,7 @@ class OrderModel: NSObject {
     var status: GHOrderStatus
     var createdDate: Date
     var category: GHOrderCategory
+    var community: String
 
     var amountString: String {
         return GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: Double(amount)))!
@@ -30,7 +31,8 @@ class OrderModel: NSObject {
          amount: Float,
          status: GHOrderStatus,
          date: Date,
-         category: GHOrderCategory) {
+         category: GHOrderCategory,
+         community: String) {
         self.id = id
         self.name = name
         self.orderDescription = description
@@ -38,6 +40,7 @@ class OrderModel: NSObject {
         self.status = status
         self.createdDate = date
         self.category = category
+        self.community = community
     }
     
 }

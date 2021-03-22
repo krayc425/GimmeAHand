@@ -35,7 +35,6 @@ class LoginTableViewController: AuthenticateTableViewController {
     
     func login() {
         // TODO: Add login logic
-        debugPrint("Login!!!")
         if faceIDSwitch.isOn {
             beginFaceID()
             return
@@ -51,15 +50,14 @@ class LoginTableViewController: AuthenticateTableViewController {
         var error: NSError?
 
         guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
-            return debugPrint(error?.localizedDescription)
+            return debugPrint(error?.localizedDescription ?? "")
         }
 
         let reason = "Face ID authentication"
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { isAuthorized, error in
             guard isAuthorized else {
-                return debugPrint(error?.localizedDescription)
+                return debugPrint(error?.localizedDescription ?? "")
             }
-            debugPrint("success")
             DispatchQueue.main.async {
                 super.transitionToMain()
             }

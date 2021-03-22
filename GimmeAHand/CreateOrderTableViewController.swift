@@ -50,7 +50,6 @@ class CreateOrderTableViewController: UITableViewController {
     }
     
     func createOrder() {
-        debugPrint("Create order!")
         navigationController?.dismiss(animated: true)
     }
     

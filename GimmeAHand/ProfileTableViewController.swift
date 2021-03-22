@@ -194,10 +194,12 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
             
             ac.addTextField { (emailText) -> Void in
                 emailText.placeholder = self.emailLabel.text
+                emailText.keyboardType = .emailAddress
             }
             
             ac.addTextField { (secondEmailText) -> Void in
                 secondEmailText.placeholder = "Please confirm your new email."
+                secondEmailText.keyboardType = .emailAddress
             }
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
@@ -209,7 +211,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         } else if indexPath.section == CellPositions.Section.firstName && indexPath.row == CellPositions.Row.firstName {
             let ac = UIAlertController(title: "Edit First Name", message: "Please specify a new first name.", preferredStyle: .alert)
             
-            ac.addTextField{(firstNameText) -> Void in
+            ac.addTextField{ (firstNameText) -> Void in
                 firstNameText.placeholder = self.firstNameLabel.text
             }
             
@@ -222,7 +224,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         } else if indexPath.section == CellPositions.Section.lastName && indexPath.row == CellPositions.Row.lastName {
             let ac = UIAlertController(title: "Edit Last Name", message: "Please specify a new last name.", preferredStyle: .alert)
             
-            ac.addTextField{(lastNameText) -> Void in
+            ac.addTextField{ (lastNameText) -> Void in
                 lastNameText.placeholder = self.lastNameLabel.text
             }
             
@@ -235,8 +237,9 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         } else if indexPath.section == CellPositions.Section.phone && indexPath.row == CellPositions.Row.phone {
             let ac = UIAlertController(title: "Edit Phone Number", message: "Please specify a new phone number.", preferredStyle: .alert)
             
-            ac.addTextField{(phoneText) -> Void in
+            ac.addTextField{ (phoneText) -> Void in
                 phoneText.placeholder = self.phoneLabel.text
+                phoneText.keyboardType = .phonePad
             }
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))

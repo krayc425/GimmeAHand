@@ -11,7 +11,7 @@ import MapKit
 class OrderDetailTableViewController: UITableViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusLabel: GHStatusLabel!
     @IBOutlet weak var createdDateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
@@ -75,7 +75,6 @@ class OrderDetailTableViewController: UITableViewController {
         guard let model = orderModel, sender == navigateButton else {
             return
         }
-        debugPrint("navigate!")
         // TODO: add navigation logic
         MapHelper.shared.navigate(37.0, -122.0, model.name)
     }
@@ -84,7 +83,6 @@ class OrderDetailTableViewController: UITableViewController {
         guard isFromHomepage else {
             return
         }
-        debugPrint("take order!")
         // TODO: take order logic
     }
 

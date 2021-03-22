@@ -15,13 +15,18 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusLabel: GHStatusLabel!
+    @IBOutlet weak var communityLabel: UILabel!
 
-    func config(_ model: OrderModel) {
+    func config(_ model: OrderModel, _ hideStatus: Bool) {
         nameLabel.text = model.name
         dateLabel.text = model.createdDateString
         amountLabel.text = model.amountString
-        model.status.decorate(&statusLabel)
+        statusLabel.isHidden = hideStatus
+        if !hideStatus {
+            model.status.decorate(&statusLabel)
+        }
+        communityLabel.text = model.community
         model.category.fill(in: &categoryImageView)
     }
 

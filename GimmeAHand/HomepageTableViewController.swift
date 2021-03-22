@@ -16,6 +16,26 @@ class HomepageTableViewController: UITableViewController {
     var selectAmountRange: (CGFloat, CGFloat) = (0.0, 10.0)
     var selectDistanceRange: (CGFloat, CGFloat) = (0.0, 50.0)
     
+    // views for filter display
+    
+    lazy var containerView: UIView = {
+        let containerView = UIView(frame: CGRect(x: 0.0, y: self.tableView.frame.height, width: self.tableView.frame.width, height: 350.0))
+        containerView.backgroundColor = .systemBackground
+        containerView.setRoundCorner(20.0)
+        return containerView
+    }()
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffectView = UIVisualEffectView()
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.isUserInteractionEnabled = true
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissFilterView))
+        blurEffectView.addGestureRecognizer(tapGesture)
+        
+        return blurEffectView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,8 +54,8 @@ class HomepageTableViewController: UITableViewController {
         for (idx, title) in ["Category", "Money", "Distance"].enumerated() {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: stackView.frame.width / 3.0, height: stackView.frame.height))
             button.setTitle(title, for: .normal)
-            button.setTitleColor(.link, for: .normal)
-            button.backgroundColor = .systemFill
+            button.setTitleColor(.white, for: .normal)
+            button.backgroundColor = .link
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
             button.setRoundCorner()
             button.tag = idx
@@ -53,9 +73,10 @@ class HomepageTableViewController: UITableViewController {
                                       name: "Order \(i)",
                                       description: "blahblahblah",
                                       amount: Float.random(in: 0..<10),
-                                      status: GHOrderStatus.allCases.randomElement()!,
+                                      status: .created,
                                       date: Date(),
-                                      category: GHOrderCategory.allCases.randomElement()!)
+                                      category: GHOrderCategory.allCases.randomElement()!,
+                                      community: navigationItem.title ?? "None")
             modelArray.append(newOrder)
         }
     }
@@ -68,6 +89,13 @@ class HomepageTableViewController: UITableViewController {
             }
         }
     }
+    
+    @IBAction func communityAction(_ sender: UIBarButtonItem) {
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
+        present(communityViewController, animated: true)
+    }
+    
+    // filter actions and helper functions
     
     @objc func filterAction(_ sender: UIButton) {
         switch sender.tag {
@@ -155,18 +183,17 @@ class HomepageTableViewController: UITableViewController {
     func showFilterView(_ filterTitle: String, _ filterView: UIView) {
         let margin: CGFloat = 20.0
         
-        let blurEffectView = UIVisualEffectView()
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        UIApplication.shared.windows.first!.addSubview(blurEffectView)
+        // clear old subviews
+        containerView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
         
         UIView.animate(withDuration: GHConstant.kFilterViewTransitionDuration, delay: 0.0, options: [.curveEaseOut, .transitionFlipFromBottom]) {
-            blurEffectView.effect = UIBlurEffect(style: .dark)
             
             // execute animation
-            let containerView = UIView(frame: CGRect(x: 0.0, y: self.tableView.frame.height, width: self.tableView.frame.width, height: 350.0))
-            containerView.backgroundColor = .systemBackground
-            containerView.setRoundCorner()
+            self.blurEffectView.effect = UIBlurEffect(style: .dark)
+            UIApplication.shared.windows.first!.addSubview(self.blurEffectView)
+            let containerView = self.containerView
             
             // real animation
             containerView.frame.origin.y = self.tableView.frame.height - containerView.frame.height
@@ -185,17 +212,7 @@ class HomepageTableViewController: UITableViewController {
             dismissButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
             dismissButton.addAction(UIAction(handler: { (action) in
                 // dismiss the containerView
-                UIView.animate(withDuration: GHConstant.kFilterViewTransitionDuration, delay: 0.0, options: .curveEaseIn) {
-                    // dismiss containerview animation
-                    blurEffectView.effect = nil
-                    containerView.frame.origin.y = self.tableView.frame.height
-                } completion: { (completed) in
-                    if completed {
-                        containerView.removeFromSuperview()
-                        blurEffectView.removeFromSuperview()
-                        self.tableView.isUserInteractionEnabled = true
-                    }
-                }
+                self.dismissFilterView(nil)
             }), for: .touchUpInside)
             containerView.addSubview(dismissButton)
             
@@ -219,10 +236,18 @@ class HomepageTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func communityAction(_ sender: UIBarButtonItem) {
-        debugPrint("select community")
-        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
-        present(communityViewController, animated: true)
+    @objc func dismissFilterView(_ sender: UITapGestureRecognizer?) {
+        UIView.animate(withDuration: GHConstant.kFilterViewTransitionDuration, delay: 0.0, options: .curveEaseIn) {
+            // dismiss containerview animation
+            self.blurEffectView.effect = nil
+            self.containerView.frame.origin.y = self.tableView.frame.height
+        } completion: { (completed) in
+            if completed {
+                self.containerView.removeFromSuperview()
+                self.blurEffectView.removeFromSuperview()
+                self.tableView.isUserInteractionEnabled = true
+            }
+        }
     }
 
     // MARK: - Table view data source
@@ -238,7 +263,7 @@ class HomepageTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as! OrderTableViewCell
 
-        cell.config(modelArray[indexPath.row])
+        cell.config(modelArray[indexPath.row], true)
 
         return cell
     }

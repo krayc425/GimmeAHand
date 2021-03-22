@@ -45,7 +45,6 @@ class RegisterTableViewController: AuthenticateTableViewController {
     
     func register() {
         // TODO: add register logic
-        debugPrint("Register!!")
         SVProgressHUD.show(withStatus: "Register")
         SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {
             super.transitionToMain()

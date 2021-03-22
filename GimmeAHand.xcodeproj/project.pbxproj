@@ -18,6 +18,7 @@
 		24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015ACE2606A85400AE95DD /* MapHelper.swift */; };
 		24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */; };
 		24015AE8260719BD00AE95DD /* RangeSliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */; };
+		24015B08260818CF00AE95DD /* GHStatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B07260818CE00AE95DD /* GHStatusLabel.swift */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		24015ACE2606A85400AE95DD /* MapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
 		24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateTableViewController.swift; sourceTree = "<group>"; };
 		24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderExtensions.swift; sourceTree = "<group>"; };
+		24015B07260818CE00AE95DD /* GHStatusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHStatusLabel.swift; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +145,26 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		24015B042608185F00AE95DD /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				24FBC8C0260024590015238A /* OrderTableViewController.swift */,
+				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
+				24015AC22606090600AE95DD /* OrderTableViewCell.xib */,
+				24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */,
+				24FBC8C4260024870015238A /* OrderModel.swift */,
+			);
+			name = Order;
+			sourceTree = "<group>";
+		};
+		24015B052608186400AE95DD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D83494422606D28B00FE8920 /* ProfileTableViewController.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		244B0BC525F99E38001A71EB = {
 			isa = PBXGroup;
 			children = (
@@ -169,15 +191,11 @@
 				24015AED26071ABA00AE95DD /* LoginRegister */,
 				24015AEF26071AD000AE95DD /* Common */,
 				24015AEE26071AC300AE95DD /* Homepage */,
-				24FBC8C0260024590015238A /* OrderTableViewController.swift */,
-				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
-				24015AC22606090600AE95DD /* OrderTableViewCell.xib */,
-				24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */,
-				24FBC8C4260024870015238A /* OrderModel.swift */,
-				D83494422606D28B00FE8920 /* ProfileTableViewController.swift */,
-				24015ACE2606A85400AE95DD /* MapHelper.swift */,
+				24015B042608185F00AE95DD /* Order */,
+				24015B052608186400AE95DD /* Profile */,
 				24015AEC26071AB400AE95DD /* Constants */,
 				24015AEA26071A7100AE95DD /* Extensions */,
+				24015ACE2606A85400AE95DD /* MapHelper.swift */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
@@ -187,6 +205,7 @@
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
 				244B0BDF25F99E39001A71EB /* Info.plist */,
+				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
 			);
 			path = GimmeAHand;
 			sourceTree = "<group>";
@@ -322,6 +341,7 @@
 			files = (
 				FDF7307E2606ECFE00E186D2 /* CreateOrderTableViewController.swift in Sources */,
 				D83494432606D28B00FE8920 /* ProfileTableViewController.swift in Sources */,
+				24015B08260818CF00AE95DD /* GHStatusLabel.swift in Sources */,
 				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
 				24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */,
 				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,
