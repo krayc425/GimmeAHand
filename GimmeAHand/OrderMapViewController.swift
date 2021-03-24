@@ -8,11 +8,46 @@
 import UIKit
 import MapKit
 
+class GHTargetMarkerView: MKMarkerAnnotationView {
+    
+    override var annotation: MKAnnotation? {
+        willSet {
+            canShowCallout = true
+            calloutOffset = CGPoint(x: -5, y: 5)
+            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+    }
+    
+}
+
+class GHTargetAnnotation: NSObject, MKAnnotation {
+
+    let locationName: String?
+    let coordinate: CLLocationCoordinate2D
+    
+    var title: String? {
+        return locationName
+    }
+    var subtitle: String? {
+        return "0.5 mile from you"
+    }
+
+    init(targetName: String, coordinate: CLLocationCoordinate2D) {
+        self.locationName = targetName
+        self.coordinate = coordinate
+        super.init()
+    }
+    
+}
+
+
 class OrderMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = MapHelper.shared.locationManager
+    
+    var orderModel: OrderModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +55,7 @@ class OrderMapViewController: UIViewController {
         mapView.delegate = self
         locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
+        mapView.register(GHTargetMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         updateUserLocation(mapView.userLocation)
     }
@@ -32,8 +68,8 @@ class OrderMapViewController: UIViewController {
         // mock destination
         let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + Double.random(in: 0...1),
                                                  longitude: userLocation.coordinate.longitude + Double.random(in: 0...1))
-        let targetAnnotation = MKPointAnnotation()
-        targetAnnotation.coordinate = destination
+        let targetAnnotation = GHTargetAnnotation(targetName: orderModel?.name ?? "",
+                                                  coordinate: destination)
         mapView.addAnnotation(targetAnnotation)
         mapView.showAnnotations([targetAnnotation, userLocation], animated: true)
         
@@ -74,6 +110,13 @@ extension OrderMapViewController: MKMapViewDelegate {
         lineRenderer.strokeColor = .systemBlue
         lineRenderer.lineWidth = 5
         return lineRenderer
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        guard let annotation = view.annotation as? GHTargetAnnotation else {
+            return
+        }
+        MapHelper.shared.navigate(annotation.coordinate.latitude, annotation.coordinate.longitude, annotation.title ?? "")
     }
     
 }

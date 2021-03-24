@@ -43,6 +43,7 @@ class OrderDetailTableViewController: UITableViewController {
         mapView.delegate = self
         locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
+        mapView.register(GHTargetMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         updateUserLocation(mapView.userLocation)
     }
@@ -66,9 +67,17 @@ class OrderDetailTableViewController: UITableViewController {
     }
     
     func updateUserLocation(_ userLocation: MKUserLocation) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-        let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-        mapView.setRegion(region, animated: true)
+//        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
+//        let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
+//        mapView.setRegion(region, animated: true)
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + Double.random(in: 0...1),
+                                                 longitude: userLocation.coordinate.longitude + Double.random(in: 0...1))
+        let targetAnnotation = GHTargetAnnotation(targetName: orderModel?.name ?? "",
+                                                  coordinate: destination)
+        mapView.addAnnotation(targetAnnotation)
+        mapView.showAnnotations([targetAnnotation], animated: true)
     }
     
     @IBAction func navigateAction(_ sender: UIButton) {
@@ -90,6 +99,15 @@ class OrderDetailTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return isFromHomepage ? 3 : 2
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "fullMapSegue" {
+            let mapViewController = segue.destination as! OrderMapViewController
+            mapViewController.orderModel = orderModel
+        }
     }
 
 }

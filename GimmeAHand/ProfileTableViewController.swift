@@ -47,6 +47,8 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     @IBOutlet weak var changePasswordBotton: UIButton!
     @IBOutlet weak var logoutBotton: UIButton!
     @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var emailVerifyLabel: UILabel!
+    @IBOutlet weak var phoneVerifyLabel: UILabel!
     
     var selectedCommunities: [String] = []
 
@@ -62,6 +64,12 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         lastNameLabel.text = FakeDatastore.lastName
         phoneLabel.text = FakeDatastore.phone
         aboutMeLabel.text = FakeDatastore.aboutMe
+        
+        // TODO: mock verification labels
+        [emailVerifyLabel, phoneVerifyLabel].forEach {
+            $0?.text = "Verified"
+            $0?.textColor = .link
+        }
     }
     
     @IBAction func addCommunityAction(_ sender: UIButton) {
@@ -203,7 +211,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
             }
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+            ac.addAction(UIAlertAction(title: "Verify", style: .destructive, handler: { alertAction in
                 let newInput = ac.textFields?.first?.text
                 self.emailLabel.text = newInput
             }))
@@ -243,7 +251,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
             }
             
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
+            ac.addAction(UIAlertAction(title: "Verify", style: .destructive, handler: { alertAction in
                 let newInput = ac.textFields?.first?.text
                 self.phoneLabel.text = newInput
             }))
