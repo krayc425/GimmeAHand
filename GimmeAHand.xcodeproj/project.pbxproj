@@ -19,6 +19,11 @@
 		24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */; };
 		24015AE8260719BD00AE95DD /* RangeSliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */; };
 		24015B08260818CF00AE95DD /* GHStatusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B07260818CE00AE95DD /* GHStatusLabel.swift */; };
+		24015B14260AC0EA00AE95DD /* GHCategorySelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B13260AC0EA00AE95DD /* GHCategorySelectionView.swift */; };
+		24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B26260AD27A00AE95DD /* PaymentTableViewController.swift */; };
+		24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B29260AD2A800AE95DD /* PaymentTableViewCell.swift */; };
+		24015B30260AD54E00AE95DD /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015B2F260AD54E00AE95DD /* PaymentTableViewCell.xib */; };
+		24015B33260AD7E500AE95DD /* GHPaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B32260AD7E500AE95DD /* GHPaymentType.swift */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
@@ -53,6 +58,11 @@
 		24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticateTableViewController.swift; sourceTree = "<group>"; };
 		24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderExtensions.swift; sourceTree = "<group>"; };
 		24015B07260818CE00AE95DD /* GHStatusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHStatusLabel.swift; sourceTree = "<group>"; };
+		24015B13260AC0EA00AE95DD /* GHCategorySelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHCategorySelectionView.swift; sourceTree = "<group>"; };
+		24015B26260AD27A00AE95DD /* PaymentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewController.swift; sourceTree = "<group>"; };
+		24015B29260AD2A800AE95DD /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
+		24015B2F260AD54E00AE95DD /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
+		24015B32260AD7E500AE95DD /* GHPaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHPaymentType.swift; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +123,7 @@
 				24015A9E26044CE000AE95DD /* GHOrderCategory.swift */,
 				24015A962604417100AE95DD /* GHOrderStatus.swift */,
 				24FE7A5425FC4052005B965A /* GHConstants.swift */,
+				24015B32260AD7E500AE95DD /* GHPaymentType.swift */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -132,6 +143,9 @@
 			children = (
 				24015ABF260608D200AE95DD /* HomepageTableViewController.swift */,
 				FDF7307D2606ECFE00E186D2 /* CreateOrderTableViewController.swift */,
+				24015B26260AD27A00AE95DD /* PaymentTableViewController.swift */,
+				24015B29260AD2A800AE95DD /* PaymentTableViewCell.swift */,
+				24015B2F260AD54E00AE95DD /* PaymentTableViewCell.xib */,
 			);
 			name = Homepage;
 			sourceTree = "<group>";
@@ -165,6 +179,15 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		24015B35260ADACB00AE95DD /* GHCustomizedViews */ = {
+			isa = PBXGroup;
+			children = (
+				24015B13260AC0EA00AE95DD /* GHCategorySelectionView.swift */,
+				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
+			);
+			name = GHCustomizedViews;
+			sourceTree = "<group>";
+		};
 		244B0BC525F99E38001A71EB = {
 			isa = PBXGroup;
 			children = (
@@ -195,8 +218,8 @@
 				24015B052608186400AE95DD /* Profile */,
 				24015AEC26071AB400AE95DD /* Constants */,
 				24015AEA26071A7100AE95DD /* Extensions */,
+				24015B35260ADACB00AE95DD /* GHCustomizedViews */,
 				24015ACE2606A85400AE95DD /* MapHelper.swift */,
-				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
@@ -282,6 +305,7 @@
 				244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */,
 				244B0BDB25F99E39001A71EB /* Assets.xcassets in Resources */,
 				24015AC32606090600AE95DD /* OrderTableViewCell.xib in Resources */,
+				24015B30260AD54E00AE95DD /* PaymentTableViewCell.xib in Resources */,
 				244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */,
 				24015ABC2606084400AE95DD /* OrderDetail.storyboard in Resources */,
 				244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */,
@@ -340,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FDF7307E2606ECFE00E186D2 /* CreateOrderTableViewController.swift in Sources */,
+				24015B33260AD7E500AE95DD /* GHPaymentType.swift in Sources */,
 				D83494432606D28B00FE8920 /* ProfileTableViewController.swift in Sources */,
 				24015B08260818CF00AE95DD /* GHStatusLabel.swift in Sources */,
 				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
@@ -347,10 +372,13 @@
 				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,
 				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
+				24015B14260AC0EA00AE95DD /* GHCategorySelectionView.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
+				24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,
 				244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */,
+				24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */,
 				24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */,
 				24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */,
 				24FBC8C5260024870015238A /* OrderModel.swift in Sources */,

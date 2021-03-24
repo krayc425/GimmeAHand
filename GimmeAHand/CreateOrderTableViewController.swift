@@ -16,6 +16,7 @@ class CreateOrderTableViewController: UITableViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var communityLabel: UILabel!
     @IBOutlet weak var paymentLabel: UILabel!
 
@@ -66,6 +67,8 @@ class CreateOrderTableViewController: UITableViewController {
             present(communityViewController, animated: true)
         case 5:
             debugPrint("Select payment")
+            let paymentViewController = PaymentTableViewController.embeddedInNavigationController(self)
+            present(paymentViewController, animated: true)
         default:
             break
         }
@@ -77,6 +80,14 @@ extension CreateOrderTableViewController: CommunitySearchTableViewControllerDele
     
     func didSelectCommunity(_ community: String) {
         communityLabel.text = community
+    }
+    
+}
+
+extension CreateOrderTableViewController: PaymentTableViewControllerDelegate {
+    
+    func didSelectPayment(_ payment: String) {
+        paymentLabel.text = payment
     }
     
 }

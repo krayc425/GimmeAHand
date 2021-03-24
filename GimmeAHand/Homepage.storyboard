@@ -137,12 +137,21 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="btd-EA-i30">
+                                                    <rect key="frame" x="226" y="12" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="1Hn-gY-rkk"/>
+                                                        <constraint firstAttribute="width" secondItem="btd-EA-i30" secondAttribute="height" multiplier="1:1" id="mee-K1-4cn"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="C5F-Wd-WfH" firstAttribute="centerY" secondItem="a6X-Jq-EaR" secondAttribute="centerY" id="1ja-dI-aik"/>
                                                 <constraint firstItem="C5F-Wd-WfH" firstAttribute="leading" secondItem="a6X-Jq-EaR" secondAttribute="leadingMargin" id="8Bl-tp-Ic9"/>
                                                 <constraint firstItem="n3T-mN-FYF" firstAttribute="trailing" secondItem="a6X-Jq-EaR" secondAttribute="trailingMargin" id="8Cr-TO-h9M"/>
                                                 <constraint firstItem="n3T-mN-FYF" firstAttribute="centerY" secondItem="a6X-Jq-EaR" secondAttribute="centerY" id="Mkb-yP-R5X"/>
+                                                <constraint firstItem="btd-EA-i30" firstAttribute="centerY" secondItem="a6X-Jq-EaR" secondAttribute="centerY" id="Vg0-Yb-AXV"/>
+                                                <constraint firstItem="n3T-mN-FYF" firstAttribute="leading" secondItem="btd-EA-i30" secondAttribute="trailing" constant="5" id="fV8-po-nhY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -233,8 +242,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paying Option" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvP-7v-PKB">
-                                                    <rect key="frame" x="20" y="12" width="111.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paying Method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvP-7v-PKB">
+                                                    <rect key="frame" x="20" y="12" width="119" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -361,6 +370,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="New Order" id="yBh-7C-gW7"/>
                     <connections>
+                        <outlet property="categoryImageView" destination="btd-EA-i30" id="Lg1-87-J2P"/>
                         <outlet property="categoryLabel" destination="n3T-mN-FYF" id="2zI-gP-GdM"/>
                         <outlet property="communityLabel" destination="iaa-vB-FgC" id="mvj-Dk-F21"/>
                         <outlet property="createButton" destination="1Dl-wR-sBQ" id="a7y-VV-1U7"/>

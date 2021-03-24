@@ -51,7 +51,7 @@ class HomepageTableViewController: UITableViewController {
         // table view header
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70.0))
         let stackView = UIStackView(frame: CGRect(x: 18.0, y: 10.0, width: containerView.frame.width - 36.0, height: 40.0))
-        for (idx, title) in ["Category", "Money", "Distance"].enumerated() {
+        for (idx, title) in ["Category", "Amount", "Distance"].enumerated() {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: stackView.frame.width / 3.0, height: stackView.frame.height))
             button.setTitle(title, for: .normal)
             button.setTitleColor(.white, for: .normal)
@@ -100,59 +100,23 @@ class HomepageTableViewController: UITableViewController {
     @objc func filterAction(_ sender: UIButton) {
         switch sender.tag {
         case 0:
-            let updateButtonColor = { (button: UIButton, selected: Bool) in
-                if selected {
-                    button.backgroundColor = .link
-                    button.setTitleColor(.white, for: .normal)
-                    button.tintColor = .white
-                } else {
-                    button.backgroundColor = .systemBackground
-                    button.setTitleColor(.link, for: .normal)
-                    button.tintColor = .link
+            let categorySelectionView = GHCategorySelectionView(selectedCategories) { [weak self] action in
+                guard let strongSelf = self,
+                      let button = action.sender as? UIButton,
+                      let currentCategoryString = button.title(for: .normal) else {
+                    return
+                }
+                UIView.animate(withDuration: 0.1) {
+                    if strongSelf.selectedCategories.contains(currentCategoryString) {
+                        strongSelf.selectedCategories.remove(currentCategoryString)
+                        button.updateSelectionColor(selected: false)
+                    } else {
+                        strongSelf.selectedCategories.insert(currentCategoryString)
+                        button.updateSelectionColor(selected: true)
+                    }
                 }
             }
-            
-            let allCategories = GHOrderCategory.allCases
-            let bigStackView = UIStackView()
-            bigStackView.axis = .vertical
-            bigStackView.spacing = 10.0
-            bigStackView.alignment = .fill
-            bigStackView.distribution = .fillEqually
-            for i in 0...2 {
-                let smallStackView = UIStackView()
-                smallStackView.axis = .horizontal
-                smallStackView.spacing = 10.0
-                for j in 0...1 {
-                    let currentCategory = allCategories[i * 2 + j]
-                    let currentCategoryString = currentCategory.rawValue
-                    let currentCategoryImage = currentCategory.getImage()
-                    let button = UIButton()
-                    button.setTitle(currentCategoryString, for: .normal)
-                    button.setImage(currentCategoryImage, for: .normal)
-                    button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10.0);
-                    button.setRoundCorner()
-                    updateButtonColor(button, selectedCategories.contains(currentCategoryString))
-                    button.addAction(UIAction(handler: { [weak self] (action) in
-                        guard let strongSelf = self else {
-                            return
-                        }
-                        UIView.animate(withDuration: 0.1) {
-                            if strongSelf.selectedCategories.contains(currentCategoryString) {
-                                strongSelf.selectedCategories.remove(currentCategoryString)
-                                updateButtonColor(button, false)
-                            } else {
-                                strongSelf.selectedCategories.insert(currentCategoryString)
-                                updateButtonColor(button, true)
-                            }
-                        }
-                    }), for: .touchUpInside)
-                    smallStackView.addArrangedSubview(button)
-                }
-                smallStackView.alignment = .fill
-                smallStackView.distribution = .fillEqually
-                bigStackView.addArrangedSubview(smallStackView)
-            }
-            showFilterView("Select Categories", bigStackView)
+            showFilterView("Select Categories", categorySelectionView)
         case 1:
             let rangeSlider = RangeSeekSlider()
             rangeSlider.setupGHStyle()
