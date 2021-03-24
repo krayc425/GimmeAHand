@@ -19,24 +19,24 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="AhW-Xd-YU6">
                         <rect key="frame" x="20" y="11" width="195" height="58"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjV-Nh-qyd" customClass="GHStatusLabel" customModule="GimmeAHand" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="7"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TGt-9N-w5H">
-                                <rect key="frame" x="0.0" y="0.0" width="122.5" height="20"/>
+                                <rect key="frame" x="0.0" y="9" width="67.5" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WjV-Nh-qyd" customClass="GHStatusLabel" customModule="GimmeAHand" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="umbrella.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="AXR-qH-Dv5">
-                                        <rect key="frame" x="55" y="-0.5" width="20" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="-0.5" width="20" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="AXR-qH-Dv5" secondAttribute="height" multiplier="1:1" id="AlF-JT-O9g"/>
                                             <constraint firstAttribute="height" constant="20" id="ms1-X0-WRV"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GOI-SW-4jy">
-                                        <rect key="frame" x="80" y="0.0" width="42.5" height="20"/>
+                                        <rect key="frame" x="25" y="0.0" width="42.5" height="20"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W0U-h5-nTX">
-                                <rect key="frame" x="0.0" y="22" width="195" height="16"/>
+                                <rect key="frame" x="0.0" y="31" width="195" height="7"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>

@@ -205,7 +205,7 @@ class HomepageTableViewController: UITableViewController {
             containerView.addSubview(titleLabel)
             
             // add dismiss button
-            let dismissButton = UIButton(frame: CGRect(x: margin, y: containerView.frame.height - 80.0, width: containerView.frame.width - 2 * margin, height: 40.0))
+            let dismissButton = UIButton(frame: CGRect(x: margin, y: containerView.frame.height - 90.0, width: containerView.frame.width - 2 * margin, height: 50.0))
             dismissButton.backgroundColor = .link
             dismissButton.setRoundCorner()
             dismissButton.setTitle("OK", for: .normal)

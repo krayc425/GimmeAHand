@@ -196,6 +196,7 @@
 				24015AEC26071AB400AE95DD /* Constants */,
 				24015AEA26071A7100AE95DD /* Extensions */,
 				24015ACE2606A85400AE95DD /* MapHelper.swift */,
+				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
@@ -205,7 +206,6 @@
 				244B0BDA25F99E39001A71EB /* Assets.xcassets */,
 				244B0BDC25F99E39001A71EB /* LaunchScreen.storyboard */,
 				244B0BDF25F99E39001A71EB /* Info.plist */,
-				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
 			);
 			path = GimmeAHand;
 			sourceTree = "<group>";
