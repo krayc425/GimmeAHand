@@ -16,10 +16,14 @@ class LoginTableViewController: AuthenticateTableViewController {
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     @IBOutlet weak var faceIDSwitch: UISwitch!
     @IBOutlet weak var loginButton: UIButton!
-
+    
+    let context = LAContext()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        faceIDSwitch.isOn = false
+        
         [emailTextField, passwordTextField].forEach { (textField) in
             textField?.delegate = self
         }
@@ -46,7 +50,6 @@ class LoginTableViewController: AuthenticateTableViewController {
     }
     
     func beginFaceID() {
-        let context = LAContext()
         var error: NSError?
 
         guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
@@ -61,6 +64,16 @@ class LoginTableViewController: AuthenticateTableViewController {
             DispatchQueue.main.async {
                 super.transitionToMain()
             }
+        }
+    }
+
+    // MARK: - Table view data source
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            return context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) ? 2 : 1
+        } else {
+            return super.tableView(tableView, numberOfRowsInSection: section)
         }
     }
 

@@ -60,13 +60,12 @@ class CreateOrderTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 1:
-            debugPrint("Select category")
+            let categoryViewController = CategorySelectionTableViewController.embeddedInNavigationController(self)
+            present(categoryViewController, animated: true)
         case 4:
-            debugPrint("Select community")
             let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
             present(communityViewController, animated: true)
         case 5:
-            debugPrint("Select payment")
             let paymentViewController = PaymentTableViewController.embeddedInNavigationController(self)
             present(paymentViewController, animated: true)
         default:
@@ -74,6 +73,15 @@ class CreateOrderTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension CreateOrderTableViewController: CategorySelectionTableViewControllerDelegate {
+    
+    func didSelectCategory(_ category: GHOrderCategory) {
+        categoryLabel.text = category.rawValue
+        category.fill(in: &categoryImageView)
+    }
+    
 }
 
 extension CreateOrderTableViewController: CommunitySearchTableViewControllerDelegate {

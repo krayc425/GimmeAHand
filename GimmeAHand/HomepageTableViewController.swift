@@ -12,6 +12,12 @@ class HomepageTableViewController: UITableViewController {
 
     var modelArray: [OrderModel] = []
     
+    var selectedCommunity: String? {
+        didSet {
+            navigationItem.title = selectedCommunity
+            reloadOrders()
+        }
+    }
     var selectedCategories = Set<String>(GHOrderCategory.allCases.map { $0.rawValue })
     var selectAmountRange: (CGFloat, CGFloat) = (0.0, 10.0)
     var selectDistanceRange: (CGFloat, CGFloat) = (0.0, 50.0)
@@ -68,6 +74,11 @@ class HomepageTableViewController: UITableViewController {
         containerView.addSubview(stackView)
         tableView.tableHeaderView = containerView
         
+        reloadOrders()
+    }
+    
+    func reloadOrders() {
+        modelArray.removeAll()
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
                                       name: "Order \(i)",
@@ -76,9 +87,10 @@ class HomepageTableViewController: UITableViewController {
                                       status: .created,
                                       date: Date(),
                                       category: GHOrderCategory.allCases.randomElement()!,
-                                      community: navigationItem.title ?? "None")
+                                      community: selectedCommunity ?? ["CMU Pittsburgh", "CMU SV", "Kenmwar Apartment", "Avalon Mountain View"].randomElement()!)
             modelArray.append(newOrder)
         }
+        tableView.reloadData()
     }
     
     @objc func refreshAction(_ sender: UIRefreshControl) {
@@ -255,7 +267,7 @@ class HomepageTableViewController: UITableViewController {
 extension HomepageTableViewController: CommunitySearchTableViewControllerDelegate {
     
     func didSelectCommunity(_ community: String) {
-        navigationItem.title = community
+        selectedCommunity = community
         // TODO: load orders based on the community
     }
     

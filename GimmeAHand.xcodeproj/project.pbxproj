@@ -24,6 +24,9 @@
 		24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B29260AD2A800AE95DD /* PaymentTableViewCell.swift */; };
 		24015B30260AD54E00AE95DD /* PaymentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015B2F260AD54E00AE95DD /* PaymentTableViewCell.xib */; };
 		24015B33260AD7E500AE95DD /* GHPaymentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B32260AD7E500AE95DD /* GHPaymentType.swift */; };
+		24015B38260C376B00AE95DD /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B37260C376B00AE95DD /* CategorySelectionTableViewController.swift */; };
+		24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */; };
+		24015B3D260C377A00AE95DD /* CategorySelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
@@ -63,6 +66,9 @@
 		24015B29260AD2A800AE95DD /* PaymentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTableViewCell.swift; sourceTree = "<group>"; };
 		24015B2F260AD54E00AE95DD /* PaymentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentTableViewCell.xib; sourceTree = "<group>"; };
 		24015B32260AD7E500AE95DD /* GHPaymentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHPaymentType.swift; sourceTree = "<group>"; };
+		24015B37260C376B00AE95DD /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
+		24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
+		24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +152,9 @@
 				24015B26260AD27A00AE95DD /* PaymentTableViewController.swift */,
 				24015B29260AD2A800AE95DD /* PaymentTableViewCell.swift */,
 				24015B2F260AD54E00AE95DD /* PaymentTableViewCell.xib */,
+				24015B37260C376B00AE95DD /* CategorySelectionTableViewController.swift */,
+				24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */,
+				24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */,
 			);
 			name = Homepage;
 			sourceTree = "<group>";
@@ -307,6 +316,7 @@
 				24015AC32606090600AE95DD /* OrderTableViewCell.xib in Resources */,
 				24015B30260AD54E00AE95DD /* PaymentTableViewCell.xib in Resources */,
 				244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */,
+				24015B3D260C377A00AE95DD /* CategorySelectionTableViewCell.xib in Resources */,
 				24015ABC2606084400AE95DD /* OrderDetail.storyboard in Resources */,
 				244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */,
 				244B0BEB25F9DC68001A71EB /* Profile.storyboard in Resources */,
@@ -369,11 +379,13 @@
 				24015B08260818CF00AE95DD /* GHStatusLabel.swift in Sources */,
 				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
 				24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */,
+				24015B38260C376B00AE95DD /* CategorySelectionTableViewController.swift in Sources */,
 				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,
 				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
 				24015B14260AC0EA00AE95DD /* GHCategorySelectionView.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,
+				24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */,
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
 				24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,
