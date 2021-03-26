@@ -25,6 +25,10 @@ class OrderModel: NSObject {
         return GHConstant.kDateFormatter.string(from: createdDate)
     }
     
+    var isTaken: Bool {
+        return status == .inprogress || status == .finished
+    }
+    
     init(id: Int,
          name: String,
          description: String,

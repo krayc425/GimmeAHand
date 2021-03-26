@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import SVProgressHUD
 
 class OrderDetailTableViewController: UITableViewController {
 
@@ -93,12 +94,44 @@ class OrderDetailTableViewController: UITableViewController {
             return
         }
         // TODO: take order logic
+        SVProgressHUD.show(withStatus: "Taking order")
+        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return isFromHomepage ? 3 : 2
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            guard let model = orderModel else {
+                return 0
+            }
+            if isFromHomepage {
+                return 4
+            } else {
+                return 6 + (model.isTaken ? 1 : 0)
+            }
+        case 2:
+            return isFromHomepage ? 1 : 0
+        default:
+            return 0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if let model = orderModel, section == 0 && !model.isTaken {
+            return "This map only shows an approximate location of the order destination"
+        } else {
+            return nil
+        }
     }
     
     // MARK: - Navigation

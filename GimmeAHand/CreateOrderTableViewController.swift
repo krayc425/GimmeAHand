@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class CreateOrderTableViewController: UITableViewController {
 
@@ -51,7 +52,11 @@ class CreateOrderTableViewController: UITableViewController {
     }
     
     func createOrder() {
-        navigationController?.dismiss(animated: true)
+        // TODO: create order logic
+        SVProgressHUD.show(withStatus: "Creating order")
+        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+            self.navigationController?.dismiss(animated: true)
+        }
     }
     
     // MARK: - Table view data source
