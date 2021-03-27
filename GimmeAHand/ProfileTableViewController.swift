@@ -68,7 +68,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         // TODO: mock verification labels
         [emailVerifyLabel, phoneVerifyLabel].forEach {
             $0?.text = "Verified"
-            $0?.textColor = .link
+            $0?.textColor = .GHTint
         }
     }
     

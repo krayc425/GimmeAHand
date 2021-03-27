@@ -20,10 +20,10 @@ extension RangeSeekSlider {
         minLabelFont = UIFont.preferredFont(forTextStyle: .body)
         maxLabelFont = UIFont.preferredFont(forTextStyle: .body)
         tintColor = .lightGray
-        handleColor = .link
-        minLabelColor = .link
-        maxLabelColor = .link
-        colorBetweenHandles = .link
+        handleColor = .GHTint
+        minLabelColor = .GHTint
+        maxLabelColor = .GHTint
+        colorBetweenHandles = .GHTint
     }
     
 }

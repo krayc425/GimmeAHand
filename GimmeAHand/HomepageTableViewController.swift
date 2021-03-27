@@ -61,7 +61,7 @@ class HomepageTableViewController: UITableViewController {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: stackView.frame.width / 3.0, height: stackView.frame.height))
             button.setTitle(title, for: .normal)
             button.setTitleColor(.white, for: .normal)
-            button.backgroundColor = .link
+            button.backgroundColor = .GHTint
             button.titleLabel?.font = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
             button.setRoundCorner()
             button.tag = idx
@@ -182,7 +182,7 @@ class HomepageTableViewController: UITableViewController {
             
             // add dismiss button
             let dismissButton = UIButton(frame: CGRect(x: margin, y: containerView.frame.height - 90.0, width: containerView.frame.width - 2 * margin, height: 50.0))
-            dismissButton.backgroundColor = .link
+            dismissButton.backgroundColor = .GHTint
             dismissButton.setRoundCorner()
             dismissButton.setTitle("OK", for: .normal)
             dismissButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)

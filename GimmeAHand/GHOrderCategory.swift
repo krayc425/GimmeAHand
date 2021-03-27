@@ -19,7 +19,6 @@ enum GHOrderCategory: String, CaseIterable {
     
     func fill(in imageView: inout UIImageView) {
         imageView.image = getImage()
-        imageView.tintColor = .link
     }
     
     func getImage() -> UIImage? {

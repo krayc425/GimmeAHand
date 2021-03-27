@@ -19,6 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Setup third-party libraires
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.toolbarTintColor = .GHTint
+        
+        // Setup global styles
+        UINavigationBar.appearance().tintColor = .GHTint
+        UITabBar.appearance().tintColor = .GHTint
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .GHTint
+        UIView.appearance(whenContainedInInstancesOf: [UIImageView.self]).tintColor = .GHTint
         
         return true
     }

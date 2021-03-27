@@ -3,7 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -105,6 +105,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Pw-5P-W3K">
                                                     <rect key="frame" x="278" y="6.6666666666666679" width="51" height="31.000000000000004"/>
+                                                    <color key="onTintColor" name="GHTint"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -134,6 +135,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rx6-b6-nbv">
                                                     <rect key="frame" x="278" y="6.6666666666666679" width="51" height="31.000000000000004"/>
+                                                    <color key="onTintColor" name="GHTint"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -158,7 +160,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bgv-JG-x4t">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
-                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                    <color key="backgroundColor" name="GHTint"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <state key="normal" title="Login">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -467,7 +469,7 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP2-O8-JV1">
                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
-                                                    <color key="backgroundColor" systemColor="linkColor"/>
+                                                    <color key="backgroundColor" name="GHTint"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <state key="normal" title="Register">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -527,10 +529,11 @@
             <point key="canvasLocation" x="-1067" y="213"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="GHTint"/>
     <resources>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <namedColor name="GHTint">
+            <color red="0.20392156862745098" green="0.66666666666666663" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

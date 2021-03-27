@@ -27,6 +27,7 @@
 		24015B38260C376B00AE95DD /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B37260C376B00AE95DD /* CategorySelectionTableViewController.swift */; };
 		24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */; };
 		24015B3D260C377A00AE95DD /* CategorySelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */; };
+		24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD1260F20B40051721D /* UIColorExtensions.swift */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		24015B37260C376B00AE95DD /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
+		24144CD1260F20B40051721D /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				24015AC626069FF900AE95DD /* UIViewExtensions.swift */,
 				24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */,
+				24144CD1260F20B40051721D /* UIColorExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */,
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
 				24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */,
+				24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,
 				244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */,
 				24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */,

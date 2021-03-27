@@ -79,6 +79,7 @@ class CommunitySearchTableViewController: UITableViewController {
         cell.textLabel?.text = communities[indexPath.row]
         cell.detailTextLabel?.text = "0.5 miles from you"
         cell.detailTextLabel?.textColor = .secondaryLabel
+        cell.tintColor = .GHTint
         
         if let selectedIndexPath = selectedCommunityIndexPath, selectedIndexPath == indexPath {
             cell.accessoryType = .checkmark

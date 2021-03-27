@@ -66,7 +66,11 @@
             <point key="canvasLocation" x="-61" y="161"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="GHTint"/>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <namedColor name="GHTint">
+            <color red="0.20392156862745098" green="0.66666666666666663" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

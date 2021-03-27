@@ -67,13 +67,13 @@ extension UIButton {
     
     func updateSelectionColor(selected: Bool) {
         if selected {
-            backgroundColor = .link
+            backgroundColor = .GHTint
             setTitleColor(.white, for: .normal)
             tintColor = .white
         } else {
             backgroundColor = .systemBackground
-            setTitleColor(.link, for: .normal)
-            tintColor = .link
+            setTitleColor(.GHTint, for: .normal)
+            tintColor = .GHTint
         }
     }
     
