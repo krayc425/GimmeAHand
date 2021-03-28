@@ -16,16 +16,41 @@ class LoginTableViewController: AuthenticateTableViewController {
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     @IBOutlet weak var faceIDSwitch: UISwitch!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var bioTypeLabel: UILabel!
     
+    let userDefaultsHelper = UserDefaultsHelper.shared
     let context = LAContext()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        faceIDSwitch.isOn = false
+        faceIDSwitch.isOn = userDefaultsHelper.getFaceID()
+        rememberMeSwitch.isOn = userDefaultsHelper.getRememberMe()
+        [faceIDSwitch, rememberMeSwitch].forEach {
+            $0?.addTarget(self, action: #selector(switchAction), for: .valueChanged)
+        }
         
-        [emailTextField, passwordTextField].forEach { (textField) in
-            textField?.delegate = self
+        [emailTextField, passwordTextField].forEach {
+            $0?.delegate = self
+        }
+        
+        _ = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)
+        bioTypeLabel.text = context.biometryType == .faceID ? "Face ID" : "Touch ID"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTextField.text = userDefaultsHelper.getEmail()
+    }
+    
+    @objc func switchAction(_ sender: UISwitch) {
+        switch sender {
+        case faceIDSwitch:
+            userDefaultsHelper.saveFaceID(faceIDSwitch.isOn)
+        case rememberMeSwitch:
+            userDefaultsHelper.saveRememberMe(rememberMeSwitch.isOn)
+        default:
+            break
         }
     }
     
@@ -38,6 +63,21 @@ class LoginTableViewController: AuthenticateTableViewController {
     }
     
     func login() {
+        guard let email = emailTextField.text, !email.isEmpty else {
+            simpleAlert("Please enter email", nil) { [weak self] in
+                self?.emailTextField.becomeFirstResponder()
+            }
+            return
+        }
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            simpleAlert("Please enter password", nil) { [weak self] in
+                self?.passwordTextField.becomeFirstResponder()
+            }
+            return
+        }
+        if rememberMeSwitch.isOn {
+            userDefaultsHelper.saveEmail(email)
+        }
         // TODO: Add login logic
         if faceIDSwitch.isOn {
             beginFaceID()
@@ -50,14 +90,12 @@ class LoginTableViewController: AuthenticateTableViewController {
     }
     
     func beginFaceID() {
-        var error: NSError?
-
-        guard context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) else {
-            return debugPrint(error?.localizedDescription ?? "")
+        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) else {
+            return
         }
 
         let reason = "Face ID authentication"
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { isAuthorized, error in
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { isAuthorized, error in
             guard isAuthorized else {
                 return debugPrint(error?.localizedDescription ?? "")
             }
@@ -82,12 +120,15 @@ class LoginTableViewController: AuthenticateTableViewController {
 extension LoginTableViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailTextField {
+        switch textField {
+        case emailTextField:
             emailTextField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
-        } else if textField == passwordTextField {
+        case passwordTextField:
             passwordTextField.resignFirstResponder()
             login()
+        default:
+            break
         }
         return true
     }

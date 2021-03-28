@@ -11,6 +11,7 @@ import SVProgressHUD
 class RegisterTableViewController: AuthenticateTableViewController {
     
     static let communitySection = 2
+    static let registerButtonSection = 4
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -63,7 +64,7 @@ class RegisterTableViewController: AuthenticateTableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -92,7 +93,7 @@ class RegisterTableViewController: AuthenticateTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return indexPath.section == 3 ? 50.0 : 44.0
+        return indexPath.section == RegisterTableViewController.registerButtonSection ? 50.0 : 44.0
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -128,23 +129,23 @@ extension RegisterTableViewController: CommunitySearchTableViewControllerDelegat
 extension RegisterTableViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == emailTextField {
+        switch textField {
+        case emailTextField:
             emailTextField.resignFirstResponder()
             firstNameTextField.becomeFirstResponder()
-        } else if textField == firstNameTextField {
+        case firstNameTextField:
             firstNameTextField.resignFirstResponder()
             lastNameTextField.becomeFirstResponder()
-        } else if textField == lastNameTextField {
-            lastNameTextField.resignFirstResponder()
-            mobileTextField.becomeFirstResponder()
-        } else if textField == mobileTextField {
+        case mobileTextField:
             mobileTextField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
-        } else if textField == passwordTextField {
+        case passwordTextField:
             passwordTextField.resignFirstResponder()
             confirmTextField.becomeFirstResponder()
-        } else {
+        case confirmTextField:
             confirmTextField.resignFirstResponder()
+        default:
+            break
         }
         return true
     }

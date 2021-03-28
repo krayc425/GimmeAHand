@@ -28,6 +28,8 @@
 		24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */; };
 		24015B3D260C377A00AE95DD /* CategorySelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */; };
 		24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD1260F20B40051721D /* UIColorExtensions.swift */; };
+		24144CD5261133180051721D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD4261133180051721D /* UserDefaultsHelper.swift */; };
+		24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD8261135750051721D /* UIViewControllerExtensions.swift */; };
 		244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD125F99E38001A71EB /* AppDelegate.swift */; };
 		244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244B0BD325F99E38001A71EB /* SceneDelegate.swift */; };
 		244B0BD925F99E38001A71EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BD725F99E38001A71EB /* Main.storyboard */; };
@@ -71,6 +73,8 @@
 		24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
 		24144CD1260F20B40051721D /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		24144CD4261133180051721D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
+		24144CD8261135750051721D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		244B0BCE25F99E38001A71EB /* GimmeAHand.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GimmeAHand.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		244B0BD125F99E38001A71EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		244B0BD325F99E38001A71EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				24015AC626069FF900AE95DD /* UIViewExtensions.swift */,
 				24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */,
 				24144CD1260F20B40051721D /* UIColorExtensions.swift */,
+				24144CD8261135750051721D /* UIViewControllerExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -200,6 +205,15 @@
 			name = GHCustomizedViews;
 			sourceTree = "<group>";
 		};
+		24144CDB261137060051721D /* DataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				24015ACE2606A85400AE95DD /* MapHelper.swift */,
+				24144CD4261133180051721D /* UserDefaultsHelper.swift */,
+			);
+			name = DataHelper;
+			sourceTree = "<group>";
+		};
 		244B0BC525F99E38001A71EB = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +245,7 @@
 				24015AEC26071AB400AE95DD /* Constants */,
 				24015AEA26071A7100AE95DD /* Extensions */,
 				24015B35260ADACB00AE95DD /* GHCustomizedViews */,
-				24015ACE2606A85400AE95DD /* MapHelper.swift */,
+				24144CDB261137060051721D /* DataHelper */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
@@ -389,6 +403,7 @@
 				24015B14260AC0EA00AE95DD /* GHCategorySelectionView.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,
 				24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */,
+				24144CD5261133180051721D /* UserDefaultsHelper.swift in Sources */,
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
 				24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */,
 				24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */,
@@ -397,6 +412,7 @@
 				24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */,
 				24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */,
 				24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */,
+				24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */,
 				24FBC8C5260024870015238A /* OrderModel.swift in Sources */,
 				24015AE8260719BD00AE95DD /* RangeSliderExtensions.swift in Sources */,
 				24015ACB2606A09D00AE95DD /* OrderMapViewController.swift in Sources */,

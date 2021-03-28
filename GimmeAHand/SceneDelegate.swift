@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import LocalAuthentication
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -41,6 +42,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        guard let window = window else {
+            return
+        }
+        
+        if UserDefaultsHelper.shared.getFaceID() {
+            let blurEffectView = UIVisualEffectView()
+            blurEffectView.frame = window.layer.bounds
+            blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            blurEffectView.isUserInteractionEnabled = true
+            blurEffectView.effect = UIBlurEffect(style: .dark)
+            window.addSubview(blurEffectView)
+            
+            let context = LAContext()
+
+            guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) else {
+                return
+            }
+
+            let reason = "Face ID authentication"
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { isAuthorized, error in
+                guard isAuthorized else {
+                    DispatchQueue.main.async {
+                        UIView.transition(with: UIApplication.shared.windows.first!,
+                                          duration: GHConstant.kStoryboardTransitionDuration,
+                                          options: .transitionFlipFromLeft,
+                                          animations: {
+                                            blurEffectView.removeFromSuperview()
+                                            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "LoginRegister", bundle: nil).instantiateInitialViewController()
+                        })
+                    }
+                    return debugPrint(error?.localizedDescription ?? "")
+                }
+                DispatchQueue.main.async {
+                    blurEffectView.removeFromSuperview()
+                }
+            }
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
