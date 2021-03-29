@@ -120,39 +120,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		24015AEA26071A7100AE95DD /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				24015AC626069FF900AE95DD /* UIViewExtensions.swift */,
-				24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */,
-				24144CD1260F20B40051721D /* UIColorExtensions.swift */,
-				24144CD8261135750051721D /* UIViewControllerExtensions.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		24015AEC26071AB400AE95DD /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				24015A9E26044CE000AE95DD /* GHOrderCategory.swift */,
-				24015A962604417100AE95DD /* GHOrderStatus.swift */,
-				24FE7A5425FC4052005B965A /* GHConstants.swift */,
-				24015B32260AD7E500AE95DD /* GHPaymentType.swift */,
-			);
-			name = Constants;
-			sourceTree = "<group>";
-		};
-		24015AED26071ABA00AE95DD /* LoginRegister */ = {
-			isa = PBXGroup;
-			children = (
-				24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */,
-				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
-				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
-			);
-			name = LoginRegister;
-			sourceTree = "<group>";
-		};
-		24015AEE26071AC300AE95DD /* Homepage */ = {
+		24144CDE261161910051721D /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
 				24015ABF260608D200AE95DD /* HomepageTableViewController.swift */,
@@ -164,19 +132,77 @@
 				24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */,
 				24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */,
 			);
-			name = Homepage;
+			path = Homepage;
 			sourceTree = "<group>";
 		};
-		24015AEF26071AD000AE95DD /* Common */ = {
+		24144CE0261161B40051721D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D83494422606D28B00FE8920 /* ProfileTableViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		24144CE1261161C10051721D /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */,
+				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
+				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
+			);
+			path = LoginRegister;
+			sourceTree = "<group>";
+		};
+		24144CE2261161D40051721D /* Common */ = {
 			isa = PBXGroup;
 			children = (
 				24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */,
 				C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */,
 			);
-			name = Common;
+			path = Common;
 			sourceTree = "<group>";
 		};
-		24015B042608185F00AE95DD /* Order */ = {
+		24144CE4261161EE0051721D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				24015A9E26044CE000AE95DD /* GHOrderCategory.swift */,
+				24015A962604417100AE95DD /* GHOrderStatus.swift */,
+				24FE7A5425FC4052005B965A /* GHConstants.swift */,
+				24015B32260AD7E500AE95DD /* GHPaymentType.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		24144CE5261161FA0051721D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				24015AC626069FF900AE95DD /* UIViewExtensions.swift */,
+				24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */,
+				24144CD1260F20B40051721D /* UIColorExtensions.swift */,
+				24144CD8261135750051721D /* UIViewControllerExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		24144CE8261162400051721D /* CustomizedViews */ = {
+			isa = PBXGroup;
+			children = (
+				24015B13260AC0EA00AE95DD /* GHCategorySelectionView.swift */,
+				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
+			);
+			path = CustomizedViews;
+			sourceTree = "<group>";
+		};
+		24144CE92611624E0051721D /* DataHelper */ = {
+			isa = PBXGroup;
+			children = (
+				24015ACE2606A85400AE95DD /* MapHelper.swift */,
+				24144CD4261133180051721D /* UserDefaultsHelper.swift */,
+			);
+			path = DataHelper;
+			sourceTree = "<group>";
+		};
+		24144CEB2611633F0051721D /* Order */ = {
 			isa = PBXGroup;
 			children = (
 				24FBC8C0260024590015238A /* OrderTableViewController.swift */,
@@ -185,33 +211,7 @@
 				24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */,
 				24FBC8C4260024870015238A /* OrderModel.swift */,
 			);
-			name = Order;
-			sourceTree = "<group>";
-		};
-		24015B052608186400AE95DD /* Profile */ = {
-			isa = PBXGroup;
-			children = (
-				D83494422606D28B00FE8920 /* ProfileTableViewController.swift */,
-			);
-			name = Profile;
-			sourceTree = "<group>";
-		};
-		24015B35260ADACB00AE95DD /* GHCustomizedViews */ = {
-			isa = PBXGroup;
-			children = (
-				24015B13260AC0EA00AE95DD /* GHCategorySelectionView.swift */,
-				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
-			);
-			name = GHCustomizedViews;
-			sourceTree = "<group>";
-		};
-		24144CDB261137060051721D /* DataHelper */ = {
-			isa = PBXGroup;
-			children = (
-				24015ACE2606A85400AE95DD /* MapHelper.swift */,
-				24144CD4261133180051721D /* UserDefaultsHelper.swift */,
-			);
-			name = DataHelper;
+			path = Order;
 			sourceTree = "<group>";
 		};
 		244B0BC525F99E38001A71EB = {
@@ -237,15 +237,15 @@
 			children = (
 				244B0BD125F99E38001A71EB /* AppDelegate.swift */,
 				244B0BD325F99E38001A71EB /* SceneDelegate.swift */,
-				24015AED26071ABA00AE95DD /* LoginRegister */,
-				24015AEF26071AD000AE95DD /* Common */,
-				24015AEE26071AC300AE95DD /* Homepage */,
-				24015B042608185F00AE95DD /* Order */,
-				24015B052608186400AE95DD /* Profile */,
-				24015AEC26071AB400AE95DD /* Constants */,
-				24015AEA26071A7100AE95DD /* Extensions */,
-				24015B35260ADACB00AE95DD /* GHCustomizedViews */,
-				24144CDB261137060051721D /* DataHelper */,
+				24144CE1261161C10051721D /* LoginRegister */,
+				24144CE2261161D40051721D /* Common */,
+				24144CDE261161910051721D /* Homepage */,
+				24144CEB2611633F0051721D /* Order */,
+				24144CE0261161B40051721D /* Profile */,
+				24144CE4261161EE0051721D /* Constants */,
+				24144CE5261161FA0051721D /* Extensions */,
+				24144CE8261162400051721D /* CustomizedViews */,
+				24144CE92611624E0051721D /* DataHelper */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
