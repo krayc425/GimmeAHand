@@ -100,14 +100,19 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         ac.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { _ in
-            UIView.transition(with: UIApplication.shared.windows.first!,
-                              duration: GHConstant.kStoryboardTransitionDuration,
-                              options: .transitionFlipFromLeft,
-                              animations: {
-                                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "LoginRegister", bundle: nil).instantiateInitialViewController()
-            })
+            self.logout()
         }))
         present(ac, animated: true)
+    }
+    
+    func logout() {
+        UserDefaultsHelper.shared.saveFaceID(false)
+        UIView.transition(with: UIApplication.shared.windows.first!,
+                          duration: GHConstant.kStoryboardTransitionDuration,
+                          options: .transitionFlipFromLeft,
+                          animations: {
+                            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "LoginRegister", bundle: nil).instantiateInitialViewController()
+        })
     }
     
     func presentImagePicker(with sourceType: UIImagePickerController.SourceType) {

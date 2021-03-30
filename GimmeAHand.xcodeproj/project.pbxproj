@@ -39,6 +39,7 @@
 		244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BED25F9DC72001A71EB /* Homepage.storyboard */; };
 		244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF025F9DC7D001A71EB /* Orders.storyboard */; };
 		244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */; };
+		24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C181412613E7790008A858 /* TimeIntervalExtensions.swift */; };
 		24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C0260024590015238A /* OrderTableViewController.swift */; };
 		24FBC8C5260024870015238A /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C4260024870015238A /* OrderModel.swift */; };
 		24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C92600260B0015238A /* OrderTableViewCell.swift */; };
@@ -86,6 +87,7 @@
 		244B0BED25F9DC72001A71EB /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		244B0BF025F9DC7D001A71EB /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
+		24C181412613E7790008A858 /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		24FBC8C0260024590015238A /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		24FBC8C4260024870015238A /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		24FBC8C92600260B0015238A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				24015AE7260719BD00AE95DD /* RangeSliderExtensions.swift */,
 				24144CD1260F20B40051721D /* UIColorExtensions.swift */,
 				24144CD8261135750051721D /* UIViewControllerExtensions.swift */,
+				24C181412613E7790008A858 /* TimeIntervalExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				24015AE8260719BD00AE95DD /* RangeSliderExtensions.swift in Sources */,
 				24015ACB2606A09D00AE95DD /* OrderMapViewController.swift in Sources */,
 				24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */,
+				24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */,
 				24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */,
 				24015A9F26044CE000AE95DD /* GHOrderCategory.swift in Sources */,
 				244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */,

@@ -66,8 +66,8 @@ class OrderMapViewController: UIViewController {
         mapView.removeOverlays(mapView.overlays)
         
         // mock destination
-        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + Double.random(in: 0...1),
-                                                 longitude: userLocation.coordinate.longitude + Double.random(in: 0...1))
+        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + Double.random(in: -1...1) / 10.0,
+                                                 longitude: userLocation.coordinate.longitude + Double.random(in: -1...1) / 10.0)
         let targetAnnotation = GHTargetAnnotation(targetName: orderModel?.name ?? "",
                                                   coordinate: destination)
         mapView.addAnnotation(targetAnnotation)
@@ -84,15 +84,30 @@ class OrderMapViewController: UIViewController {
         directionRequest.source = sourceItem
         directionRequest.destination = destinationItem
         directionRequest.transportType = .automobile
+        // Calculate route
         let direction = MKDirections(request: directionRequest)
         direction.calculate { [weak self] (response, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
             } else {
-                let route = response!.routes[0] as MKRoute
+                guard let route = response?.routes.first else {
+                    return
+                }
                 DispatchQueue.main.async {
                     self?.mapView.addOverlay(route.polyline)
                 }
+            }
+        }
+        // Calculate ETA
+        let directionETA = MKDirections(request: directionRequest)
+        directionETA.calculateETA { (response, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+            } else {
+                guard let response = response else {
+                    return
+                }
+                self.title = "ETA: \(response.expectedTravelTime.formattedETAString)"
             }
         }
     }
