@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = .GHTint
         UITabBar.appearance().tintColor = .GHTint
         UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = .GHTint
-        UIView.appearance(whenContainedInInstancesOf: [UIImageView.self]).tintColor = .GHTint
         
         return true
     }

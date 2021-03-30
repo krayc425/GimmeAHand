@@ -128,9 +128,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dqG-wA-5V4">
-                                                    <rect key="frame" x="227" y="11.5" width="21" height="21"/>
+                                                    <rect key="frame" x="228" y="12" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="dqG-wA-5V4" secondAttribute="height" multiplier="1:1" id="FAC-yv-UzY"/>
+                                                        <constraint firstAttribute="height" constant="20" id="LSf-2q-t10"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -141,7 +142,6 @@
                                                 <constraint firstItem="WY4-L3-HK6" firstAttribute="leading" secondItem="hN2-5D-cGE" secondAttribute="leadingMargin" id="TBj-t9-vVf"/>
                                                 <constraint firstItem="Znk-ia-UiK" firstAttribute="trailing" secondItem="hN2-5D-cGE" secondAttribute="trailingMargin" id="Z2J-DK-qgu"/>
                                                 <constraint firstItem="Znk-ia-UiK" firstAttribute="leading" secondItem="dqG-wA-5V4" secondAttribute="trailing" constant="5" id="d91-vq-t7L"/>
-                                                <constraint firstItem="Znk-ia-UiK" firstAttribute="height" secondItem="dqG-wA-5V4" secondAttribute="height" id="r6F-vF-yTf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

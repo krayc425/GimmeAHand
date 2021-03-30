@@ -25,7 +25,7 @@ class HomepageTableViewController: UITableViewController {
     // views for filter display
     
     lazy var containerView: UIView = {
-        let containerView = UIView(frame: CGRect(x: 0.0, y: self.tableView.frame.height, width: self.tableView.frame.width, height: 350.0))
+        let containerView = UIView(frame: CGRect(x: 0.0, y: tableView.frame.height, width: tableView.frame.width, height: 350.0))
         containerView.backgroundColor = .systemBackground
         containerView.setRoundCorner(20.0)
         return containerView

@@ -196,6 +196,10 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
                 }))
             }
             ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            if let popoverPresentationController = ac.popoverPresentationController {
+                popoverPresentationController.sourceView = tableView
+                popoverPresentationController.sourceRect = avatarImageView.frame
+            }
             present(ac, animated: true)
         } else if indexPath.section == CellPositions.Section.email && indexPath.row == CellPositions.Row.email {
             let ac = UIAlertController(title: "Edit Email", message: "Please specify a new email", preferredStyle: .alert)
