@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,12 +40,18 @@
 		244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF025F9DC7D001A71EB /* Orders.storyboard */; };
 		244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */; };
 		24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C181412613E7790008A858 /* TimeIntervalExtensions.swift */; };
+		24C1815826147B470008A858 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1815726147B470008A858 /* DZNEmptyDataSet */; };
+		24C1815C26147B720008A858 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1815B26147B720008A858 /* CryptoSwift */; };
+		24C1816026147C560008A858 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1815F26147C560008A858 /* SVProgressHUD */; };
+		24C1816826147D350008A858 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1816726147D350008A858 /* IQKeyboardManagerSwift */; };
+		24C1817026147E160008A858 /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1816D26147E160008A858 /* TapticEngine.swift */; };
+		24C1817126147E160008A858 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1816E26147E160008A858 /* RangeSeekSlider.swift */; };
+		24C1817226147E160008A858 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1816F26147E160008A858 /* RangeSeekSliderDelegate.swift */; };
 		24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C0260024590015238A /* OrderTableViewController.swift */; };
 		24FBC8C5260024870015238A /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C4260024870015238A /* OrderModel.swift */; };
 		24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C92600260B0015238A /* OrderTableViewCell.swift */; };
 		24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE7A5025FC3674005B965A /* LoginTableViewController.swift */; };
 		24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE7A5425FC4052005B965A /* GHConstants.swift */; };
-		5DD4E490803F6DB57800990A /* Pods_GimmeAHand.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */; };
 		C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */; };
 		D83494432606D28B00FE8920 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83494422606D28B00FE8920 /* ProfileTableViewController.swift */; };
 		FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4290EC260571D50015847B /* RegisterTableViewController.swift */; };
@@ -88,14 +94,14 @@
 		244B0BF025F9DC7D001A71EB /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 		24C181412613E7790008A858 /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
+		24C1816D26147E160008A858 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
+		24C1816E26147E160008A858 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSlider.swift; sourceTree = "<group>"; };
+		24C1816F26147E160008A858 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
 		24FBC8C0260024590015238A /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		24FBC8C4260024870015238A /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		24FBC8C92600260B0015238A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		24FE7A5025FC3674005B965A /* LoginTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTableViewController.swift; sourceTree = "<group>"; };
 		24FE7A5425FC4052005B965A /* GHConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHConstants.swift; sourceTree = "<group>"; };
-		6883E3D16711B53B9CED2B6B /* Pods-GimmeAHand.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.release.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.release.xcconfig"; sourceTree = "<group>"; };
-		6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GimmeAHand.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		70914C3B6457422486243F35 /* Pods-GimmeAHand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GimmeAHand.debug.xcconfig"; path = "Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand.debug.xcconfig"; sourceTree = "<group>"; };
 		C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewController.swift; sourceTree = "<group>"; };
 		D83494422606D28B00FE8920 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		FD4290EC260571D50015847B /* RegisterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTableViewController.swift; sourceTree = "<group>"; };
@@ -107,21 +113,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DD4E490803F6DB57800990A /* Pods_GimmeAHand.framework in Frameworks */,
+				24C1816026147C560008A858 /* SVProgressHUD in Frameworks */,
+				24C1816826147D350008A858 /* IQKeyboardManagerSwift in Frameworks */,
+				24C1815826147B470008A858 /* DZNEmptyDataSet in Frameworks */,
+				24C1815C26147B720008A858 /* CryptoSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		21F56E28E79455E00DAFCBA9 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6D32366F83A0723644BE5ACB /* Pods_GimmeAHand.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		24144CDE261161910051721D /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +191,7 @@
 		24144CE8261162400051721D /* CustomizedViews */ = {
 			isa = PBXGroup;
 			children = (
+				24C1817626147E400008A858 /* RangeSeekSlider */,
 				24015B13260AC0EA00AE95DD /* GHCategorySelectionView.swift */,
 				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
 			);
@@ -222,8 +224,6 @@
 			children = (
 				244B0BD025F99E38001A71EB /* GimmeAHand */,
 				244B0BCF25F99E38001A71EB /* Products */,
-				39294C95B065864A0A4A36DC /* Pods */,
-				21F56E28E79455E00DAFCBA9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -262,13 +262,14 @@
 			path = GimmeAHand;
 			sourceTree = "<group>";
 		};
-		39294C95B065864A0A4A36DC /* Pods */ = {
+		24C1817626147E400008A858 /* RangeSeekSlider */ = {
 			isa = PBXGroup;
 			children = (
-				70914C3B6457422486243F35 /* Pods-GimmeAHand.debug.xcconfig */,
-				6883E3D16711B53B9CED2B6B /* Pods-GimmeAHand.release.xcconfig */,
+				24C1816E26147E160008A858 /* RangeSeekSlider.swift */,
+				24C1816F26147E160008A858 /* RangeSeekSliderDelegate.swift */,
+				24C1816D26147E160008A858 /* TapticEngine.swift */,
 			);
-			path = Pods;
+			path = RangeSeekSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,17 +279,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 244B0BE225F99E39001A71EB /* Build configuration list for PBXNativeTarget "GimmeAHand" */;
 			buildPhases = (
-				9FA3F9F593BAEEC349B3B9D1 /* [CP] Check Pods Manifest.lock */,
 				244B0BCA25F99E38001A71EB /* Sources */,
 				244B0BCB25F99E38001A71EB /* Frameworks */,
 				244B0BCC25F99E38001A71EB /* Resources */,
-				2AC3505893D4E056CF5E325D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GimmeAHand;
+			packageProductDependencies = (
+				24C1815726147B470008A858 /* DZNEmptyDataSet */,
+				24C1815B26147B720008A858 /* CryptoSwift */,
+				24C1815F26147C560008A858 /* SVProgressHUD */,
+				24C1816726147D350008A858 /* IQKeyboardManagerSwift */,
+			);
 			productName = GimmeAHand;
 			productReference = 244B0BCE25F99E38001A71EB /* GimmeAHand.app */;
 			productType = "com.apple.product-type.application";
@@ -316,6 +321,12 @@
 				Base,
 			);
 			mainGroup = 244B0BC525F99E38001A71EB;
+			packageReferences = (
+				24C1815626147B470008A858 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */,
+				24C1815A26147B720008A858 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
+				24C1815E26147C560008A858 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
+				24C1816626147D350008A858 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+			);
 			productRefGroup = 244B0BCF25F99E38001A71EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -346,48 +357,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2AC3505893D4E056CF5E325D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GimmeAHand/Pods-GimmeAHand-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9FA3F9F593BAEEC349B3B9D1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GimmeAHand-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		244B0BCA25F99E38001A71EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -401,11 +370,13 @@
 				24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */,
 				24015B38260C376B00AE95DD /* CategorySelectionTableViewController.swift in Sources */,
 				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,
+				24C1817026147E160008A858 /* TapticEngine.swift in Sources */,
 				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
 				24015B14260AC0EA00AE95DD /* GHCategorySelectionView.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,
 				24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */,
+				24C1817126147E160008A858 /* RangeSeekSlider.swift in Sources */,
 				24144CD5261133180051721D /* UserDefaultsHelper.swift in Sources */,
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
 				24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */,
@@ -414,6 +385,7 @@
 				244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */,
 				24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */,
 				24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */,
+				24C1817226147E160008A858 /* RangeSeekSliderDelegate.swift in Sources */,
 				24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */,
 				24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */,
 				24FBC8C5260024870015238A /* OrderModel.swift in Sources */,
@@ -567,7 +539,6 @@
 		};
 		244B0BE325F99E39001A71EB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 70914C3B6457422486243F35 /* Pods-GimmeAHand.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -588,7 +559,6 @@
 		};
 		244B0BE425F99E39001A71EB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6883E3D16711B53B9CED2B6B /* Pods-GimmeAHand.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -629,6 +599,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		24C1815626147B470008A858 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dzenbot/DZNEmptyDataSet.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		24C1815A26147B720008A858 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		24C1815E26147C560008A858 /* XCRemoteSwiftPackageReference "SVProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/swift-package-manager/SVProgressHUD.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		24C1816626147D350008A858 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.6;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		24C1815726147B470008A858 /* DZNEmptyDataSet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24C1815626147B470008A858 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */;
+			productName = DZNEmptyDataSet;
+		};
+		24C1815B26147B720008A858 /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24C1815A26147B720008A858 /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
+		};
+		24C1815F26147C560008A858 /* SVProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24C1815E26147C560008A858 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
+			productName = SVProgressHUD;
+		};
+		24C1816726147D350008A858 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24C1816626147D350008A858 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 244B0BC625F99E38001A71EB /* Project object */;
 }

@@ -5,7 +5,7 @@
 //  Created by Kuixi Song on 3/20/21.
 //
 
-import RangeSeekSlider
+import UIKit
 
 enum RangeSliderTag: Int {
     

@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": "master",
+          "revision": "1e7d7ed2987aa526e771454e92a1ce934a33fb1a",
+          "version": null
+        }
+      },
+      {
+        "package": "DZNEmptyDataSet",
+        "repositoryURL": "https://github.com/dzenbot/DZNEmptyDataSet.git",
+        "state": {
+          "branch": "master",
+          "revision": "9bffa69a83a9fa58a14b3cf43cb6dd8a63774179",
+          "version": null
+        }
+      },
+      {
+        "package": "IQKeyboardManagerSwift",
+        "repositoryURL": "https://github.com/hackiftekhar/IQKeyboardManager.git",
+        "state": {
+          "branch": null,
+          "revision": "4dc6bc7d1c9747bd0c261c8c055903f9fdef91f7",
+          "version": "6.5.6"
+        }
+      },
+      {
+        "package": "SVProgressHUD",
+        "repositoryURL": "https://github.com/swift-package-manager/SVProgressHUD.git",
+        "state": {
+          "branch": "master",
+          "revision": "8ecf8dcb729c3b0850ff5cdf4e1d4f641f6dcc46",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

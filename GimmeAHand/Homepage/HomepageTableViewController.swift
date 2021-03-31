@@ -6,10 +6,11 @@
 //
 
 import UIKit
-import RangeSeekSlider
+import DZNEmptyDataSet
 
 class HomepageTableViewController: UITableViewController {
 
+    var originalModelArray: [OrderModel] = []
     var modelArray: [OrderModel] = []
     
     var selectedCommunity: String? {
@@ -18,9 +19,21 @@ class HomepageTableViewController: UITableViewController {
             reloadOrders()
         }
     }
-    var selectedCategories = Set<String>(GHOrderCategory.allCases.map { $0.rawValue })
-    var selectAmountRange: (CGFloat, CGFloat) = (0.0, 10.0)
-    var selectDistanceRange: (CGFloat, CGFloat) = (0.0, 50.0)
+    var selectedCategories = Set<String>(GHOrderCategory.allCases.map { $0.rawValue }) {
+        didSet {
+            reloadOrders()
+        }
+    }
+    var selectAmountRange: (CGFloat, CGFloat) = (0.0, 10.0) {
+        didSet {
+            reloadOrders()
+        }
+    }
+    var selectDistanceRange: (CGFloat, CGFloat) = (0.0, 10.0) {
+        didSet {
+            reloadOrders()
+        }
+    }
     
     // views for filter display
     
@@ -48,6 +61,8 @@ class HomepageTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil),
                            forCellReuseIdentifier: OrderTableViewCell.reuseIdentifier)
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         // pull to refresh
         let refreshControl = UIRefreshControl()
@@ -74,11 +89,6 @@ class HomepageTableViewController: UITableViewController {
         containerView.addSubview(stackView)
         tableView.tableHeaderView = containerView
         
-        reloadOrders()
-    }
-    
-    func reloadOrders() {
-        modelArray.removeAll()
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
                                       name: "Order \(i)",
@@ -87,9 +97,25 @@ class HomepageTableViewController: UITableViewController {
                                       status: .created,
                                       date: Date(),
                                       category: GHOrderCategory.allCases.randomElement()!,
-                                      community: selectedCommunity ?? ["CMU Pittsburgh", "CMU SV", "Kenmwar Apartment", "Avalon Mountain View"].randomElement()!)
-            modelArray.append(newOrder)
+                                      community: ["CMU Pittsburgh", "CMU SV", "Kenmwar Apartment", "Avalon Mountain View"].randomElement()!)
+            originalModelArray.append(newOrder)
         }
+        
+        reloadOrders()
+    }
+    
+    func reloadOrders() {
+        modelArray.removeAll()
+        modelArray.append(contentsOf: originalModelArray)
+        
+        if let selectCommunity = selectedCommunity {
+            modelArray = modelArray.filter { $0.community == selectCommunity }
+        }
+        modelArray = modelArray.filter { selectedCategories.contains($0.category.rawValue) }
+        modelArray = modelArray.filter({ (model) -> Bool in
+            return Float(selectAmountRange.0) <= model.amount && model.amount <= Float(selectAmountRange.1)
+        })
+        
         tableView.reloadData()
     }
     
@@ -147,7 +173,7 @@ class HomepageTableViewController: UITableViewController {
             rangeSlider.selectedMinValue = selectDistanceRange.0
             rangeSlider.selectedMaxValue = selectDistanceRange.1
             rangeSlider.minValue = 0.0
-            rangeSlider.maxValue = 50.0
+            rangeSlider.maxValue = 10.0
             rangeSlider.tag = RangeSliderTag.distance.rawValue
             rangeSlider.delegate = self
             showFilterView("Set Distance Range", rangeSlider)
@@ -284,6 +310,18 @@ extension HomepageTableViewController: RangeSeekSliderDelegate {
         default:
             break
         }
+    }
+    
+}
+
+extension HomepageTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+        return modelArray.isEmpty
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        return NSAttributedString(string: "Empty result")
     }
     
 }
