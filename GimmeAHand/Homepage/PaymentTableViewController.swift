@@ -26,7 +26,7 @@ class PaymentTableViewController: UITableViewController {
     
     let paymentTypes = GHPaymentType.allCases
     
-    var delegate: PaymentTableViewControllerDelegate? = nil
+    var delegate: PaymentTableViewControllerDelegate?
     var selectedPaymentIndexPath: IndexPath? {
         didSet {
             navigationItem.rightBarButtonItem?.isEnabled = selectedPaymentIndexPath != nil

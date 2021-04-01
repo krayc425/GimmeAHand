@@ -47,6 +47,7 @@
 		24C1817026147E160008A858 /* TapticEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1816D26147E160008A858 /* TapticEngine.swift */; };
 		24C1817126147E160008A858 /* RangeSeekSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1816E26147E160008A858 /* RangeSeekSlider.swift */; };
 		24C1817226147E160008A858 /* RangeSeekSliderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1816F26147E160008A858 /* RangeSeekSliderDelegate.swift */; };
+		24C1817B2615652D0008A858 /* PreciseLocationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C1817A2615652D0008A858 /* PreciseLocationSearchViewController.swift */; };
 		24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C0260024590015238A /* OrderTableViewController.swift */; };
 		24FBC8C5260024870015238A /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C4260024870015238A /* OrderModel.swift */; };
 		24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FBC8C92600260B0015238A /* OrderTableViewCell.swift */; };
@@ -97,6 +98,7 @@
 		24C1816D26147E160008A858 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
 		24C1816E26147E160008A858 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSlider.swift; sourceTree = "<group>"; };
 		24C1816F26147E160008A858 /* RangeSeekSliderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSliderDelegate.swift; sourceTree = "<group>"; };
+		24C1817A2615652D0008A858 /* PreciseLocationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciseLocationSearchViewController.swift; sourceTree = "<group>"; };
 		24FBC8C0260024590015238A /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		24FBC8C4260024870015238A /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		24FBC8C92600260B0015238A /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */,
+				24C1817A2615652D0008A858 /* PreciseLocationSearchViewController.swift */,
 				C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */,
 			);
 			path = Common;
@@ -386,6 +389,7 @@
 				24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */,
 				24015ACF2606A85400AE95DD /* MapHelper.swift in Sources */,
 				24C1817226147E160008A858 /* RangeSeekSliderDelegate.swift in Sources */,
+				24C1817B2615652D0008A858 /* PreciseLocationSearchViewController.swift in Sources */,
 				24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */,
 				24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */,
 				24FBC8C5260024870015238A /* OrderModel.swift in Sources */,

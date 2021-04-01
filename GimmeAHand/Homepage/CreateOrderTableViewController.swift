@@ -19,6 +19,7 @@ class CreateOrderTableViewController: UITableViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var communityLabel: UILabel!
+    @IBOutlet weak var preciseLocationLabel: UILabel!
     @IBOutlet weak var paymentLabel: UILabel!
 
     override func viewDidLoad() {
@@ -70,6 +71,8 @@ class CreateOrderTableViewController: UITableViewController {
         case 4:
             let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
             present(communityViewController, animated: true)
+        case 5:
+            performSegue(withIdentifier: "preciseSegue", sender: nil)
         case 6:
             let paymentViewController = PaymentTableViewController.embeddedInNavigationController(self)
             present(paymentViewController, animated: true)
@@ -77,6 +80,16 @@ class CreateOrderTableViewController: UITableViewController {
             break
         }
     }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "preciseSegue" {
+            let destinationViewController = segue.destination as! PreciseLocationSearchViewController
+            destinationViewController.delegate = self
+        }
+    }
+
 
 }
 
@@ -101,6 +114,14 @@ extension CreateOrderTableViewController: PaymentTableViewControllerDelegate {
     
     func didSelectPayment(_ payment: String) {
         paymentLabel.text = payment
+    }
+    
+}
+
+extension CreateOrderTableViewController: PreciseLocationSearchViewControllerDelegate {
+    
+    func didSelectLocation(_ name: String) {
+        preciseLocationLabel.text = name
     }
     
 }

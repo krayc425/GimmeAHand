@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -406,14 +407,61 @@
                         <outlet property="descriptionTextView" destination="qP7-rN-ADf" id="RDs-fg-ZBk"/>
                         <outlet property="endDateField" destination="Vpm-mp-zc7" id="9sc-yc-oaj"/>
                         <outlet property="paymentLabel" destination="fQp-yd-BFV" id="g6Z-iQ-bZz"/>
+                        <outlet property="preciseLocationLabel" destination="gXm-ex-0OS" id="oi1-fH-rbx"/>
                         <outlet property="startDateField" destination="8QV-LF-PxD" id="NST-hM-Ttm"/>
                         <outlet property="tipTextField" destination="bes-zI-3XU" id="TSU-Fc-NAt"/>
                         <outlet property="titleTextField" destination="Gjh-os-Plw" id="YYW-Jb-W2o"/>
+                        <segue destination="DRj-OL-YuM" kind="show" identifier="preciseSegue" id="1we-zg-Oe8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0n1-bC-kqk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2540.579710144928" y="158.70535714285714"/>
+        </scene>
+        <!--Search a Destination-->
+        <scene sceneID="VBc-vR-s7b">
+            <objects>
+                <viewController id="DRj-OL-YuM" customClass="PreciseLocationSearchViewController" customModule="GimmeAHand" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tdd-zA-4pz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-Mt-hiW">
+                                <rect key="frame" x="0.0" y="108" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5tR-rM-fKb">
+                                <rect key="frame" x="0.0" y="164" width="414" height="644"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4hG-nJ-S5q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pYe-Mt-hiW" firstAttribute="leading" secondItem="4hG-nJ-S5q" secondAttribute="leading" id="6mS-vK-zVg"/>
+                            <constraint firstItem="4hG-nJ-S5q" firstAttribute="bottom" secondItem="5tR-rM-fKb" secondAttribute="bottom" id="8Xq-0Z-WFG"/>
+                            <constraint firstItem="pYe-Mt-hiW" firstAttribute="trailing" secondItem="4hG-nJ-S5q" secondAttribute="trailing" id="JY7-3K-82S"/>
+                            <constraint firstItem="4hG-nJ-S5q" firstAttribute="trailing" secondItem="5tR-rM-fKb" secondAttribute="trailing" id="kgf-lY-J2T"/>
+                            <constraint firstItem="5tR-rM-fKb" firstAttribute="top" secondItem="pYe-Mt-hiW" secondAttribute="bottom" id="mrj-cm-ikO"/>
+                            <constraint firstItem="5tR-rM-fKb" firstAttribute="leading" secondItem="4hG-nJ-S5q" secondAttribute="leading" id="uFJ-p3-6K8"/>
+                            <constraint firstItem="pYe-Mt-hiW" firstAttribute="top" secondItem="4hG-nJ-S5q" secondAttribute="top" id="vaX-sj-PMd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search a Destination" id="9tC-Zr-Hgj">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="baK-5a-mQv">
+                            <connections>
+                                <action selector="doneAction:" destination="DRj-OL-YuM" id="jln-PK-pju"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButtonItem" destination="baK-5a-mQv" id="wqr-tK-vXD"/>
+                        <outlet property="mapView" destination="5tR-rM-fKb" id="j2S-yE-Oa3"/>
+                        <outlet property="searchBar" destination="pYe-Mt-hiW" id="R3E-U5-gql"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EX7-YX-CNh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3449" y="159"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bFo-zj-Ccs">
@@ -441,6 +489,9 @@
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>
