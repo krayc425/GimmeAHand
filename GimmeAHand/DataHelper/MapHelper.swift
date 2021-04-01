@@ -11,6 +11,7 @@ import MapKit
 class MapHelper: NSObject {
     
     static let shared: MapHelper = MapHelper()
+    
     var locationManager: CLLocationManager {
         get {
             let locationManager = CLLocationManager()

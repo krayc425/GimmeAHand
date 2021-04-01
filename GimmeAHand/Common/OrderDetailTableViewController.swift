@@ -26,6 +26,9 @@ class OrderDetailTableViewController: UITableViewController {
     var orderModel: OrderModel? = nil
     var isFromHomepage: Bool = false
     let locationManager = MapHelper.shared.locationManager
+    
+    let randomized = (Double.random(in: -1...1) / 10.0, Double.random(in: -1...1) / 10.0)
+    var oldUserLocation: MKUserLocation = MKUserLocation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,10 +74,14 @@ class OrderDetailTableViewController: UITableViewController {
 //        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
 //        let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
 //        mapView.setRegion(region, animated: true)
+        if userLocation == oldUserLocation {
+            return
+        }
+        oldUserLocation = userLocation
         mapView.removeAnnotations(mapView.annotations)
         
-        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + Double.random(in: 0...1),
-                                                 longitude: userLocation.coordinate.longitude + Double.random(in: 0...1))
+        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + randomized.0,
+                                                 longitude: userLocation.coordinate.longitude + randomized.1)
         let targetAnnotation = GHTargetAnnotation(targetName: orderModel?.name ?? "",
                                                   coordinate: destination)
         mapView.addAnnotation(targetAnnotation)

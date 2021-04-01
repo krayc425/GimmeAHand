@@ -8,6 +8,8 @@
 import UIKit
 import DZNEmptyDataSet
 
+typealias RangePair = (CGFloat, CGFloat)
+
 class HomepageTableViewController: UITableViewController {
 
     var originalModelArray: [OrderModel] = []
@@ -24,12 +26,12 @@ class HomepageTableViewController: UITableViewController {
             reloadOrders()
         }
     }
-    var selectAmountRange: (CGFloat, CGFloat) = (0.0, 10.0) {
+    var selectAmountRange: RangePair = (0.0, 10.0) {
         didSet {
             reloadOrders()
         }
     }
-    var selectDistanceRange: (CGFloat, CGFloat) = (0.0, 10.0) {
+    var selectDistanceRange: RangePair = (0.0, 10.0) {
         didSet {
             reloadOrders()
         }
@@ -72,7 +74,7 @@ class HomepageTableViewController: UITableViewController {
         // table view header
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70.0))
         let stackView = UIStackView(frame: CGRect(x: 18.0, y: 10.0, width: containerView.frame.width - 36.0, height: 40.0))
-        for (idx, title) in ["Category", "Amount", "Distance"].enumerated() {
+        for (idx, title) in ["Categories", "Amount", "Distance"].enumerated() {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: stackView.frame.width / 3.0, height: stackView.frame.height))
             button.setTitle(title, for: .normal)
             button.setTitleColor(.white, for: .normal)
@@ -316,11 +318,11 @@ extension HomepageTableViewController: RangeSeekSliderDelegate {
 
 extension HomepageTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
     
-    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView!) -> Bool {
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
         return modelArray.isEmpty
     }
     
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
         return NSAttributedString(string: "Empty result")
     }
     

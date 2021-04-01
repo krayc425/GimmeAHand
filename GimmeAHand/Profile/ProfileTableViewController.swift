@@ -31,9 +31,9 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     }
     
     struct FakeDatastore {
-        static let email = "john.doe@example.com"
-        static let firstName = "John"
-        static let lastName = "Doe"
+        static let email = "lisa.bp@example.com"
+        static let firstName = "Lisa"
+        static let lastName = "Blackpink"
         static let phone = "111-222-3333"
         static let aboutMe = "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!"
     }

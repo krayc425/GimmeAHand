@@ -40,7 +40,7 @@ class OrderTableViewController: UITableViewController {
     }
     
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
-        debugPrint(sender.selectedSegmentIndex)
+        
     }
 
     // MARK: - Table view data source

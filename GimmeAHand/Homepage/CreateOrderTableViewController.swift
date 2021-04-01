@@ -70,7 +70,7 @@ class CreateOrderTableViewController: UITableViewController {
         case 4:
             let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
             present(communityViewController, animated: true)
-        case 5:
+        case 6:
             let paymentViewController = PaymentTableViewController.embeddedInNavigationController(self)
             present(paymentViewController, animated: true)
         default:

@@ -14,7 +14,6 @@ enum GHOrderStatus: String, CaseIterable {
     case cancelled = "Cancelled"
     case finished = "Finished"
     
-    // TODO: Use what colors...
     func decorate(_ label: inout GHStatusLabel) {
         label.text = rawValue
         label.backgroundColor = UIColor(named: rawValue)

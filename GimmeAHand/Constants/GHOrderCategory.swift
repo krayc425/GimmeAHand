@@ -9,7 +9,6 @@ import UIKit
 
 enum GHOrderCategory: String, CaseIterable {
     
-    // TODO: can add more categories
     case printing = "Printing"
     case carpool = "Car Pool"
     case supermarket = "Shopping"

@@ -48,6 +48,8 @@ class OrderMapViewController: UIViewController {
     let locationManager = MapHelper.shared.locationManager
     
     var orderModel: OrderModel?
+    let randomized = (Double.random(in: -1...1) / 10.0, Double.random(in: -1...1) / 10.0)
+    var oldUserLocation: MKUserLocation = MKUserLocation()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,12 +64,16 @@ class OrderMapViewController: UIViewController {
     
     func updateUserLocation(_ userLocation: MKUserLocation) {
         // clear old annotations and overlays
+        if userLocation == oldUserLocation {
+            return
+        }
+        oldUserLocation = userLocation
         mapView.removeAnnotations(mapView.annotations)
         mapView.removeOverlays(mapView.overlays)
         
         // mock destination
-        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + Double.random(in: -1...1) / 10.0,
-                                                 longitude: userLocation.coordinate.longitude + Double.random(in: -1...1) / 10.0)
+        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + randomized.0,
+                                                 longitude: userLocation.coordinate.longitude + randomized.1)
         let targetAnnotation = GHTargetAnnotation(targetName: orderModel?.name ?? "",
                                                   coordinate: destination)
         mapView.addAnnotation(targetAnnotation)
