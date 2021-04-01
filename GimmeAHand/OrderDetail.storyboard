@@ -27,13 +27,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" showsUserLocation="YES" showsCompass="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W11-LB-cNg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="210.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="315"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="W11-LB-cNg" secondAttribute="height" multiplier="16:9" id="PKu-uS-Cnn"/>
                                                     </constraints>
                                                 </mapView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="XjA-eE-97m">
-                                                    <rect key="frame" x="0.0" y="230.5" width="374" height="44"/>
+                                                    <rect key="frame" x="0.0" y="335" width="374" height="44"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfs-Oi-Kgb">
                                                             <rect key="frame" x="0.0" y="0.0" width="177" height="44"/>
@@ -87,8 +87,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Created on" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOP-MO-WXs">
-                                                    <rect key="frame" x="20" y="11.5" width="88" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time window" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOP-MO-WXs">
+                                                    <rect key="frame" x="20" y="11.5" width="105" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -334,7 +334,6 @@
                         <outlet property="amountLabel" destination="HCl-mx-dLN" id="DYo-TY-Mbh"/>
                         <outlet property="categoryImageView" destination="dqG-wA-5V4" id="Cig-Fj-FEW"/>
                         <outlet property="categoryLabel" destination="Znk-ia-UiK" id="IAm-v8-8lE"/>
-                        <outlet property="createdDateLabel" destination="LjD-vB-EW4" id="ewv-xK-fSd"/>
                         <outlet property="descriptionLabel" destination="mWk-Cf-U62" id="wjb-Di-svd"/>
                         <outlet property="fullMapButton" destination="Pfs-Oi-Kgb" id="jb0-iO-XmT"/>
                         <outlet property="mapView" destination="W11-LB-cNg" id="wMe-r3-Qam"/>
@@ -342,6 +341,7 @@
                         <outlet property="orderCreaterLabel" destination="W4t-dk-Gko" id="RGX-Rh-FR5"/>
                         <outlet property="orderRecieverLabel" destination="Liq-KC-Y6q" id="sH6-4A-ek8"/>
                         <outlet property="statusLabel" destination="99b-6u-52Q" id="KNC-9d-Wvb"/>
+                        <outlet property="validDateLabel" destination="LjD-vB-EW4" id="ewv-xK-fSd"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feO-e7-esN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -15,14 +15,19 @@ class OrderModel: NSObject {
     var amount: Float
     var status: GHOrderStatus
     var createdDate: Date
+    var startDate: Date
+    var endDate: Date
     var category: GHOrderCategory
     var community: String
 
     var amountString: String {
         return GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: Double(amount)))!
     }
-    var createdDateString: String {
-        return GHConstant.kDateFormatter.string(from: createdDate)
+    var validDateString: String {
+        return "Valid from \(GHConstant.kOrderDateFormatter.string(from: startDate)) to \(GHConstant.kOrderDateFormatter.string(from: endDate))"
+    }
+    var expireDateString: String {
+        return "Expire on \(GHConstant.kOrderDateFormatter.string(from: endDate))"
     }
     
     var isTaken: Bool {
@@ -34,7 +39,9 @@ class OrderModel: NSObject {
          description: String,
          amount: Float,
          status: GHOrderStatus,
-         date: Date,
+         createDate: Date,
+         startDate: Date,
+         endDate: Date,
          category: GHOrderCategory,
          community: String) {
         self.id = id
@@ -42,7 +49,9 @@ class OrderModel: NSObject {
         self.orderDescription = description
         self.amount = amount
         self.status = status
-        self.createdDate = date
+        self.createdDate = createDate
+        self.startDate = startDate
+        self.endDate = endDate
         self.category = category
         self.community = community
     }

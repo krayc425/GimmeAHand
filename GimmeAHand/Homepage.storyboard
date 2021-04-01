@@ -135,7 +135,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3T-mN-FYF">
                                                     <rect key="frame" x="251" y="11.5" width="84" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -216,24 +216,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Community" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlg-Wf-d7t">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Community" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlg-Wf-d7t">
                                                     <rect key="frame" x="20" y="12" width="92" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-vB-FgC">
-                                                    <rect key="frame" x="251" y="11.5" width="84" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Select One" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-vB-FgC">
+                                                    <rect key="frame" x="122" y="11" width="213" height="22"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="iaa-vB-FgC" firstAttribute="leading" secondItem="Vlg-Wf-d7t" secondAttribute="trailing" constant="10" id="4uY-pl-JBb"/>
+                                                <constraint firstItem="iaa-vB-FgC" firstAttribute="bottom" secondItem="J91-tV-kem" secondAttribute="bottomMargin" id="CcO-K9-FER"/>
                                                 <constraint firstItem="Vlg-Wf-d7t" firstAttribute="centerY" secondItem="J91-tV-kem" secondAttribute="centerY" id="KHv-wP-n2s"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="iaa-vB-FgC" secondAttribute="trailing" id="coG-Ef-svX"/>
                                                 <constraint firstItem="Vlg-Wf-d7t" firstAttribute="leading" secondItem="J91-tV-kem" secondAttribute="leadingMargin" id="hzF-RK-McN"/>
-                                                <constraint firstItem="iaa-vB-FgC" firstAttribute="centerY" secondItem="J91-tV-kem" secondAttribute="centerY" id="mPk-Tu-GeG"/>
+                                                <constraint firstItem="iaa-vB-FgC" firstAttribute="top" secondItem="J91-tV-kem" secondAttribute="topMargin" id="ls1-IJ-OhR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -244,24 +246,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmw-Vl-dD8">
-                                                    <rect key="frame" x="20" y="12" width="161" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmw-Vl-dD8">
+                                                    <rect key="frame" x="20" y="12" width="91" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXm-ex-0OS">
-                                                    <rect key="frame" x="251" y="11.5" width="84" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Select One" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXm-ex-0OS">
+                                                    <rect key="frame" x="121" y="11" width="214" height="22"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="gXm-ex-0OS" firstAttribute="bottom" secondItem="8LN-t5-Yph" secondAttribute="bottomMargin" id="0Wy-2g-VbX"/>
                                                 <constraint firstItem="Fmw-Vl-dD8" firstAttribute="leading" secondItem="8LN-t5-Yph" secondAttribute="leadingMargin" id="Tb6-0s-jfM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="gXm-ex-0OS" secondAttribute="trailing" id="Tor-fN-lhy"/>
+                                                <constraint firstItem="gXm-ex-0OS" firstAttribute="top" secondItem="8LN-t5-Yph" secondAttribute="topMargin" id="VNd-86-7Ms"/>
                                                 <constraint firstItem="Fmw-Vl-dD8" firstAttribute="centerY" secondItem="8LN-t5-Yph" secondAttribute="centerY" id="WZa-Yo-bCB"/>
-                                                <constraint firstItem="gXm-ex-0OS" firstAttribute="centerY" secondItem="8LN-t5-Yph" secondAttribute="centerY" id="eFQ-It-kLH"/>
+                                                <constraint firstItem="gXm-ex-0OS" firstAttribute="leading" secondItem="Fmw-Vl-dD8" secondAttribute="trailing" constant="10" id="Yqb-51-OTS"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -280,7 +284,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select One" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-yd-BFV">
                                                     <rect key="frame" x="251" y="11.5" width="84" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -418,7 +422,7 @@
             </objects>
             <point key="canvasLocation" x="2540.579710144928" y="158.70535714285714"/>
         </scene>
-        <!--Search a Destination-->
+        <!--Set a Destination-->
         <scene sceneID="VBc-vR-s7b">
             <objects>
                 <viewController id="DRj-OL-YuM" customClass="PreciseLocationSearchViewController" customModule="GimmeAHand" customModuleProvider="target" sceneMemberID="viewController">
@@ -426,19 +430,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-Mt-hiW">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Enter a keyword to search" translatesAutoresizingMaskIntoConstraints="NO" id="pYe-Mt-hiW">
                                 <rect key="frame" x="0.0" y="108" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="5tR-rM-fKb">
-                                <rect key="frame" x="0.0" y="164" width="414" height="644"/>
+                                <rect key="frame" x="0.0" y="164" width="414" height="678"/>
                             </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4hG-nJ-S5q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="pYe-Mt-hiW" firstAttribute="leading" secondItem="4hG-nJ-S5q" secondAttribute="leading" id="6mS-vK-zVg"/>
-                            <constraint firstItem="4hG-nJ-S5q" firstAttribute="bottom" secondItem="5tR-rM-fKb" secondAttribute="bottom" id="8Xq-0Z-WFG"/>
+                            <constraint firstAttribute="bottom" secondItem="5tR-rM-fKb" secondAttribute="bottom" id="8Xq-0Z-WFG"/>
                             <constraint firstItem="pYe-Mt-hiW" firstAttribute="trailing" secondItem="4hG-nJ-S5q" secondAttribute="trailing" id="JY7-3K-82S"/>
                             <constraint firstItem="4hG-nJ-S5q" firstAttribute="trailing" secondItem="5tR-rM-fKb" secondAttribute="trailing" id="kgf-lY-J2T"/>
                             <constraint firstItem="5tR-rM-fKb" firstAttribute="top" secondItem="pYe-Mt-hiW" secondAttribute="bottom" id="mrj-cm-ikO"/>
@@ -446,7 +450,7 @@
                             <constraint firstItem="pYe-Mt-hiW" firstAttribute="top" secondItem="4hG-nJ-S5q" secondAttribute="top" id="vaX-sj-PMd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Search a Destination" id="9tC-Zr-Hgj">
+                    <navigationItem key="navigationItem" title="Set a Destination" id="9tC-Zr-Hgj">
                         <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="baK-5a-mQv">
                             <connections>
                                 <action selector="doneAction:" destination="DRj-OL-YuM" id="jln-PK-pju"/>

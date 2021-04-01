@@ -26,6 +26,11 @@ struct GHConstant {
         fmt.dateFormat = "MMM dd, yyyy"
         return fmt
     }()
+    static let kOrderDateFormatter: DateFormatter = {
+        let fmt = DateFormatter()
+        fmt.dateFormat = "HH:mm"
+        return fmt
+    }()
     static let kAmountFormatter: NumberFormatter = {
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency

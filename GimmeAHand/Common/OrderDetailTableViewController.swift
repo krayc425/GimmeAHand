@@ -13,7 +13,7 @@ class OrderDetailTableViewController: UITableViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var statusLabel: GHStatusLabel!
-    @IBOutlet weak var createdDateLabel: UILabel!
+    @IBOutlet weak var validDateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var orderRecieverLabel: UILabel!
@@ -66,14 +66,11 @@ class OrderDetailTableViewController: UITableViewController {
         } else {
             descriptionLabel.text = model.orderDescription
         }
-        createdDateLabel.text = model.createdDateString
+        validDateLabel.text = model.validDateString
         amountLabel.text = model.amountString
     }
     
     func updateUserLocation(_ userLocation: MKUserLocation) {
-//        let span = MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5)
-//        let region = MKCoordinateRegion(center: userLocation.coordinate, span: span)
-//        mapView.setRegion(region, animated: true)
         if userLocation == oldUserLocation {
             return
         }

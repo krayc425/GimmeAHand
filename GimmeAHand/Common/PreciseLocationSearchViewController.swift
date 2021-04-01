@@ -33,8 +33,8 @@ class PreciseLocationSearchViewController: UIViewController {
         super.viewDidLoad()
 
         doneBarButtonItem.isEnabled = false
-        
         searchBar.delegate = self
+        
         mapView.delegate = self
         locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
@@ -49,25 +49,16 @@ class PreciseLocationSearchViewController: UIViewController {
     func searchLocation(with keyword: String) {
         let searchRequest = MKLocalSearch.Request()
         searchRequest.naturalLanguageQuery = keyword
-
-        // Set the region to an associated map view's region.
         searchRequest.region = mapView.region
 
         let search = MKLocalSearch(request: searchRequest)
         search.start { [weak self] (response, error) in
             guard let response = response else {
-                // Handle the error.
                 return
             }
             DispatchQueue.main.async {
                 self?.updateMapViewAnnotations(response.mapItems)
             }
-//            for item in response.mapItems {
-//                if let name = item.name,
-//                    let location = item.placemark.location {
-//                    debugPrint("\(name): \(location.coordinate.latitude),\(location.coordinate.longitude)")
-//                }
-//            }
         }
     }
     

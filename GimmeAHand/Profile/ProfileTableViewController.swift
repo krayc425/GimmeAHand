@@ -64,6 +64,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         lastNameLabel.text = FakeDatastore.lastName
         phoneLabel.text = FakeDatastore.phone
         aboutMeLabel.text = FakeDatastore.aboutMe
+        avatarImageView.setRoundCorner(avatarImageView.frame.width / 2.0)
         
         // TODO: mock verification labels
         [emailVerifyLabel, phoneVerifyLabel].forEach {

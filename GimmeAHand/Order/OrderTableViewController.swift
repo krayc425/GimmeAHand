@@ -32,7 +32,9 @@ class OrderTableViewController: UITableViewController {
                                       description: "blahblahblah",
                                       amount: Float.random(in: 0..<10),
                                       status: GHOrderStatus.allCases.randomElement()!,
-                                      date: Date(),
+                                      createDate: Date(),
+                                      startDate: Date(),
+                                      endDate: Date(),
                                       category: GHOrderCategory.allCases.randomElement()!,
                                       community: ["CMU SV", "CMU Pittsburgh"].randomElement()!)
             modelArray.append(newOrder)

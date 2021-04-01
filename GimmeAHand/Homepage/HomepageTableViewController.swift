@@ -97,7 +97,9 @@ class HomepageTableViewController: UITableViewController {
                                       description: "blahblahblah",
                                       amount: Float.random(in: 0..<10),
                                       status: .created,
-                                      date: Date(),
+                                      createDate: Date(),
+                                      startDate: Date(),
+                                      endDate: Date(),
                                       category: GHOrderCategory.allCases.randomElement()!,
                                       community: ["CMU Pittsburgh", "CMU SV", "Kenmwar Apartment", "Avalon Mountain View"].randomElement()!)
             originalModelArray.append(newOrder)

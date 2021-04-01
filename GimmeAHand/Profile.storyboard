@@ -27,10 +27,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKN-NO-HOX">
-                                                    <rect key="frame" x="16" y="59.5" width="90" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="0EC-Oe-BKj"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="16" y="59.5" width="47" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -173,7 +170,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="wRy-8v-G0N">
-                                                    <rect key="frame" x="16" y="11" width="90" height="21.5"/>
+                                                    <rect key="frame" x="16" y="11" width="100" height="21.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRN-th-d9k">
                                                             <rect key="frame" x="0.0" y="0.0" width="33" height="8.5"/>
@@ -181,10 +178,10 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-Pt-BZw">
-                                                            <rect key="frame" x="0.0" y="13.5" width="90" height="8"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Num" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvV-Pt-BZw">
+                                                            <rect key="frame" x="0.0" y="13.5" width="100" height="8"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="90" id="2oT-JD-hFE"/>
+                                                                <constraint firstAttribute="width" constant="100" id="2oT-JD-hFE"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
@@ -252,13 +249,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Community List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cM8-ri-aXf">
-                                                    <rect key="frame" x="16" y="11.5" width="153" height="21"/>
+                                                    <rect key="frame" x="16" y="0.0" width="304" height="44"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epF-pS-hXK" userLabel="Add Community Button">
-                                                    <rect key="frame" x="336" y="11" width="18" height="22"/>
+                                                    <rect key="frame" x="330" y="0.0" width="44" height="44"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="epF-pS-hXK" secondAttribute="height" multiplier="1:1" id="Owb-na-7LQ"/>
+                                                    </constraints>
                                                     <color key="tintColor" name="GHTint"/>
                                                     <state key="normal" image="plus" catalog="system"/>
                                                     <connections>
@@ -268,9 +268,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cM8-ri-aXf" firstAttribute="leading" secondItem="0Pr-LT-SH8" secondAttribute="leading" constant="16" id="416-cV-L8p"/>
-                                                <constraint firstAttribute="trailing" secondItem="epF-pS-hXK" secondAttribute="trailing" constant="20" symbolic="YES" id="Mpm-4C-1JU"/>
-                                                <constraint firstItem="cM8-ri-aXf" firstAttribute="centerY" secondItem="0Pr-LT-SH8" secondAttribute="centerY" id="Uo9-Gv-nnD"/>
-                                                <constraint firstItem="epF-pS-hXK" firstAttribute="centerY" secondItem="0Pr-LT-SH8" secondAttribute="centerY" id="mXo-Uk-kSx"/>
+                                                <constraint firstItem="cM8-ri-aXf" firstAttribute="top" secondItem="0Pr-LT-SH8" secondAttribute="top" id="83X-9o-o4f"/>
+                                                <constraint firstAttribute="bottom" secondItem="epF-pS-hXK" secondAttribute="bottom" id="Axk-rT-hZC"/>
+                                                <constraint firstAttribute="bottom" secondItem="cM8-ri-aXf" secondAttribute="bottom" id="FMd-3W-cfH"/>
+                                                <constraint firstAttribute="trailing" secondItem="epF-pS-hXK" secondAttribute="trailing" id="Mpm-4C-1JU"/>
+                                                <constraint firstItem="epF-pS-hXK" firstAttribute="top" secondItem="0Pr-LT-SH8" secondAttribute="top" id="OUJ-uf-qNe"/>
+                                                <constraint firstItem="epF-pS-hXK" firstAttribute="leading" secondItem="cM8-ri-aXf" secondAttribute="trailing" constant="10" id="r31-L4-Bgw"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

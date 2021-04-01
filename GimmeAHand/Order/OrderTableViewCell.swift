@@ -20,7 +20,8 @@ class OrderTableViewCell: UITableViewCell {
 
     func config(_ model: OrderModel, _ hideStatus: Bool) {
         nameLabel.text = model.name
-        dateLabel.text = model.createdDateString
+        dateLabel.isHidden = !hideStatus
+        dateLabel.text = "\(model.expireDateString)\n0.5 miles from you"
         amountLabel.text = model.amountString
         statusLabel.isHidden = hideStatus
         if !hideStatus {
