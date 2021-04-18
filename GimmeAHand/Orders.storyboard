@@ -28,7 +28,13 @@
                             <outlet property="delegate" destination="ExB-rN-Za0" id="gDm-o4-u9r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Orders" id="vEE-cH-VUz"/>
+                    <navigationItem key="navigationItem" title="Orders" id="vEE-cH-VUz">
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="5Cc-WV-0Rh">
+                            <connections>
+                                <action selector="infoAction:" destination="ExB-rN-Za0" id="1Xx-qT-6Mk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="NyK-su-oh2" kind="show" identifier="orderDetailSegue" id="Rcm-wX-Phl"/>
                     </connections>
@@ -69,6 +75,7 @@
     <color key="tintColor" name="GHTint"/>
     <resources>
         <image name="doc.plaintext" catalog="system" width="115" height="128"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
         <namedColor name="GHTint">
             <color red="0.20392156862745098" green="0.66666666666666663" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

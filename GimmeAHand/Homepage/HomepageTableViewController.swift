@@ -10,14 +10,14 @@ import DZNEmptyDataSet
 
 typealias RangePair = (CGFloat, CGFloat)
 
-class HomepageTableViewController: UITableViewController {
+class HomepageTableViewController: GHFilterViewTableViewController {
 
     var originalModelArray: [OrderModel] = []
     var modelArray: [OrderModel] = []
     
     var selectedCommunity: String? {
         didSet {
-            navigationItem.title = selectedCommunity
+            navigationItem.title = "Orders in \(selectedCommunity ?? "")"
             reloadOrders()
         }
     }
@@ -36,26 +36,6 @@ class HomepageTableViewController: UITableViewController {
             reloadOrders()
         }
     }
-    
-    // views for filter display
-    
-    lazy var containerView: UIView = {
-        let containerView = UIView(frame: CGRect(x: 0.0, y: tableView.frame.height, width: tableView.frame.width, height: 350.0))
-        containerView.backgroundColor = .systemBackground
-        containerView.setRoundCorner(20.0)
-        return containerView
-    }()
-    lazy var blurEffectView: UIVisualEffectView = {
-        let blurEffectView = UIVisualEffectView()
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.isUserInteractionEnabled = true
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissFilterView))
-        blurEffectView.addGestureRecognizer(tapGesture)
-        
-        return blurEffectView
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -158,7 +138,7 @@ class HomepageTableViewController: UITableViewController {
                     }
                 }
             }
-            showFilterView("Select Categories", categorySelectionView)
+            showFilterView("Filter by Categories", categorySelectionView)
         case 1:
             let rangeSlider = RangeSeekSlider()
             rangeSlider.setupGHStyle()
@@ -169,7 +149,7 @@ class HomepageTableViewController: UITableViewController {
             rangeSlider.maxValue = 10.0
             rangeSlider.tag = RangeSliderTag.amount.rawValue
             rangeSlider.delegate = self
-            showFilterView("Set Amount Range", rangeSlider)
+            showFilterView("Filter by Amount", rangeSlider)
         case 2:
             let rangeSlider = RangeSeekSlider()
             rangeSlider.setupGHStyle()
@@ -180,79 +160,9 @@ class HomepageTableViewController: UITableViewController {
             rangeSlider.maxValue = 10.0
             rangeSlider.tag = RangeSliderTag.distance.rawValue
             rangeSlider.delegate = self
-            showFilterView("Set Distance Range", rangeSlider)
+            showFilterView("Filter by Distance", rangeSlider)
         default:
             break
-        }
-    }
-    
-    func showFilterView(_ filterTitle: String, _ filterView: UIView) {
-        let margin: CGFloat = 20.0
-        
-        // clear old subviews
-        containerView.subviews.forEach {
-            $0.removeFromSuperview()
-        }
-        
-        UIView.animate(withDuration: GHConstant.kFilterViewTransitionDuration, delay: 0.0, options: [.curveEaseOut, .transitionFlipFromBottom]) {
-            
-            // execute animation
-            self.blurEffectView.effect = UIBlurEffect(style: .dark)
-            UIApplication.shared.windows.first!.addSubview(self.blurEffectView)
-            let containerView = self.containerView
-            
-            // real animation
-            containerView.frame.origin.y = self.tableView.frame.height - containerView.frame.height
-            
-            // add title
-            let titleLabel = UILabel(frame: CGRect(x: margin, y: 0, width: containerView.frame.width - 2 * margin, height: 80.0))
-            titleLabel.font = UIFont.boldSystemFont(ofSize: 34.0)
-            titleLabel.text = filterTitle
-            containerView.addSubview(titleLabel)
-            
-            // add dismiss button
-            let dismissButton = UIButton(frame: CGRect(x: margin, y: containerView.frame.height - 90.0, width: containerView.frame.width - 2 * margin, height: 50.0))
-            dismissButton.backgroundColor = .GHTint
-            dismissButton.setRoundCorner()
-            dismissButton.setTitle("OK", for: .normal)
-            dismissButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-            dismissButton.addAction(UIAction(handler: { (action) in
-                // dismiss the containerView
-                self.dismissFilterView(nil)
-            }), for: .touchUpInside)
-            containerView.addSubview(dismissButton)
-            
-            // add customzied filter view
-            filterView.translatesAutoresizingMaskIntoConstraints = false
-            containerView.addSubview(filterView)
-            containerView.addConstraints([
-                NSLayoutConstraint(item: filterView, attribute: .top, relatedBy: .equal, toItem: titleLabel, attribute: .bottom, multiplier: 1.0, constant: 0.0),
-                NSLayoutConstraint(item: filterView, attribute: .bottom, relatedBy: .equal, toItem: dismissButton, attribute: .top, multiplier: 1.0, constant: -margin),
-                NSLayoutConstraint(item: filterView, attribute: .leading, relatedBy: .equal, toItem: containerView, attribute: .leading, multiplier: 1.0, constant: margin),
-                NSLayoutConstraint(item: filterView, attribute: .trailing, relatedBy: .equal, toItem: containerView, attribute: .trailing, multiplier: 1.0, constant: -margin)
-            ])
-            containerView.updateConstraintsIfNeeded()
-            
-            UIApplication.shared.windows.first!.addSubview(containerView)
-            UIApplication.shared.windows.first!.bringSubviewToFront(containerView)
-        } completion: { (completed) in
-            if completed {
-                self.tableView.isUserInteractionEnabled = false
-            }
-        }
-    }
-    
-    @objc func dismissFilterView(_ sender: UITapGestureRecognizer?) {
-        UIView.animate(withDuration: GHConstant.kFilterViewTransitionDuration, delay: 0.0, options: .curveEaseIn) {
-            // dismiss containerview animation
-            self.blurEffectView.effect = nil
-            self.containerView.frame.origin.y = self.tableView.frame.height
-        } completion: { (completed) in
-            if completed {
-                self.containerView.removeFromSuperview()
-                self.blurEffectView.removeFromSuperview()
-                self.tableView.isUserInteractionEnabled = true
-            }
         }
     }
 

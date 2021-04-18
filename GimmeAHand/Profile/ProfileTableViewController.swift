@@ -16,8 +16,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
             static let firstName = 0
             static let lastName = 0
             static let phone = 0
-            static let aboutMe = 1
-            static let community = 2
+            static let community = 1
         }
         
         struct Row {
@@ -26,7 +25,6 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
             static let firstName = 2
             static let lastName = 3
             static let phone = 4
-            static let aboutMe = 0
         }
     }
     
@@ -35,7 +33,6 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         static let firstName = "Lisa"
         static let lastName = "Blackpink"
         static let phone = "111-222-3333"
-        static let aboutMe = "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA!"
     }
     
     @IBOutlet weak var addCommunityButton: UIButton!
@@ -43,7 +40,6 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var aboutMeLabel: UILabel!
     @IBOutlet weak var changePasswordBotton: UIButton!
     @IBOutlet weak var logoutBotton: UIButton!
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -63,7 +59,6 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         firstNameLabel.text = FakeDatastore.firstName
         lastNameLabel.text = FakeDatastore.lastName
         phoneLabel.text = FakeDatastore.phone
-        aboutMeLabel.text = FakeDatastore.aboutMe
         avatarImageView.setRoundCorner(avatarImageView.frame.width / 2.0)
         
         // TODO: mock verification labels
@@ -131,7 +126,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -264,19 +259,6 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
             ac.addAction(UIAlertAction(title: "Verify", style: .destructive, handler: { alertAction in
                 let newInput = ac.textFields?.first?.text
                 self.phoneLabel.text = newInput
-            }))
-            present(ac, animated: true)
-        } else if indexPath.section == CellPositions.Section.aboutMe && indexPath.row == CellPositions.Row.aboutMe {
-            let ac = UIAlertController(title: "Edit About Me", message: "What would you want to say here?", preferredStyle: .alert)
-            
-            ac.addTextField{(aboutMeText) -> Void in
-                aboutMeText.placeholder = self.aboutMeLabel.text
-            }
-            
-            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            ac.addAction(UIAlertAction(title: "OK", style: .default, handler: { alertAction in
-                let newInput = ac.textFields?.first?.text
-                self.aboutMeLabel.text = newInput
             }))
             present(ac, animated: true)
         }

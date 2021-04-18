@@ -24,7 +24,7 @@ class OrderModel: NSObject {
         return GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: Double(amount)))!
     }
     var validDateString: String {
-        return "Valid from \(GHConstant.kOrderDateFormatter.string(from: startDate)) to \(GHConstant.kOrderDateFormatter.string(from: endDate))"
+        return GHConstant.kOrderDateFormatter.string(from: endDate)
     }
     var expireDateString: String {
         return "Expire on \(GHConstant.kOrderDateFormatter.string(from: endDate))"

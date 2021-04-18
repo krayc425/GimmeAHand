@@ -27,6 +27,7 @@
 		24015B38260C376B00AE95DD /* CategorySelectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B37260C376B00AE95DD /* CategorySelectionTableViewController.swift */; };
 		24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */; };
 		24015B3D260C377A00AE95DD /* CategorySelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */; };
+		240FBE4D262CF58300213B9E /* GHFilterViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE4C262CF58300213B9E /* GHFilterViewTableViewController.swift */; };
 		24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD1260F20B40051721D /* UIColorExtensions.swift */; };
 		24144CD5261133180051721D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD4261133180051721D /* UserDefaultsHelper.swift */; };
 		24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD8261135750051721D /* UIViewControllerExtensions.swift */; };
@@ -80,6 +81,7 @@
 		24015B37260C376B00AE95DD /* CategorySelectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewController.swift; sourceTree = "<group>"; };
 		24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
+		240FBE4C262CF58300213B9E /* GHFilterViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFilterViewTableViewController.swift; sourceTree = "<group>"; };
 		24144CD1260F20B40051721D /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		24144CD4261133180051721D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		24144CD8261135750051721D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				24015AA72605862500AE95DD /* CommunitySearchTableViewController.swift */,
 				24C1817A2615652D0008A858 /* PreciseLocationSearchViewController.swift */,
 				C84461DD2605392B0036DBC4 /* OrderDetailTableViewController.swift */,
+				240FBE4C262CF58300213B9E /* GHFilterViewTableViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
 				24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */,
 				24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */,
+				240FBE4D262CF58300213B9E /* GHFilterViewTableViewController.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,
 				244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */,
 				24015B2B260AD2A800AE95DD /* PaymentTableViewCell.swift in Sources */,

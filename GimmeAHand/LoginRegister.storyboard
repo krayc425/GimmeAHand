@@ -175,19 +175,41 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="ceS-Rk-Ibj">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="R91-nS-v1b">
+                                        <rect key="frame" x="16" y="350" width="343" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R91-nS-v1b" id="j1e-rJ-6Mw">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6GW-Wx-3HL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <state key="normal" title="Register"/>
+                                                    <connections>
+                                                        <segue destination="KeH-T5-wTr" kind="show" id="50W-df-Q9D"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6GW-Wx-3HL" firstAttribute="top" secondItem="j1e-rJ-6Mw" secondAttribute="top" id="80v-Ej-79K"/>
+                                                <constraint firstAttribute="trailing" secondItem="6GW-Wx-3HL" secondAttribute="trailing" id="Cqo-Ke-2d8"/>
+                                                <constraint firstAttribute="bottom" secondItem="6GW-Wx-3HL" secondAttribute="bottom" id="R4q-av-Gxe"/>
+                                                <constraint firstItem="6GW-Wx-3HL" firstAttribute="leading" secondItem="j1e-rJ-6Mw" secondAttribute="leading" id="r83-5w-QYQ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="Idl-Ml-sDn" id="2i2-ic-WGF"/>
                             <outlet property="delegate" destination="Idl-Ml-sDn" id="xSU-kt-EOs"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Login" id="3cc-GR-b9Y">
-                        <barButtonItem key="rightBarButtonItem" title="Register" id="4cy-PV-ewh">
-                            <connections>
-                                <segue destination="KeH-T5-wTr" kind="show" id="aqL-Ke-IBF"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Login" id="3cc-GR-b9Y"/>
                     <connections>
                         <outlet property="bioTypeLabel" destination="k7W-vB-XNf" id="R6g-4g-ryh"/>
                         <outlet property="emailTextField" destination="xRz-iP-zh4" id="QIK-lg-6FP"/>
@@ -509,7 +531,6 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="loginAction:" destination="Idl-Ml-sDn" eventType="touchUpInside" id="LCL-dq-CuX"/>
                                                         <action selector="registerAction:" destination="KeH-T5-wTr" eventType="touchUpInside" id="tXo-jr-XSq"/>
                                                     </connections>
                                                 </button>

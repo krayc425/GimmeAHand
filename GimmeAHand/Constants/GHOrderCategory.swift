@@ -33,7 +33,7 @@ enum GHOrderCategory: String, CaseIterable {
         case .umbrella:
             return UIImage(systemName: "umbrella.fill")
         case .takeout:
-            return UIImage(systemName: "mouth.fill")
+            return UIImage(named: "takeout")
         }
     }
     

@@ -44,6 +44,7 @@ class GHTargetAnnotation: NSObject, MKAnnotation {
 class OrderMapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var navigateButton: UIButton!
     
     let locationManager = MapHelper.shared.locationManager
     
@@ -58,6 +59,7 @@ class OrderMapViewController: UIViewController {
         locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
         mapView.register(GHTargetMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        navigateButton.setRoundCorner()
         
         updateUserLocation(mapView.userLocation)
     }
@@ -118,6 +120,13 @@ class OrderMapViewController: UIViewController {
         }
     }
 
+    @IBAction func navigationAction(_ sender: UIButton) {
+        guard let model = orderModel else {
+            return
+        }
+        MapHelper.shared.navigate(37.0, -122.0, model.name)
+    }
+    
 }
 
 extension OrderMapViewController: MKMapViewDelegate {

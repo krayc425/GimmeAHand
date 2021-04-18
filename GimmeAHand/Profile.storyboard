@@ -202,47 +202,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="gYl-sB-FfZ">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="6iH-4g-GE4">
-                                        <rect key="frame" x="20" y="368.66667175292969" width="374" height="43.666667938232422"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6iH-4g-GE4" id="zbI-rA-Onh">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.666667938232422"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPc-5f-DXk">
-                                                    <rect key="frame" x="16" y="11.5" width="90" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="U7f-Nf-6MY"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sk;djglkjsdglkjsahdsjlksdhgkj;ladghj;ladksghj;sdklhg" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rex-PX-efW">
-                                                    <rect key="frame" x="106" y="11" width="229" height="22"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Rex-PX-efW" firstAttribute="trailing" secondItem="zbI-rA-Onh" secondAttribute="trailingMargin" id="4Dw-Zn-twO"/>
-                                                <constraint firstItem="hPc-5f-DXk" firstAttribute="leading" secondItem="zbI-rA-Onh" secondAttribute="leading" constant="16" id="JXI-hO-CAG"/>
-                                                <constraint firstItem="Rex-PX-efW" firstAttribute="leading" secondItem="hPc-5f-DXk" secondAttribute="trailing" id="LGt-mk-i4m"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Rex-PX-efW" secondAttribute="bottom" id="WBq-6l-1sk"/>
-                                                <constraint firstItem="Rex-PX-efW" firstAttribute="top" secondItem="zbI-rA-Onh" secondAttribute="topMargin" id="fTT-dy-0CC"/>
-                                                <constraint firstItem="hPc-5f-DXk" firstAttribute="centerY" secondItem="zbI-rA-Onh" secondAttribute="centerY" id="rhZ-ZS-ZMn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection id="5Px-4v-jYK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="UY8-FE-bAN">
-                                        <rect key="frame" x="20" y="448.33333969116211" width="374" height="43.666667938232422"/>
+                                        <rect key="frame" x="20" y="368.66667175292969" width="374" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UY8-FE-bAN" id="0Pr-LT-SH8">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.666667938232422"/>
@@ -282,7 +245,7 @@
                             <tableViewSection id="iXe-MC-e9t">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="EMt-2b-cXa">
-                                        <rect key="frame" x="20" y="528.00000762939453" width="374" height="50"/>
+                                        <rect key="frame" x="20" y="448.33333969116211" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EMt-2b-cXa" id="IAM-eu-Ntr">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -313,7 +276,7 @@
                             <tableViewSection id="d5A-ws-4dw">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="ScM-6s-5W4">
-                                        <rect key="frame" x="20" y="614.00000762939453" width="374" height="50"/>
+                                        <rect key="frame" x="20" y="534.33333969116211" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ScM-6s-5W4" id="v0Y-Li-FmE">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -349,7 +312,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="tGz-gL-31n"/>
                     <connections>
-                        <outlet property="aboutMeLabel" destination="Rex-PX-efW" id="iHW-Si-oyU"/>
                         <outlet property="addCommunityButton" destination="epF-pS-hXK" id="9IN-hW-kEC"/>
                         <outlet property="avatarImageView" destination="le1-DB-KOQ" id="uRZ-1X-GBc"/>
                         <outlet property="changePasswordBotton" destination="rfU-TT-3nR" id="wmt-VV-pQF"/>

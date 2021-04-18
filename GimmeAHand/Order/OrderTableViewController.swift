@@ -7,12 +7,14 @@
 
 import UIKit
 
-class OrderTableViewController: UITableViewController {
+class OrderTableViewController: GHFilterViewTableViewController {
 
     var modelArray: [OrderModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "My Placed Orders"
         
         // Make sure that there is a path top to bottom, that can determine the height of current cell
         tableView.rowHeight = UITableView.automaticDimension
@@ -42,9 +44,23 @@ class OrderTableViewController: UITableViewController {
     }
     
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
-        
+        navigationItem.title = "My \(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "") Orders"
     }
-
+    
+    @IBAction func infoAction(_ sender: UIBarButtonItem) {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 10.0
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        for status in GHOrderStatus.allCases {
+            var label = GHStatusLabel()
+            status.decorate(&label, withDescription: true)
+            stackView.addArrangedSubview(label)
+        }
+        showFilterView("Order Status Explanation", stackView)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
