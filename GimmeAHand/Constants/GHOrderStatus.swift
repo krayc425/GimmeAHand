@@ -21,19 +21,19 @@ enum GHOrderStatus: String, CaseIterable {
             label.text = rawValue
         }
         label.backgroundColor = UIColor(named: rawValue)
-        label.setRoundCorner()
+        label.setRoundCorner(7.5)
     }
     
     var description: String {
         switch self {
         case .created:
-            return "The order hasn't been taken by a courier."
+            return "hasn't been taken by a courier."
         case .inprogress:
-            return "The order has been taken by a courier."
+            return "has been taken by a courier."
         case .cancelled:
-            return "The order is cancelled."
+            return "is cancelled."
         case .finished:
-            return "The order has been fulfilled by a courier."
+            return "has been fulfilled by a courier."
         }
     }
     

@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-149" y="159"/>
         </scene>
-        <!--Orders in all Communities-->
+        <!--All Available Orders-->
         <scene sceneID="NyU-ue-dIE">
             <objects>
                 <tableViewController id="2H8-Do-LVL" customClass="HomepageTableViewController" customModule="GimmeAHand" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,7 +49,7 @@
                             <outlet property="delegate" destination="2H8-Do-LVL" id="vJs-fk-ufF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Orders in all Communities" id="R6P-Zj-4Qr">
+                    <navigationItem key="navigationItem" title="All Available Orders" id="R6P-Zj-4Qr">
                         <barButtonItem key="leftBarButtonItem" image="person.3" catalog="system" id="uex-S1-eVu">
                             <connections>
                                 <action selector="communityAction:" destination="2H8-Do-LVL" id="saa-Qy-de3"/>

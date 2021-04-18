@@ -52,13 +52,18 @@ class OrderTableViewController: GHFilterViewTableViewController {
         stackView.axis = .vertical
         stackView.spacing = 10.0
         stackView.alignment = .fill
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fill
+        let label = UILabel()
+        label.text = "The status of an order means this order..."
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        label.textColor = .secondaryLabel
+        stackView.addArrangedSubview(label)
         for status in GHOrderStatus.allCases {
             var label = GHStatusLabel()
             status.decorate(&label, withDescription: true)
             stackView.addArrangedSubview(label)
         }
-        showFilterView("Order Status Explanation", stackView)
+        showFilterView("Order Status Info", stackView)
     }
     
     // MARK: - Table view data source
