@@ -10,7 +10,7 @@ import MapKit
 
 protocol PreciseLocationSearchViewControllerDelegate {
     
-    func didSelectLocation(_ name: String)
+    func didSelectLocation(_ name: String, _ tag: DestinationButtonTag)
     
 }
 
@@ -22,6 +22,7 @@ class PreciseLocationSearchViewController: UIViewController {
     
     let locationManager = MapHelper.shared.locationManager
     var delegate: PreciseLocationSearchViewControllerDelegate?
+    var tag: DestinationButtonTag = .none
     
     var selectedAnnotation: MKPointAnnotation? = nil {
         didSet {
@@ -38,6 +39,8 @@ class PreciseLocationSearchViewController: UIViewController {
         mapView.delegate = self
         locationManager.startUpdatingLocation()
         mapView.showsUserLocation = true
+        
+        searchBar.becomeFirstResponder()
     }
     
     func updateUserLocation(_ userLocation: MKUserLocation) {
@@ -82,7 +85,7 @@ class PreciseLocationSearchViewController: UIViewController {
               sender == doneBarButtonItem, sender.isEnabled else {
             return
         }
-        delegate?.didSelectLocation(selectedAnnotation.title ?? "")
+        delegate?.didSelectLocation(selectedAnnotation.title ?? "", tag)
         navigationController?.popViewController(animated: true)
     }
     

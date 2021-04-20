@@ -53,7 +53,7 @@ class RegisterTableViewController: AuthenticateTableViewController {
     }
     
     @IBAction func addCommunityAction(_ sender: UIButton) {
-        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, "Add a Community")
         present(communityViewController, animated: true)
     }
     

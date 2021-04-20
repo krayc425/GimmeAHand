@@ -15,9 +15,14 @@ protocol CommunitySearchTableViewControllerDelegate {
 
 class CommunitySearchTableViewController: UITableViewController {
     
-    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?) -> UINavigationController {
+    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?, _ title: String? = nil) -> UINavigationController {
         let communitySearchTableViewController = CommunitySearchTableViewController()
         communitySearchTableViewController.delegate = parent
+        if let title = title {
+            communitySearchTableViewController.title = title
+        } else {
+            communitySearchTableViewController.title = "Select a Community"
+        }
         let navigationController = UINavigationController(rootViewController: communitySearchTableViewController)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationItem.largeTitleDisplayMode = .always
@@ -34,8 +39,6 @@ class CommunitySearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        title = "Select a Community"
         
         let backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissAction))
         navigationItem.leftBarButtonItem = backBarButtonItem

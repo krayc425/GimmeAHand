@@ -8,18 +8,28 @@
 import UIKit
 import SVProgressHUD
 
+enum DestinationButtonTag: Int {
+    
+    case none = 0
+    case first = 1
+    case second = 2
+    
+}
+
 class CreateOrderTableViewController: UITableViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var startDateField: UIDatePicker!
     @IBOutlet weak var endDateField: UIDatePicker!
     @IBOutlet weak var tipTextField: UITextField!
+    @IBOutlet weak var tipRecommendationLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var communityLabel: UILabel!
-    @IBOutlet weak var preciseLocationLabel: UILabel!
+    @IBOutlet weak var destinationButton1: UIButton!
+    @IBOutlet weak var destinationButton2: UIButton!
     @IBOutlet weak var paymentLabel: UILabel!
 
     override func viewDidLoad() {
@@ -32,6 +42,12 @@ class CreateOrderTableViewController: UITableViewController {
         
         startDateField.minimumDate = Date()
         endDateField.minimumDate = Date()
+        
+        destinationButton1.tag = DestinationButtonTag.first.rawValue
+        destinationButton2.tag = DestinationButtonTag.second.rawValue
+        destinationButton2.isHidden = true
+        
+        tipRecommendationLabel.text = "A recommended tip amount will be displayed here after you choose the category and destination."
         
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
@@ -50,6 +66,10 @@ class CreateOrderTableViewController: UITableViewController {
             return
         }
         createOrder()
+    }
+    
+    @IBAction func destinationAction(_ sender: UIButton) {
+        performSegue(withIdentifier: "preciseSegue", sender: sender.tag)
     }
     
     func createOrder() {
@@ -71,8 +91,6 @@ class CreateOrderTableViewController: UITableViewController {
         case 4:
             let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
             present(communityViewController, animated: true)
-        case 5:
-            performSegue(withIdentifier: "preciseSegue", sender: nil)
         case 6:
             let paymentViewController = PaymentTableViewController.embeddedInNavigationController(self)
             present(paymentViewController, animated: true)
@@ -85,11 +103,14 @@ class CreateOrderTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "preciseSegue" {
+            guard let tagInteger = sender as? Int, let tag = DestinationButtonTag(rawValue: tagInteger) else {
+                return
+            }
             let destinationViewController = segue.destination as! PreciseLocationSearchViewController
             destinationViewController.delegate = self
+            destinationViewController.tag = tag
         }
     }
-
 
 }
 
@@ -98,6 +119,17 @@ extension CreateOrderTableViewController: CategorySelectionTableViewControllerDe
     func didSelectCategory(_ category: GHOrderCategory) {
         categoryLabel.text = category.rawValue
         category.fill(in: &categoryImageView)
+        let destinations = category.getDestinations()
+        destinationButton1.setTitle(destinations[0], for: .normal)
+        switch category.getDestinations().count {
+        case 1:
+            destinationButton2.isHidden = true
+        case 2:
+            destinationButton2.isHidden = false
+            destinationButton2.setTitle(destinations[1], for: .normal)
+        default:
+            break
+        }
     }
     
 }
@@ -120,8 +152,15 @@ extension CreateOrderTableViewController: PaymentTableViewControllerDelegate {
 
 extension CreateOrderTableViewController: PreciseLocationSearchViewControllerDelegate {
     
-    func didSelectLocation(_ name: String) {
-        preciseLocationLabel.text = name
+    func didSelectLocation(_ name: String, _ tag: DestinationButtonTag) {
+        switch tag {
+        case .first:
+            destinationButton1.setTitle(name, for: .normal)
+        case .second:
+            destinationButton2.setTitle(name, for: .normal)
+        default:
+            return
+        }
     }
     
 }

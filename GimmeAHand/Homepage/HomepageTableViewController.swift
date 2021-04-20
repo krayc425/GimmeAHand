@@ -113,7 +113,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     }
     
     @IBAction func communityAction(_ sender: UIBarButtonItem) {
-        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, "Filter by Community")
         present(communityViewController, animated: true)
     }
     
