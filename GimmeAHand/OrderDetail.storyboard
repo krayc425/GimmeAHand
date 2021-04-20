@@ -252,15 +252,19 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="dfI-fL-AR0">
+                                <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="hbF-qK-Kts">
-                                        <rect key="frame" x="20" y="615" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="651" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hbF-qK-Kts" id="Zsq-0L-H8V">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Received by" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ena-of-HIb">
-                                                    <rect key="frame" x="20" y="11.5" width="96.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Courier Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ena-of-HIb">
+                                                    <rect key="frame" x="20" y="11.5" width="109.5" height="21"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -280,18 +284,46 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" id="GZm-YD-atE">
+                                        <rect key="frame" x="20" y="694.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GZm-YD-atE" id="Z0T-Lo-ehW">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Courier" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42O-pR-WMU">
+                                                    <rect key="frame" x="20" y="11.5" width="126.5" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+16506506500" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTY-K4-M37">
+                                                    <rect key="frame" x="214.5" y="11.5" width="120.5" height="21"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="42O-pR-WMU" firstAttribute="centerY" secondItem="Z0T-Lo-ehW" secondAttribute="centerY" id="HfW-SD-rFf"/>
+                                                <constraint firstItem="JTY-K4-M37" firstAttribute="centerY" secondItem="Z0T-Lo-ehW" secondAttribute="centerY" id="KG0-Bn-Lig"/>
+                                                <constraint firstItem="42O-pR-WMU" firstAttribute="leading" secondItem="Z0T-Lo-ehW" secondAttribute="leadingMargin" id="h4u-1d-9GB"/>
+                                                <constraint firstItem="JTY-K4-M37" firstAttribute="trailing" secondItem="Z0T-Lo-ehW" secondAttribute="trailingMargin" id="rcW-Tb-Qdl"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="dfI-fL-AR0">
+                            <tableViewSection id="nBY-4O-Uii">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="50" id="fd4-6K-woh">
-                                        <rect key="frame" x="20" y="694.5" width="374" height="50"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="50" id="wdv-63-8VQ">
+                                        <rect key="frame" x="20" y="774" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fd4-6K-woh" id="fOa-aI-8Gj">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wdv-63-8VQ" id="rGP-B2-tfJ">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AST-U6-pw1">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-0S-gfU">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                     <color key="backgroundColor" name="GHTint"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -299,15 +331,15 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="takeOrderAction:" destination="K53-E7-cW7" eventType="touchUpInside" id="PLR-6h-eF6"/>
+                                                        <action selector="takeOrderAction:" destination="K53-E7-cW7" eventType="touchUpInside" id="DuL-b6-XAa"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="AST-U6-pw1" secondAttribute="trailing" id="12U-z6-88x"/>
-                                                <constraint firstItem="AST-U6-pw1" firstAttribute="leading" secondItem="fOa-aI-8Gj" secondAttribute="leading" id="AIg-yc-9Mg"/>
-                                                <constraint firstAttribute="bottom" secondItem="AST-U6-pw1" secondAttribute="bottom" id="Ym5-qg-rvr"/>
-                                                <constraint firstItem="AST-U6-pw1" firstAttribute="top" secondItem="fOa-aI-8Gj" secondAttribute="top" id="gIm-hA-Y79"/>
+                                                <constraint firstAttribute="trailing" secondItem="bZG-0S-gfU" secondAttribute="trailing" id="1jc-Km-d6d"/>
+                                                <constraint firstItem="bZG-0S-gfU" firstAttribute="leading" secondItem="rGP-B2-tfJ" secondAttribute="leading" id="2kL-Pg-K7i"/>
+                                                <constraint firstItem="bZG-0S-gfU" firstAttribute="top" secondItem="rGP-B2-tfJ" secondAttribute="top" id="4Wf-mb-SgI"/>
+                                                <constraint firstAttribute="bottom" secondItem="bZG-0S-gfU" secondAttribute="bottom" id="LDh-r1-DX1"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -328,7 +360,8 @@
                         <outlet property="fullMapButton" destination="Pfs-Oi-Kgb" id="jb0-iO-XmT"/>
                         <outlet property="mapView" destination="W11-LB-cNg" id="wMe-r3-Qam"/>
                         <outlet property="orderCreaterLabel" destination="W4t-dk-Gko" id="RGX-Rh-FR5"/>
-                        <outlet property="orderRecieverLabel" destination="Liq-KC-Y6q" id="sH6-4A-ek8"/>
+                        <outlet property="orderReceiverLabel" destination="Liq-KC-Y6q" id="sH6-4A-ek8"/>
+                        <outlet property="phoneLabel" destination="JTY-K4-M37" id="iLL-KV-P5U"/>
                         <outlet property="statusLabel" destination="99b-6u-52Q" id="KNC-9d-Wvb"/>
                         <outlet property="validDateLabel" destination="LjD-vB-EW4" id="ewv-xK-fSd"/>
                     </connections>

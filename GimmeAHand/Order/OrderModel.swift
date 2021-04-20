@@ -30,7 +30,11 @@ class OrderModel: NSObject {
         return "Expire on \(GHConstant.kOrderDateFormatter.string(from: endDate))"
     }
     
-    var isTaken: Bool {
+    var isInProgress: Bool {
+        return status == .inprogress
+    }
+    
+    var shouldDisplayCourier: Bool {
         return status == .inprogress || status == .finished
     }
     

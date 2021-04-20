@@ -76,7 +76,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
                                       name: "Order \(i)",
                                       description: "blahblahblah",
                                       amount: Float.random(in: 0..<10),
-                                      status: .created,
+                                      status: .submitted,
                                       createDate: Date(),
                                       startDate: Date(),
                                       endDate: Date(),

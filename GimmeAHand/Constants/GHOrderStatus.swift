@@ -9,7 +9,7 @@ import UIKit
 
 enum GHOrderStatus: String, CaseIterable {
     
-    case created = "Created"
+    case submitted = "Submitted"
     case inprogress = "In Progress"
     case cancelled = "Cancelled"
     case finished = "Finished"
@@ -26,7 +26,7 @@ enum GHOrderStatus: String, CaseIterable {
     
     var description: String {
         switch self {
-        case .created:
+        case .submitted:
             return "hasn't been taken by a courier."
         case .inprogress:
             return "has been taken by a courier."

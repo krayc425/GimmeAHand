@@ -16,10 +16,11 @@ class OrderDetailTableViewController: UITableViewController {
     @IBOutlet weak var validDateLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
-    @IBOutlet weak var orderRecieverLabel: UILabel!
+    @IBOutlet weak var orderReceiverLabel: UILabel!
     @IBOutlet weak var orderCreaterLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var fullMapButton: UIButton!
     
     var orderModel: OrderModel? = nil
@@ -98,23 +99,28 @@ class OrderDetailTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return isFromHomepage ? 3 : 2
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let model = orderModel else {
+            return 0
+        }
         switch section {
         case 0:
             return 1
         case 1:
-            guard let model = orderModel else {
+            return 6
+        case 2:
+            switch model.status {
+            case .finished:
+                return 1
+            case .inprogress:
+                return 2
+            default:
                 return 0
             }
-            if isFromHomepage {
-                return 5
-            } else {
-                return 6 + (model.isTaken ? 1 : 0)
-            }
-        case 2:
+        case 3:
             return isFromHomepage ? 1 : 0
         default:
             return 0
@@ -122,10 +128,21 @@ class OrderDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if let model = orderModel, section == 0 && !model.isTaken {
+        if let model = orderModel, section == 0 && !model.isInProgress {
             return "This map only shows an approximate location of the order destination. \nA precise location will be displayed after you take this order."
         } else {
             return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 2 && indexPath.row == 1 {
+            guard let phone = phoneLabel.text, !phone.isEmpty,
+                  let url = URL(string: "tel://\(phone)") else {
+                return
+            }
+            UIApplication.shared.open(url, options: [:])
         }
     }
     
