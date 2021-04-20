@@ -71,6 +71,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         containerView.addSubview(stackView)
         tableView.tableHeaderView = containerView
         
+        // mock data
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
                                       name: "Order \(i)",

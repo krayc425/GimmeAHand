@@ -44,7 +44,7 @@ enum GHOrderCategory: String, CaseIterable {
         case .carpool:
             return ["Choose Destination"]
         case .supermarket:
-            return ["Choose Destination"]
+            return ["Choose Market Location", "Choose Destination"]
         case .shipping:
             return ["Choose Pickup Location"]
         case .umbrella:

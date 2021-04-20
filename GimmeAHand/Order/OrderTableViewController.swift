@@ -28,6 +28,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
         navigationItem.titleView = segmentedControl
         segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         
+        // Mock data
         for i in 0..<20 {
             let newOrder = OrderModel(id: i,
                                       name: "Order \(i)",

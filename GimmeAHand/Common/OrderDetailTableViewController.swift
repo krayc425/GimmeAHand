@@ -114,9 +114,9 @@ class OrderDetailTableViewController: UITableViewController {
         case 2:
             switch model.status {
             case .finished:
-                return 1
-            case .inprogress:
                 return 2
+            case .inprogress:
+                return 3
             default:
                 return 0
             }
@@ -137,7 +137,7 @@ class OrderDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 2 && indexPath.row == 1 {
+        if indexPath.section == 2 && indexPath.row == 2 {
             guard let phone = phoneLabel.text, !phone.isEmpty,
                   let url = URL(string: "tel://\(phone)") else {
                 return
