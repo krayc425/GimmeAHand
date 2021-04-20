@@ -28,6 +28,10 @@
 		24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */; };
 		24015B3D260C377A00AE95DD /* CategorySelectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */; };
 		240FBE4D262CF58300213B9E /* GHFilterViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE4C262CF58300213B9E /* GHFilterViewTableViewController.swift */; };
+		240FBE50262EA7FD00213B9E /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE4F262EA7FC00213B9E /* UserModel.swift */; };
+		240FBE56262EA82F00213B9E /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE55262EA82F00213B9E /* CommunityModel.swift */; };
+		240FBE5A262EA8F700213B9E /* MockDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE59262EA8F700213B9E /* MockDataStore.swift */; };
+		240FBE5D262EAE5200213B9E /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE5C262EAE5200213B9E /* DoubleExtensions.swift */; };
 		24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD1260F20B40051721D /* UIColorExtensions.swift */; };
 		24144CD5261133180051721D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD4261133180051721D /* UserDefaultsHelper.swift */; };
 		24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD8261135750051721D /* UIViewControllerExtensions.swift */; };
@@ -82,6 +86,10 @@
 		24015B3A260C377A00AE95DD /* CategorySelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorySelectionTableViewCell.swift; sourceTree = "<group>"; };
 		24015B3B260C377A00AE95DD /* CategorySelectionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategorySelectionTableViewCell.xib; sourceTree = "<group>"; };
 		240FBE4C262CF58300213B9E /* GHFilterViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFilterViewTableViewController.swift; sourceTree = "<group>"; };
+		240FBE4F262EA7FC00213B9E /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		240FBE55262EA82F00213B9E /* CommunityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
+		240FBE59262EA8F700213B9E /* MockDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataStore.swift; sourceTree = "<group>"; };
+		240FBE5C262EAE5200213B9E /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
 		24144CD1260F20B40051721D /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		24144CD4261133180051721D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		24144CD8261135750051721D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -127,6 +135,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		240FBE53262EA80500213B9E /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				24FBC8C4260024870015238A /* OrderModel.swift */,
+				240FBE4F262EA7FC00213B9E /* UserModel.swift */,
+				240FBE55262EA82F00213B9E /* CommunityModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
 		24144CDE261161910051721D /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +208,7 @@
 				24144CD1260F20B40051721D /* UIColorExtensions.swift */,
 				24144CD8261135750051721D /* UIViewControllerExtensions.swift */,
 				24C181412613E7790008A858 /* TimeIntervalExtensions.swift */,
+				240FBE5C262EAE5200213B9E /* DoubleExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +228,7 @@
 			children = (
 				24015ACE2606A85400AE95DD /* MapHelper.swift */,
 				24144CD4261133180051721D /* UserDefaultsHelper.swift */,
+				240FBE59262EA8F700213B9E /* MockDataStore.swift */,
 			);
 			path = DataHelper;
 			sourceTree = "<group>";
@@ -220,7 +240,6 @@
 				24FBC8C92600260B0015238A /* OrderTableViewCell.swift */,
 				24015AC22606090600AE95DD /* OrderTableViewCell.xib */,
 				24015ACA2606A09D00AE95DD /* OrderMapViewController.swift */,
-				24FBC8C4260024870015238A /* OrderModel.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -255,6 +274,7 @@
 				24144CE5261161FA0051721D /* Extensions */,
 				24144CE8261162400051721D /* CustomizedViews */,
 				24144CE92611624E0051721D /* DataHelper */,
+				240FBE53262EA80500213B9E /* DataModel */,
 				244B0BD725F99E38001A71EB /* Main.storyboard */,
 				244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */,
 				244B0BED25F9DC72001A71EB /* Homepage.storyboard */,
@@ -375,6 +395,7 @@
 				C84461DE2605392B0036DBC4 /* OrderDetailTableViewController.swift in Sources */,
 				24015AD22606AFB700AE95DD /* AuthenticateTableViewController.swift in Sources */,
 				24015B38260C376B00AE95DD /* CategorySelectionTableViewController.swift in Sources */,
+				240FBE50262EA7FD00213B9E /* UserModel.swift in Sources */,
 				24015AC0260608D200AE95DD /* HomepageTableViewController.swift in Sources */,
 				24C1817026147E160008A858 /* TapticEngine.swift in Sources */,
 				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
@@ -386,7 +407,10 @@
 				24144CD5261133180051721D /* UserDefaultsHelper.swift in Sources */,
 				FD4290ED260571D50015847B /* RegisterTableViewController.swift in Sources */,
 				24015B27260AD27A00AE95DD /* PaymentTableViewController.swift in Sources */,
+				240FBE5A262EA8F700213B9E /* MockDataStore.swift in Sources */,
+				240FBE56262EA82F00213B9E /* CommunityModel.swift in Sources */,
 				24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */,
+				240FBE5D262EAE5200213B9E /* DoubleExtensions.swift in Sources */,
 				240FBE4D262CF58300213B9E /* GHFilterViewTableViewController.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,
 				244B0BD225F99E38001A71EB /* AppDelegate.swift in Sources */,

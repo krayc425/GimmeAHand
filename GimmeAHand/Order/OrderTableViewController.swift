@@ -29,19 +29,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
         segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         
         // Mock data
-        for i in 0..<20 {
-            let newOrder = OrderModel(id: i,
-                                      name: "Order \(i)",
-                                      description: "blahblahblah",
-                                      amount: Float.random(in: 0..<10),
-                                      status: GHOrderStatus.allCases.randomElement()!,
-                                      createDate: Date(),
-                                      startDate: Date(),
-                                      endDate: Date(),
-                                      category: GHOrderCategory.allCases.randomElement()!,
-                                      community: ["CMU SV", "CMU Pittsburgh"].randomElement()!)
-            modelArray.append(newOrder)
-        }
+        modelArray = MockDataStore.shared.orderList
     }
     
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {

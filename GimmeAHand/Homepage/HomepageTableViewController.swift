@@ -6,18 +6,23 @@
 //
 
 import UIKit
+import CoreLocation
 import DZNEmptyDataSet
+import SVProgressHUD
 
 typealias RangePair = (CGFloat, CGFloat)
 
 class HomepageTableViewController: GHFilterViewTableViewController {
-
+    
+    let locationManager = MapHelper.shared.locationManager
+    var currentLocation: CLLocation? = nil
+    
     var originalModelArray: [OrderModel] = []
     var modelArray: [OrderModel] = []
     
-    var selectedCommunity: String? {
+    var selectedCommunity: CommunityModel? {
         didSet {
-            navigationItem.title = "Orders in \(selectedCommunity ?? "")"
+            navigationItem.title = "Orders in \(selectedCommunity?.name ?? "")"
             reloadOrders()
         }
     }
@@ -72,19 +77,11 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         tableView.tableHeaderView = containerView
         
         // mock data
-        for i in 0..<20 {
-            let newOrder = OrderModel(id: i,
-                                      name: "Order \(i)",
-                                      description: "blahblahblah",
-                                      amount: Float.random(in: 0..<10),
-                                      status: .submitted,
-                                      createDate: Date(),
-                                      startDate: Date(),
-                                      endDate: Date(),
-                                      category: GHOrderCategory.allCases.randomElement()!,
-                                      community: ["CMU Pittsburgh", "CMU SV", "Kenmwar Apartment", "Avalon Mountain View"].randomElement()!)
-            originalModelArray.append(newOrder)
-        }
+        originalModelArray = MockDataStore.shared.orderList
+        
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        locationManager.requestLocation()
         
         reloadOrders()
     }
@@ -98,8 +95,14 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         }
         modelArray = modelArray.filter { selectedCategories.contains($0.category.rawValue) }
         modelArray = modelArray.filter({ (model) -> Bool in
-            return Float(selectAmountRange.0) <= model.amount && model.amount <= Float(selectAmountRange.1)
+            return Double(selectAmountRange.0) <= model.amount && model.amount <= Double(selectAmountRange.1)
         })
+        if let currentLocation = currentLocation {
+        modelArray = modelArray.filter({ (model) -> Bool in
+            let distance = model.community.distanceFromLocation(currentLocation)
+            return Double(selectDistanceRange.0) <= distance && distance <= Double(selectDistanceRange.1)
+        })
+        }
         
         tableView.reloadData()
     }
@@ -114,7 +117,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     }
     
     @IBAction func communityAction(_ sender: UIBarButtonItem) {
-        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, "Filter by Community")
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, .filter)
         present(communityViewController, animated: true)
     }
     
@@ -180,7 +183,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as! OrderTableViewCell
 
-        cell.config(modelArray[indexPath.row], true)
+        cell.config(modelArray[indexPath.row], true, currentLocation)
 
         return cell
     }
@@ -207,7 +210,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
 
 extension HomepageTableViewController: CommunitySearchTableViewControllerDelegate {
     
-    func didSelectCommunity(_ community: String) {
+    func didSelectCommunity(_ community: CommunityModel) {
         selectedCommunity = community
         // TODO: load orders based on the community
     }
@@ -240,3 +243,22 @@ extension HomepageTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDel
     }
     
 }
+
+extension HomepageTableViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            debugPrint("No Locations found")
+            return
+        }
+        currentLocation = location
+        reloadOrders()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        SVProgressHUD.showError(withStatus: error.localizedDescription)
+        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration)
+    }
+    
+}
+

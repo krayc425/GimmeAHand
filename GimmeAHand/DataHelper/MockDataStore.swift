@@ -1,0 +1,52 @@
+//
+//  MockDataStore.swift
+//  GimmeAHand
+//
+//  Created by Kuixi Song on 4/19/21.
+//
+
+import UIKit
+
+class MockDataStore: NSObject {
+
+    static let shared: MockDataStore = MockDataStore()
+    
+    var userList: [UserModel]
+    var communityList: [CommunityModel]
+    var orderList: [OrderModel]
+    
+    private override init() {
+        userList = [
+            UserModel("Kuixi", "Song", "k@s.com", "+14441234567"),
+        ]
+        communityList = [
+            CommunityModel("CMU SV", 37.4104, -122.0598),
+            CommunityModel("CMU Pittsburgh", 40.443322, -79.943583),
+        ]
+        orderList = [
+            OrderModel(name: "Printing",
+                       description: "Print 10 pages of documents",
+                       amount: 3.2,
+                       status: .submitted,
+                       createDate: Date(),
+                       startDate: Date(),
+                       endDate: Date(),
+                       category: .printing,
+                       community: communityList[0],
+                       creator: userList.randomElement()!),
+        ]
+    }
+    
+    func randomCommunity() -> CommunityModel {
+        return communityList.randomElement()!
+    }
+    
+    func randomUser() -> UserModel {
+        return userList.randomElement()!
+    }
+    
+    func randomOrder() -> OrderModel {
+        return orderList.randomElement()!
+    }
+    
+}

@@ -6,31 +6,63 @@
 //
 
 import UIKit
+import CoreLocation
+import SVProgressHUD
 
 protocol CommunitySearchTableViewControllerDelegate {
     
-    func didSelectCommunity(_ community: String)
+    func didSelectCommunity(_ community: CommunityModel)
+    
+}
+
+enum CommunitySearchType {
+    
+    case none
+    case add
+    case filter
+    
+    var title: String {
+        switch self {
+        case .add:
+            return "Add a Community"
+        case .filter:
+            return "Filter by Community"
+        case .none:
+            return ""
+        }
+    }
+    
+    var description: String? {
+        switch self {
+        case .add:
+            return "We only display available communities within 3 miles of your current location."
+        case .filter:
+            return nil
+        case .none:
+            return nil
+        }
+    }
     
 }
 
 class CommunitySearchTableViewController: UITableViewController {
     
-    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?, _ title: String? = nil) -> UINavigationController {
-        let communitySearchTableViewController = CommunitySearchTableViewController()
+    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?, _ type: CommunitySearchType = .none) -> UINavigationController {
+        let communitySearchTableViewController = CommunitySearchTableViewController(style: .grouped)
         communitySearchTableViewController.delegate = parent
-        if let title = title {
-            communitySearchTableViewController.title = title
-        } else {
-            communitySearchTableViewController.title = "Select a Community"
-        }
+        communitySearchTableViewController.type = type
         let navigationController = UINavigationController(rootViewController: communitySearchTableViewController)
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationItem.largeTitleDisplayMode = .always
         return navigationController
     }
     
-    let communities = ["CMU Pittsburgh", "CMU SV", "Kenmwar Apartment", "Avalon Mountain View"]
+    let locationManager = MapHelper.shared.locationManager
+    var currentLocation: CLLocation? = nil
+    
+    let communities = MockDataStore.shared.communityList
     var delegate: CommunitySearchTableViewControllerDelegate?
+    var type: CommunitySearchType = .none
     var selectedCommunityIndexPath: IndexPath? {
         didSet {
             navigationItem.rightBarButtonItem?.isEnabled = selectedCommunityIndexPath != nil
@@ -39,6 +71,8 @@ class CommunitySearchTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = type.title
         
         let backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissAction))
         navigationItem.leftBarButtonItem = backBarButtonItem
@@ -50,6 +84,10 @@ class CommunitySearchTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         
         doneBarButtonItem.addObserver(self, forKeyPath: "selectedCommunityIndexPath", options: .new, context: nil)
+        
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        locationManager.requestLocation()
     }
     
     @objc func dismissAction(_ sender: UIBarButtonItem) {
@@ -79,8 +117,13 @@ class CommunitySearchTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "communitySearchTableViewCellId")
 
-        cell.textLabel?.text = communities[indexPath.row]
-        cell.detailTextLabel?.text = "0.5 miles from you"
+        let community = communities[indexPath.row]
+        cell.textLabel?.text = community.name
+        if let myLocation = currentLocation {
+            cell.detailTextLabel?.text = "\(community.distanceFromLocation(myLocation).distanceString) from you"
+        } else {
+            cell.detailTextLabel?.text = "Calculating distance..."
+        }
         cell.detailTextLabel?.textColor = .secondaryLabel
         cell.tintColor = .GHTint
         
@@ -101,6 +144,28 @@ class CommunitySearchTableViewController: UITableViewController {
             selectedCommunityIndexPath = indexPath
         }
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return type.description
+    }
+    
+}
+
+extension CommunitySearchTableViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            debugPrint("No Locations found")
+            return
+        }
+        currentLocation = location
+        tableView.reloadData()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        SVProgressHUD.showError(withStatus: error.localizedDescription)
+        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration)
     }
     
 }

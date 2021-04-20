@@ -46,7 +46,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     @IBOutlet weak var emailVerifyLabel: UILabel!
     @IBOutlet weak var phoneVerifyLabel: UILabel!
     
-    var selectedCommunities: [String] = []
+    var selectedCommunities: [CommunityModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     }
     
     @IBAction func addCommunityAction(_ sender: UIButton) {
-        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, "Add a Community")
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, .add)
         present(communityViewController, animated: true)
     }
     
@@ -77,7 +77,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         let ac = UIAlertController(title: "Change Password", message: "Please specify a new password.", preferredStyle: .alert)
         
         ac.addTextField{(passwordText) -> Void in
-            passwordText.placeholder = "10-20 letters/digits/(!@#$%^&*)"
+            passwordText.placeholder = GHConstant.kPasswordRuleString
             passwordText.isSecureTextEntry = true
         }
         
@@ -140,7 +140,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isCommunityIndexPath(indexPath) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCommunityTableViewCell", for: indexPath)
-            cell.textLabel?.text = selectedCommunities[indexPath.row - 1]
+            cell.textLabel?.text = selectedCommunities[indexPath.row - 1].name
             return cell
         } else {
             return super.tableView(tableView, cellForRowAt: indexPath)
@@ -268,7 +268,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
 
 extension ProfileTableViewController: CommunitySearchTableViewControllerDelegate {
     
-    func didSelectCommunity(_ community: String) {
+    func didSelectCommunity(_ community: CommunityModel) {
         selectedCommunities.append(community)
         tableView.reloadData()
     }

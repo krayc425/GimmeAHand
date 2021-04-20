@@ -55,7 +55,7 @@
                                 <action selector="communityAction:" destination="2H8-Do-LVL" id="saa-Qy-de3"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3FX-PC-2ug">
+                        <barButtonItem key="rightBarButtonItem" image="plus.circle.fill" catalog="system" id="3FX-PC-2ug">
                             <connections>
                                 <segue destination="aJ9-Lj-khq" kind="presentation" id="TCp-gY-9Hf"/>
                             </connections>
@@ -524,6 +524,7 @@
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="GHTint">
             <color red="0.20392156862745098" green="0.66666666666666663" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

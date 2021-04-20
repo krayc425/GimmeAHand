@@ -9,19 +9,19 @@ import UIKit
 
 class OrderModel: NSObject {
     
-    var id: Int
     var name: String
     var orderDescription: String
-    var amount: Float
+    var amount: Double
     var status: GHOrderStatus
     var createdDate: Date
     var startDate: Date
     var endDate: Date
     var category: GHOrderCategory
-    var community: String
+    var community: CommunityModel
+    var creator: UserModel
 
     var amountString: String {
-        return GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: Double(amount)))!
+        return amount.amountString
     }
     var validDateString: String {
         return GHConstant.kOrderDateFormatter.string(from: endDate)
@@ -38,17 +38,16 @@ class OrderModel: NSObject {
         return status == .inprogress || status == .finished
     }
     
-    init(id: Int,
-         name: String,
+    init(name: String,
          description: String,
-         amount: Float,
+         amount: Double,
          status: GHOrderStatus,
          createDate: Date,
          startDate: Date,
          endDate: Date,
          category: GHOrderCategory,
-         community: String) {
-        self.id = id
+         community: CommunityModel,
+         creator: UserModel) {
         self.name = name
         self.orderDescription = description
         self.amount = amount
@@ -58,6 +57,7 @@ class OrderModel: NSObject {
         self.endDate = endDate
         self.category = category
         self.community = community
+        self.creator = creator
     }
     
 }

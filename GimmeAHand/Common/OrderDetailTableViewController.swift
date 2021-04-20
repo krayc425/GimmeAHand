@@ -61,13 +61,14 @@ class OrderDetailTableViewController: UITableViewController {
         categoryLabel.text = model.category.rawValue
         model.category.fill(in: &categoryImageView)
         model.status.decorate(&statusLabel)
-        if model.orderDescription.count == 0 {
+        if model.orderDescription.isEmpty {
             descriptionLabel.text = "N/A"
         } else {
             descriptionLabel.text = model.orderDescription
         }
         validDateLabel.text = model.validDateString
         amountLabel.text = model.amountString
+        orderCreaterLabel.text = model.creator.firstName
     }
     
     func updateUserLocation(_ userLocation: MKUserLocation) {
@@ -89,11 +90,19 @@ class OrderDetailTableViewController: UITableViewController {
         guard isFromHomepage else {
             return
         }
-        // TODO: take order logic
-        SVProgressHUD.show(withStatus: "Taking order")
-        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
-            self.navigationController?.popViewController(animated: true)
-        }
+        let alert = UIAlertController(title: "Take this order?", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Take it!", style: .default, handler: { [weak self] _ in
+            guard let strongSelf = self else {
+                return
+            }
+            // TODO: take order logic
+            SVProgressHUD.show(withStatus: "Taking order")
+            SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+                strongSelf.navigationController?.popViewController(animated: true)
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alert, animated: true)
     }
 
     // MARK: - Table view data source

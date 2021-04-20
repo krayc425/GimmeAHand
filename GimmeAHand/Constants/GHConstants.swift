@@ -18,6 +18,7 @@ struct GHConstant {
     /// UI
     
     static let kCornerRadius: CGFloat = 10.0
+    static let kPasswordRuleString: String = "Enter 10-20 charaters of letters/digits/(!@#$%^&*)"
     
     /// Formatters
     

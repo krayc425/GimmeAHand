@@ -136,8 +136,8 @@ extension CreateOrderTableViewController: CategorySelectionTableViewControllerDe
 
 extension CreateOrderTableViewController: CommunitySearchTableViewControllerDelegate {
     
-    func didSelectCommunity(_ community: String) {
-        communityLabel.text = community
+    func didSelectCommunity(_ community: CommunityModel) {
+        communityLabel.text = community.name
     }
     
 }

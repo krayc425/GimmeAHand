@@ -24,7 +24,7 @@ class RegisterTableViewController: AuthenticateTableViewController {
     @IBOutlet weak var addCommunityButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     
-    var selectedCommunities: [String] = []
+    var selectedCommunities: [CommunityModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +53,7 @@ class RegisterTableViewController: AuthenticateTableViewController {
     }
     
     @IBAction func addCommunityAction(_ sender: UIButton) {
-        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, "Add a Community")
+        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, .add)
         present(communityViewController, animated: true)
     }
     
@@ -78,10 +78,19 @@ class RegisterTableViewController: AuthenticateTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isCommunityIndexPath(indexPath) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RegisterCommunityTableViewCell", for: indexPath)
-            cell.textLabel?.text = selectedCommunities[indexPath.row - 1]
+            cell.textLabel?.text = selectedCommunities[indexPath.row - 1].name
             return cell
         } else {
             return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch section {
+        case 1:
+            return GHConstant.kPasswordRuleString
+        default:
+            return nil
         }
     }
     
@@ -119,7 +128,7 @@ class RegisterTableViewController: AuthenticateTableViewController {
 
 extension RegisterTableViewController: CommunitySearchTableViewControllerDelegate {
     
-    func didSelectCommunity(_ community: String) {
+    func didSelectCommunity(_ community: CommunityModel) {
         selectedCommunities.append(community)
         tableView.reloadData()
     }

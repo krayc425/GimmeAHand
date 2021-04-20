@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class OrderTableViewCell: UITableViewCell {
     
@@ -18,17 +19,18 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var statusLabel: GHStatusLabel!
     @IBOutlet weak var communityLabel: UILabel!
 
-    func config(_ model: OrderModel, _ hideStatus: Bool) {
+    func config(_ model: OrderModel, _ hideStatus: Bool, _ currentLocation: CLLocation? = nil) {
         nameLabel.text = model.name
         dateLabel.isHidden = !hideStatus
-        // TODO: add distance string
-        dateLabel.text = "\(model.expireDateString)\n0.5 miles from you"
+        if let location = currentLocation {
+            dateLabel.text = "\(model.expireDateString)\n\(model.community.distanceFromLocation(location).distanceString) from you"
+        }
         amountLabel.text = model.amountString
         statusLabel.isHidden = hideStatus
         if !hideStatus {
             model.status.decorate(&statusLabel)
         }
-        communityLabel.text = model.community
+        communityLabel.text = model.community.name
         model.category.fill(in: &categoryImageView)
     }
 
