@@ -28,13 +28,6 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         }
     }
     
-    struct FakeDatastore {
-        static let email = "lisa.bp@example.com"
-        static let firstName = "Lisa"
-        static let lastName = "Blackpink"
-        static let phone = "111-222-3333"
-    }
-    
     @IBOutlet weak var addCommunityButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -55,10 +48,12 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
         tableView.estimatedRowHeight = 44.0
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProfileCommunityTableViewCell")
         
-        emailLabel.text = FakeDatastore.email
-        firstNameLabel.text = FakeDatastore.firstName
-        lastNameLabel.text = FakeDatastore.lastName
-        phoneLabel.text = FakeDatastore.phone
+        let currentUser = UserHelper.shared.currentUser
+        
+        emailLabel.text = currentUser.email
+        firstNameLabel.text = currentUser.firstName
+        lastNameLabel.text = currentUser.lastName
+        phoneLabel.text = currentUser.phone
         avatarImageView.setRoundCorner(avatarImageView.frame.width / 2.0)
         
         // TODO: mock verification labels

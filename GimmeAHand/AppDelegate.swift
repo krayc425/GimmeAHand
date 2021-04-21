@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Setup third-party libraires
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.toolbarTintColor = .GHTint
+        SVProgressHUD.setMinimumDismissTimeInterval(GHConstant.kHUDDuration)
+        SVProgressHUD.setMaximumDismissTimeInterval(GHConstant.kHUDDuration)
         
         // Setup global styles
         UINavigationBar.appearance().tintColor = .GHTint

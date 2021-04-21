@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserModel: NSObject {
+class UserModel: NSObject, NSCoding {
     
     var firstName: String
     var lastName: String
@@ -18,12 +18,38 @@ class UserModel: NSObject {
     init(_ firstName: String,
          _ lastName: String,
          _ email: String,
-         _ phone: String) {
+         _ phone: String,
+         _ rating: Double = 0.0) {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.phone = phone
-        self.rating = 0.0
+        self.rating = rating
+    }
+    
+    convenience override init() {
+        self.init("Admin", "Admin", "admin@admin.com", "+1234567890")
+    }
+    
+    required convenience init(coder aDecoder: NSCoder) {
+        let firstName = aDecoder.decodeObject(forKey: "firstName") as! String
+        let lastname = aDecoder.decodeObject(forKey: "lastname") as! String
+        let email = aDecoder.decodeObject(forKey: "email") as! String
+        let phone = aDecoder.decodeObject(forKey: "phone") as! String
+        let rating = aDecoder.decodeDouble(forKey: "rating")
+        self.init(firstName, lastname, email, phone, rating)
+    }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(firstName, forKey: "firstName")
+        aCoder.encode(lastName, forKey: "lastName")
+        aCoder.encode(email, forKey: "email")
+        aCoder.encode(phone, forKey: "phone")
+        aCoder.encode(rating, forKey: "rating")
+    }
+    
+    static func ==(_ lhs: UserModel, _ rhs: UserModel) -> Bool {
+        return lhs.email == rhs.email
     }
 
 }

@@ -40,17 +40,34 @@ enum GHOrderCategory: String, CaseIterable {
     func getDestinations() -> [String] {
         switch self {
         case .printing:
-            return ["Choose Destination"]
+            return ["Destination"]
         case .carpool:
-            return ["Choose Destination"]
+            return ["Destination"]
         case .supermarket:
-            return ["Choose Market Location", "Choose Destination"]
+            return ["Market Location", "Destination"]
         case .shipping:
-            return ["Choose Pickup Location"]
+            return ["Pickup Location"]
         case .umbrella:
-            return ["Choose Destination"]
+            return ["Destination"]
         case .takeout:
-            return ["Choose Restaurant Location", "Choose Destination"]
+            return ["Restaurant Location", "Destination"]
+        }
+    }
+    
+    func getTimeLabels() -> (String, String) {
+        switch self {
+        case .printing:
+            return ("Earliest at", "Latest at")
+        case .carpool:
+            return ("Earliest at", "Latest at")
+        case .supermarket:
+            return ("Earliest at", "Latest at")
+        case .shipping:
+            return ("Earliest at", "Latest at")
+        case .umbrella:
+            return ("Earliest at", "Latest at")
+        case .takeout:
+            return ("Earliest at", "Latest at")
         }
     }
     

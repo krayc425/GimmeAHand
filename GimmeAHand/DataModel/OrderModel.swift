@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class OrderModel: NSObject {
     
@@ -19,6 +20,9 @@ class OrderModel: NSObject {
     var category: GHOrderCategory
     var community: CommunityModel
     var creator: UserModel
+    var courier: UserModel?
+    var destination1: CLLocationCoordinate2D
+    var destination2: CLLocationCoordinate2D?
 
     var amountString: String {
         return amount.amountString
@@ -47,7 +51,10 @@ class OrderModel: NSObject {
          endDate: Date,
          category: GHOrderCategory,
          community: CommunityModel,
-         creator: UserModel) {
+         creator: UserModel,
+         courier: UserModel? = nil,
+         destination1: CLLocationCoordinate2D,
+         destination2: CLLocationCoordinate2D? = nil) {
         self.name = name
         self.orderDescription = description
         self.amount = amount
@@ -58,6 +65,25 @@ class OrderModel: NSObject {
         self.category = category
         self.community = community
         self.creator = creator
+        self.courier = courier
+        self.destination1 = destination1
+        self.destination2 = destination2
+    }
+    
+    convenience override init() {
+        self.init(name: "",
+                  description: "",
+                  amount: 0.0,
+                  status: .submitted,
+                  createDate: Date(),
+                  startDate: Date(),
+                  endDate: Date(),
+                  category: .carpool,
+                  community: CommunityModel(),
+                  creator: UserModel(),
+                  courier: nil,
+                  destination1: CLLocationCoordinate2D(),
+                  destination2: nil)
     }
     
 }

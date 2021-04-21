@@ -7,8 +7,16 @@
 
 import UIKit
 
+enum OrderSelectionType: Int {
+    
+    case placed = 0
+    case taken = 1
+    
+}
+
 class OrderTableViewController: GHFilterViewTableViewController {
 
+    var currentType: OrderSelectionType = .placed
     var modelArray: [OrderModel] = []
     
     override func viewDidLoad() {
@@ -28,12 +36,34 @@ class OrderTableViewController: GHFilterViewTableViewController {
         navigationItem.titleView = segmentedControl
         segmentedControl.addTarget(self, action: #selector(segmentValueChanged), for: .valueChanged)
         
-        // Mock data
-        modelArray = MockDataStore.shared.orderList
+        // Register notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadOrders), name: .GHRefreshMyOrders, object: nil)
+        
+        reloadOrders()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .GHRefreshMyOrders, object: nil)
+    }
+    
+    @objc func reloadOrders() {
+        switch currentType {
+        case .placed:
+            modelArray = OrderHelper.shared.getOrderList().filter {
+                $0.creator == UserHelper.shared.currentUser
+            }
+        case .taken:
+            modelArray = OrderHelper.shared.getOrderList().filter {
+                $0.courier != nil && $0.courier! == UserHelper.shared.currentUser
+            }
+        }
+        tableView.reloadData()
     }
     
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
         navigationItem.title = "My \(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "") Orders"
+        currentType = OrderSelectionType(rawValue: sender.selectedSegmentIndex)!
+        reloadOrders()
     }
     
     @IBAction func infoAction(_ sender: UIBarButtonItem) {

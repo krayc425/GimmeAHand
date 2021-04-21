@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MockDataStore: NSObject {
 
@@ -33,7 +34,8 @@ class MockDataStore: NSObject {
                        endDate: Date(),
                        category: .printing,
                        community: communityList[0],
-                       creator: userList.randomElement()!),
+                       creator: userList.randomElement()!,
+                       destination1: CLLocationCoordinate2D(latitude: 37.0, longitude: -120.0)),
         ]
     }
     

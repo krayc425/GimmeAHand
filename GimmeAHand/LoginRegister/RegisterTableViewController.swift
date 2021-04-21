@@ -45,7 +45,33 @@ class RegisterTableViewController: AuthenticateTableViewController {
     }
     
     func register() {
-        // TODO: add register logic
+        // Validation
+        guard let firstName = firstNameTextField.text, !firstName.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter First Name")
+            firstNameTextField.becomeFirstResponder()
+            return
+        }
+        guard let lastName = lastNameTextField.text, !lastName.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter Last Name")
+            lastNameTextField.becomeFirstResponder()
+            return
+        }
+        guard let email = emailTextField.text, !email.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter Email")
+            emailTextField.becomeFirstResponder()
+            return
+        }
+        guard let phone = mobileTextField.text, !phone.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter Phone")
+            mobileTextField.becomeFirstResponder()
+            return
+        }
+        
+        // Registration
+        let newUser = UserModel(firstName, lastName, email, phone)
+        UserHelper.shared.addUser(newUser)
+        UserHelper.shared.currentUser = newUser
+        
         SVProgressHUD.show(withStatus: "Register")
         SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {
             super.transitionToMain()

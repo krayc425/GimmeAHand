@@ -108,14 +108,17 @@ class OrderMapViewController: UIViewController {
         }
         // Calculate ETA
         let directionETA = MKDirections(request: directionRequest)
-        directionETA.calculateETA { (response, error) in
+        directionETA.calculateETA { [weak self] (response, error) in
+            guard let strongSelf = self else {
+                return
+            }
             if let error = error {
                 debugPrint(error.localizedDescription)
             } else {
                 guard let response = response else {
                     return
                 }
-                self.title = "ETA: \(response.expectedTravelTime.formattedETAString)"
+                strongSelf.navigationItem.title = "ETA: \(response.expectedTravelTime.formattedETAString)"
             }
         }
     }

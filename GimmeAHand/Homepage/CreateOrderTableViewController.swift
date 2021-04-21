@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 import SVProgressHUD
 
 enum DestinationButtonTag: Int {
@@ -19,6 +20,8 @@ enum DestinationButtonTag: Int {
 class CreateOrderTableViewController: UITableViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var timeLabel1: UILabel!
+    @IBOutlet weak var timeLabel2: UILabel!
     @IBOutlet weak var startDateField: UIDatePicker!
     @IBOutlet weak var endDateField: UIDatePicker!
     @IBOutlet weak var tipTextField: UITextField!
@@ -28,8 +31,11 @@ class CreateOrderTableViewController: UITableViewController {
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var communityLabel: UILabel!
+    @IBOutlet weak var destinationLabel1: UILabel!
+    @IBOutlet weak var destinationLabel2: UILabel!
     @IBOutlet weak var destinationButton1: UIButton!
     @IBOutlet weak var destinationButton2: UIButton!
+    @IBOutlet weak var destinationStackView2: UIStackView!
     @IBOutlet weak var paymentLabel: UILabel!
 
     override func viewDidLoad() {
@@ -45,7 +51,7 @@ class CreateOrderTableViewController: UITableViewController {
         
         destinationButton1.tag = DestinationButtonTag.first.rawValue
         destinationButton2.tag = DestinationButtonTag.second.rawValue
-        destinationButton2.isHidden = true
+        destinationStackView2.isHidden = true
         
         tipRecommendationLabel.text = "A recommended tip amount will be displayed here after you choose the category and destination."
         
@@ -73,9 +79,18 @@ class CreateOrderTableViewController: UITableViewController {
     }
     
     func createOrder() {
-        // TODO: create order logic
+        // TODO: Validation
+        
+        // mock data
+        let randomCommunity = MockDataStore.shared.randomCommunity()
+        let newOrder = OrderModel(name: "haha", description: "haha", amount: 2.30, status: .submitted, createDate: Date(), startDate: Date(), endDate: Date(), category: .shipping, community: randomCommunity, creator: UserHelper.shared.currentUser, courier: nil, destination1: randomCommunity.coordinate, destination2: nil)
+        OrderHelper.shared.addOrder(newOrder)
+        
+        // create order logic
         SVProgressHUD.show(withStatus: "Creating order")
         SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+            NotificationCenter.default.post(name: .GHRefreshHomepage, object: nil)
+            NotificationCenter.default.post(name: .GHRefreshMyOrders, object: nil)
             self.navigationController?.dismiss(animated: true)
         }
     }
@@ -89,7 +104,7 @@ class CreateOrderTableViewController: UITableViewController {
             let categoryViewController = CategorySelectionTableViewController.embeddedInNavigationController(self)
             present(categoryViewController, animated: true)
         case 4:
-            let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self)
+            let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, .select)
             present(communityViewController, animated: true)
         case 6:
             let paymentViewController = PaymentTableViewController.embeddedInNavigationController(self)
@@ -120,13 +135,15 @@ extension CreateOrderTableViewController: CategorySelectionTableViewControllerDe
         categoryLabel.text = category.rawValue
         category.fill(in: &categoryImageView)
         let destinations = category.getDestinations()
-        destinationButton1.setTitle(destinations[0], for: .normal)
+        destinationLabel1.text = destinations[0]
+        destinationButton1.setTitle("Select", for: .normal)
         switch category.getDestinations().count {
         case 1:
-            destinationButton2.isHidden = true
+            destinationStackView2.isHidden = true
         case 2:
-            destinationButton2.isHidden = false
-            destinationButton2.setTitle(destinations[1], for: .normal)
+            destinationStackView2.isHidden = false
+            destinationLabel2.text = destinations[1]
+            destinationButton2.setTitle("Select", for: .normal)
         default:
             break
         }

@@ -22,6 +22,7 @@ class OrderDetailTableViewController: UITableViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var fullMapButton: UIButton!
+    @IBOutlet weak var actionButton: UIButton!
     
     var orderModel: OrderModel? = nil
     var isFromHomepage: Bool = false
@@ -29,6 +30,8 @@ class OrderDetailTableViewController: UITableViewController {
     
     let randomized = (Double.random(in: -1...1) / 10.0, Double.random(in: -1...1) / 10.0)
     var oldUserLocation: MKUserLocation = MKUserLocation()
+    
+    var actionButtonHandler: (() -> ())? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +56,7 @@ class OrderDetailTableViewController: UITableViewController {
     }
     
     func setupOrderModel() {
-        guard let model = orderModel else {
+        guard var model = orderModel else {
             return
         }
         title = model.name
@@ -69,6 +72,97 @@ class OrderDetailTableViewController: UITableViewController {
         validDateLabel.text = model.validDateString
         amountLabel.text = model.amountString
         orderCreaterLabel.text = model.creator.firstName
+        
+        switch model.status {
+        case .submitted:
+            // check whether this order is being viewed by order creator or courier
+            // if creator
+            if model.creator == UserHelper.shared.currentUser {
+                actionButton.setTitle("Cancel Order", for: .normal)
+                actionButton.backgroundColor = .red
+                actionButtonHandler = { [weak self] in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    let alert = UIAlertController(title: "Cancel this Order?", message: nil, preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Cancel it!", style: .destructive, handler: { _ in
+                        
+                        OrderHelper.shared.cancelOrder(&model)
+                        
+                        // cancel order logic
+                        SVProgressHUD.show(withStatus: "Cancelling order")
+                        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+                            NotificationCenter.default.post(name: .GHRefreshHomepage, object: nil)
+                            NotificationCenter.default.post(name: .GHRefreshMyOrders, object: nil)
+                            strongSelf.navigationController?.popViewController(animated: true)
+                        }
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    strongSelf.present(alert, animated: true)
+                }
+            } else {
+                // if courier
+                actionButton.setTitle("Take Order", for: .normal)
+                actionButton.backgroundColor = .GHTint
+                actionButtonHandler = { [weak self] in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    let alert = UIAlertController(title: "Take this Order?", message: nil, preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Take it!", style: .default, handler: { _ in
+                        
+                        OrderHelper.shared.takeOrder(&model, UserHelper.shared.currentUser)
+                        
+                        // take order logic
+                        SVProgressHUD.show(withStatus: "Taking order")
+                        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+                            NotificationCenter.default.post(name: .GHRefreshHomepage, object: nil)
+                            NotificationCenter.default.post(name: .GHRefreshMyOrders, object: nil)
+                            strongSelf.navigationController?.popViewController(animated: true)
+                        }
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    strongSelf.present(alert, animated: true)
+                }
+            }
+        case .inprogress:
+            guard let courier = model.courier else {
+                return
+            }
+            if courier == UserHelper.shared.currentUser {
+                // check whether this order is being viewed by order courier
+                actionButton.setTitle("Mark Order as Finished", for: .normal)
+                actionButton.backgroundColor = .GHTint
+                actionButtonHandler = { [weak self] in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    let alert = UIAlertController(title: "Mark this order as finished?", message: nil, preferredStyle: .actionSheet)
+                    alert.addAction(UIAlertAction(title: "Mark it!", style: .default, handler: { _ in
+                        
+                        OrderHelper.shared.finishOrder(&model)
+                        
+                        // finish order logic
+                        SVProgressHUD.show(withStatus: "Marking order")
+                        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+                            NotificationCenter.default.post(name: .GHRefreshMyOrders, object: nil)
+                            strongSelf.navigationController?.popViewController(animated: true)
+                        }
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                    strongSelf.present(alert, animated: true)
+                }
+            }
+        case .finished:
+            if model.creator == UserHelper.shared.currentUser {
+                // check whether this order is being viewed by order creator
+                actionButton.setTitle("Report a Problem", for: .normal)
+                actionButton.backgroundColor = .lightText
+                debugPrint("I wanna report a problem")
+            }
+        case .cancelled:
+            break
+        }
     }
     
     func updateUserLocation(_ userLocation: MKUserLocation) {
@@ -87,22 +181,7 @@ class OrderDetailTableViewController: UITableViewController {
     }
     
     @IBAction func takeOrderAction(_ sender: UIButton) {
-        guard isFromHomepage else {
-            return
-        }
-        let alert = UIAlertController(title: "Take this order?", message: nil, preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Take it!", style: .default, handler: { [weak self] _ in
-            guard let strongSelf = self else {
-                return
-            }
-            // TODO: take order logic
-            SVProgressHUD.show(withStatus: "Taking order")
-            SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
-                strongSelf.navigationController?.popViewController(animated: true)
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        present(alert, animated: true)
+        actionButtonHandler?()
     }
 
     // MARK: - Table view data source
@@ -130,7 +209,7 @@ class OrderDetailTableViewController: UITableViewController {
                 return 0
             }
         case 3:
-            return isFromHomepage ? 1 : 0
+            return 1
         default:
             return 0
         }

@@ -32,6 +32,8 @@
 		240FBE56262EA82F00213B9E /* CommunityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE55262EA82F00213B9E /* CommunityModel.swift */; };
 		240FBE5A262EA8F700213B9E /* MockDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE59262EA8F700213B9E /* MockDataStore.swift */; };
 		240FBE5D262EAE5200213B9E /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE5C262EAE5200213B9E /* DoubleExtensions.swift */; };
+		240FBE61262FDB4C00213B9E /* UserHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE60262FDB4C00213B9E /* UserHelper.swift */; };
+		240FBE65262FDDA100213B9E /* OrderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 240FBE64262FDDA100213B9E /* OrderHelper.swift */; };
 		24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD1260F20B40051721D /* UIColorExtensions.swift */; };
 		24144CD5261133180051721D /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD4261133180051721D /* UserDefaultsHelper.swift */; };
 		24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24144CD8261135750051721D /* UIViewControllerExtensions.swift */; };
@@ -44,6 +46,7 @@
 		244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BED25F9DC72001A71EB /* Homepage.storyboard */; };
 		244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF025F9DC7D001A71EB /* Orders.storyboard */; };
 		244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */; };
+		24B3B3F8262FE42400B41B38 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */; };
 		24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C181412613E7790008A858 /* TimeIntervalExtensions.swift */; };
 		24C1815826147B470008A858 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1815726147B470008A858 /* DZNEmptyDataSet */; };
 		24C1815C26147B720008A858 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1815B26147B720008A858 /* CryptoSwift */; };
@@ -90,6 +93,8 @@
 		240FBE55262EA82F00213B9E /* CommunityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityModel.swift; sourceTree = "<group>"; };
 		240FBE59262EA8F700213B9E /* MockDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataStore.swift; sourceTree = "<group>"; };
 		240FBE5C262EAE5200213B9E /* DoubleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExtensions.swift; sourceTree = "<group>"; };
+		240FBE60262FDB4C00213B9E /* UserHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHelper.swift; sourceTree = "<group>"; };
+		240FBE64262FDDA100213B9E /* OrderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHelper.swift; sourceTree = "<group>"; };
 		24144CD1260F20B40051721D /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		24144CD4261133180051721D /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		24144CD8261135750051721D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
@@ -104,6 +109,7 @@
 		244B0BED25F9DC72001A71EB /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		244B0BF025F9DC7D001A71EB /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
+		24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		24C181412613E7790008A858 /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		24C1816D26147E160008A858 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
 		24C1816E26147E160008A858 /* RangeSeekSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeSeekSlider.swift; sourceTree = "<group>"; };
@@ -209,6 +215,7 @@
 				24144CD8261135750051721D /* UIViewControllerExtensions.swift */,
 				24C181412613E7790008A858 /* TimeIntervalExtensions.swift */,
 				240FBE5C262EAE5200213B9E /* DoubleExtensions.swift */,
+				24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -229,6 +236,8 @@
 				24015ACE2606A85400AE95DD /* MapHelper.swift */,
 				24144CD4261133180051721D /* UserDefaultsHelper.swift */,
 				240FBE59262EA8F700213B9E /* MockDataStore.swift */,
+				240FBE60262FDB4C00213B9E /* UserHelper.swift */,
+				240FBE64262FDDA100213B9E /* OrderHelper.swift */,
 			);
 			path = DataHelper;
 			sourceTree = "<group>";
@@ -388,7 +397,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24B3B3F8262FE42400B41B38 /* NotificationNameExtensions.swift in Sources */,
 				FDF7307E2606ECFE00E186D2 /* CreateOrderTableViewController.swift in Sources */,
+				240FBE61262FDB4C00213B9E /* UserHelper.swift in Sources */,
 				24015B33260AD7E500AE95DD /* GHPaymentType.swift in Sources */,
 				D83494432606D28B00FE8920 /* ProfileTableViewController.swift in Sources */,
 				24015B08260818CF00AE95DD /* GHStatusLabel.swift in Sources */,
@@ -401,6 +412,7 @@
 				24015AA92605862500AE95DD /* CommunitySearchTableViewController.swift in Sources */,
 				24FE7A5125FC3674005B965A /* LoginTableViewController.swift in Sources */,
 				24015B14260AC0EA00AE95DD /* GHCategorySelectionView.swift in Sources */,
+				240FBE65262FDDA100213B9E /* OrderHelper.swift in Sources */,
 				24015A972604417100AE95DD /* GHOrderStatus.swift in Sources */,
 				24015B3C260C377A00AE95DD /* CategorySelectionTableViewCell.swift in Sources */,
 				24C1817126147E160008A858 /* RangeSeekSlider.swift in Sources */,

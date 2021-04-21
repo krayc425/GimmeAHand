@@ -23,22 +23,22 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     var selectedCommunity: CommunityModel? {
         didSet {
             navigationItem.title = "Orders in \(selectedCommunity?.name ?? "")"
-            reloadOrders()
+            filterOrders()
         }
     }
     var selectedCategories = Set<String>(GHOrderCategory.allCases.map { $0.rawValue }) {
         didSet {
-            reloadOrders()
+            filterOrders()
         }
     }
     var selectAmountRange: RangePair = (0.0, 10.0) {
         didSet {
-            reloadOrders()
+            filterOrders()
         }
     }
     var selectDistanceRange: RangePair = (0.0, 10.0) {
         didSet {
-            reloadOrders()
+            filterOrders()
         }
     }
     
@@ -76,19 +76,29 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         containerView.addSubview(stackView)
         tableView.tableHeaderView = containerView
         
-        // mock data
-        originalModelArray = MockDataStore.shared.orderList
-        
+        // location manager
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         locationManager.requestLocation()
         
+        // notifications
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadOrders), name: .GHRefreshHomepage, object: nil)
+        
+        // reload orders
         reloadOrders()
     }
     
-    func reloadOrders() {
-        modelArray.removeAll()
-        modelArray.append(contentsOf: originalModelArray)
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .GHRefreshHomepage, object: nil)
+    }
+    
+    @objc func reloadOrders() {
+        originalModelArray = OrderHelper.shared.getOrderList().filter { $0.status == .submitted }
+        filterOrders()
+    }
+    
+    func filterOrders() {
+        modelArray = originalModelArray
         
         if let selectCommunity = selectedCommunity {
             modelArray = modelArray.filter { $0.community == selectCommunity }
@@ -110,7 +120,11 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     @objc func refreshAction(_ sender: UIRefreshControl) {
         if sender.isRefreshing {
             // TODO: pull latest data
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
+                guard let strongSelf = self else {
+                    return
+                }
+                strongSelf.reloadOrders()
                 sender.endRefreshing()
             }
         }
@@ -252,12 +266,11 @@ extension HomepageTableViewController: CLLocationManagerDelegate {
             return
         }
         currentLocation = location
-        reloadOrders()
+        filterOrders()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         SVProgressHUD.showError(withStatus: error.localizedDescription)
-        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration)
     }
     
 }

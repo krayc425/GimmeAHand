@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -164,8 +165,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1T-Pa-eSF">
-                                                    <rect key="frame" x="20" y="12" width="83.5" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From Earliest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1T-Pa-eSF">
+                                                    <rect key="frame" x="20" y="12" width="104" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -190,8 +191,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcL-vn-SLL">
-                                                    <rect key="frame" x="20" y="12" width="74" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To Latest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AcL-vn-SLL">
+                                                    <rect key="frame" x="20" y="12" width="73" height="20.5"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -246,47 +247,61 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Route" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmw-Vl-dD8">
-                                                    <rect key="frame" x="20" y="11.5" width="47" height="20.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dRf-gQ-vSz">
-                                                    <rect key="frame" x="77" y="11" width="258" height="21.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ktn-3o-pd9">
+                                                    <rect key="frame" x="20" y="11" width="315" height="21.5"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJI-Ba-ine">
-                                                            <rect key="frame" x="0.0" y="0.0" width="258" height="11"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="PJI-Zh-buZ"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <state key="normal" title="Choose Destination"/>
-                                                            <connections>
-                                                                <action selector="destinationAction:" destination="H8s-1C-13o" eventType="touchUpInside" id="BNG-L7-BZU"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubg-eU-IOU">
-                                                            <rect key="frame" x="0.0" y="11" width="258" height="10.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="52m-aT-Qqi"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <state key="normal" title="Choose Destination"/>
-                                                            <connections>
-                                                                <action selector="destinationAction:" destination="H8s-1C-13o" eventType="touchUpInside" id="yWJ-ye-Ckj"/>
-                                                            </connections>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9G-4A-fH9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="315" height="7"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmw-Vl-dD8">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="91" height="7"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XJI-Ba-ine">
+                                                                    <rect key="frame" x="91" y="0.0" width="224" height="7"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="PJI-Zh-buZ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <state key="normal" title="Select"/>
+                                                                    <connections>
+                                                                        <action selector="destinationAction:" destination="H8s-1C-13o" eventType="touchUpInside" id="BNG-L7-BZU"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UNu-e1-oWb">
+                                                            <rect key="frame" x="0.0" y="15" width="315" height="6.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZV6-MX-FRP" userLabel="Destination 1">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="91" height="6.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubg-eU-IOU">
+                                                                    <rect key="frame" x="91" y="0.0" width="224" height="6.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="40" id="52m-aT-Qqi"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                                    <state key="normal" title="Select"/>
+                                                                    <connections>
+                                                                        <action selector="destinationAction:" destination="H8s-1C-13o" eventType="touchUpInside" id="yWJ-ye-Ckj"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="dRf-gQ-vSz" secondAttribute="trailing" id="2Lo-3U-YEs"/>
-                                                <constraint firstItem="Fmw-Vl-dD8" firstAttribute="leading" secondItem="8LN-t5-Yph" secondAttribute="leadingMargin" id="Tb6-0s-jfM"/>
-                                                <constraint firstItem="Fmw-Vl-dD8" firstAttribute="centerY" secondItem="8LN-t5-Yph" secondAttribute="centerY" id="WZa-Yo-bCB"/>
-                                                <constraint firstItem="dRf-gQ-vSz" firstAttribute="leading" secondItem="Fmw-Vl-dD8" secondAttribute="trailing" constant="10" id="YB6-wE-b9e"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="dRf-gQ-vSz" secondAttribute="bottom" id="hgX-xz-1lJ"/>
-                                                <constraint firstItem="dRf-gQ-vSz" firstAttribute="top" secondItem="8LN-t5-Yph" secondAttribute="topMargin" id="s35-f9-a2V"/>
+                                                <constraint firstItem="ktn-3o-pd9" firstAttribute="leading" secondItem="8LN-t5-Yph" secondAttribute="leadingMargin" id="AuI-9y-icg"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ktn-3o-pd9" secondAttribute="trailing" id="FBG-rA-Cxe"/>
+                                                <constraint firstItem="ktn-3o-pd9" firstAttribute="top" secondItem="8LN-t5-Yph" secondAttribute="topMargin" id="htg-te-SdR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ktn-3o-pd9" secondAttribute="bottom" id="smE-0y-iJA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -445,9 +460,14 @@
                         <outlet property="descriptionTextView" destination="qP7-rN-ADf" id="RDs-fg-ZBk"/>
                         <outlet property="destinationButton1" destination="XJI-Ba-ine" id="W0S-Bd-Gw6"/>
                         <outlet property="destinationButton2" destination="Ubg-eU-IOU" id="b52-yN-vrQ"/>
+                        <outlet property="destinationLabel1" destination="Fmw-Vl-dD8" id="Fhb-2q-ShW"/>
+                        <outlet property="destinationLabel2" destination="ZV6-MX-FRP" id="XEc-BG-YxT"/>
+                        <outlet property="destinationStackView2" destination="UNu-e1-oWb" id="Iev-5w-srj"/>
                         <outlet property="endDateField" destination="Vpm-mp-zc7" id="9sc-yc-oaj"/>
                         <outlet property="paymentLabel" destination="fQp-yd-BFV" id="g6Z-iQ-bZz"/>
                         <outlet property="startDateField" destination="8QV-LF-PxD" id="NST-hM-Ttm"/>
+                        <outlet property="timeLabel1" destination="b1T-Pa-eSF" id="N4X-Bv-qgG"/>
+                        <outlet property="timeLabel2" destination="AcL-vn-SLL" id="R81-8a-STo"/>
                         <outlet property="tipRecommendationLabel" destination="E9w-J0-VZw" id="opq-Yq-f9d"/>
                         <outlet property="tipTextField" destination="bes-zI-3XU" id="TSU-Fc-NAt"/>
                         <outlet property="titleTextField" destination="Gjh-os-Plw" id="YYW-Jb-W2o"/>

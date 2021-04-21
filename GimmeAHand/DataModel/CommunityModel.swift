@@ -25,4 +25,8 @@ class CommunityModel: NSObject {
         return rawDistance / 1609.344
     }
     
+    convenience override init() {
+        self.init("", 0.0, 0.0)
+    }
+    
 }

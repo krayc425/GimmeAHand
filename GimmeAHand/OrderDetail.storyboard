@@ -395,6 +395,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="38s-ei-Szq"/>
                     <connections>
+                        <outlet property="actionButton" destination="bZG-0S-gfU" id="QGZ-BM-qMg"/>
                         <outlet property="amountLabel" destination="HCl-mx-dLN" id="DYo-TY-Mbh"/>
                         <outlet property="categoryImageView" destination="dqG-wA-5V4" id="Cig-Fj-FEW"/>
                         <outlet property="categoryLabel" destination="Znk-ia-UiK" id="IAm-v8-8lE"/>

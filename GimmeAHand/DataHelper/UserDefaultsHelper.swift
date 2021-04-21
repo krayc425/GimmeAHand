@@ -44,4 +44,19 @@ class UserDefaultsHelper: NSObject {
         return defaults.string(forKey: "gh_email")
     }
     
+    func saveUserList(_ users: [UserModel]) {
+        let encodedData: Data = try! NSKeyedArchiver.archivedData(withRootObject: users, requiringSecureCoding: false)
+        defaults.set(encodedData, forKey: "user_list")
+        defaults.synchronize()
+    }
+    
+    func getUserList() -> [UserModel] {
+        let decodedData = defaults.data(forKey: "user_list")
+        if let data = decodedData {
+            return try! NSKeyedUnarchiver.unarchivedArrayOfObjects(ofClasses: [UserModel.self], from: data) as! [UserModel]
+        } else {
+            return []
+        }
+    }
+    
 }

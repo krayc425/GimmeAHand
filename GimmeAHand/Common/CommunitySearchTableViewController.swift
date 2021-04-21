@@ -20,6 +20,7 @@ enum CommunitySearchType {
     case none
     case add
     case filter
+    case select
     
     var title: String {
         switch self {
@@ -27,6 +28,8 @@ enum CommunitySearchType {
             return "Add a Community"
         case .filter:
             return "Filter by Community"
+        case .select:
+            return "Select a Community"
         case .none:
             return ""
         }
@@ -36,7 +39,7 @@ enum CommunitySearchType {
         switch self {
         case .add:
             return "We only display available communities within 3 miles of your current location."
-        case .filter:
+        case .filter, .select:
             return nil
         case .none:
             return nil
@@ -165,7 +168,6 @@ extension CommunitySearchTableViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         SVProgressHUD.showError(withStatus: error.localizedDescription)
-        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration)
     }
     
 }
