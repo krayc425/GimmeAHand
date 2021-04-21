@@ -47,6 +47,7 @@
 		244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF025F9DC7D001A71EB /* Orders.storyboard */; };
 		244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */; };
 		24B3B3F8262FE42400B41B38 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */; };
+		24B3B3FC262FEBE100B41B38 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 24B3B3FB262FEBE100B41B38 /* SwiftDate */; };
 		24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C181412613E7790008A858 /* TimeIntervalExtensions.swift */; };
 		24C1815826147B470008A858 /* DZNEmptyDataSet in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1815726147B470008A858 /* DZNEmptyDataSet */; };
 		24C1815C26147B720008A858 /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 24C1815B26147B720008A858 /* CryptoSwift */; };
@@ -133,6 +134,7 @@
 			files = (
 				24C1816026147C560008A858 /* SVProgressHUD in Frameworks */,
 				24C1816826147D350008A858 /* IQKeyboardManagerSwift in Frameworks */,
+				24B3B3FC262FEBE100B41B38 /* SwiftDate in Frameworks */,
 				24C1815826147B470008A858 /* DZNEmptyDataSet in Frameworks */,
 				24C1815C26147B720008A858 /* CryptoSwift in Frameworks */,
 			);
@@ -328,6 +330,7 @@
 				24C1815B26147B720008A858 /* CryptoSwift */,
 				24C1815F26147C560008A858 /* SVProgressHUD */,
 				24C1816726147D350008A858 /* IQKeyboardManagerSwift */,
+				24B3B3FB262FEBE100B41B38 /* SwiftDate */,
 			);
 			productName = GimmeAHand;
 			productReference = 244B0BCE25F99E38001A71EB /* GimmeAHand.app */;
@@ -361,6 +364,7 @@
 				24C1815A26147B720008A858 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 				24C1815E26147C560008A858 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
 				24C1816626147D350008A858 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				24B3B3FA262FEBE100B41B38 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = 244B0BCF25F99E38001A71EB /* Products */;
 			projectDirPath = "";
@@ -645,6 +649,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		24B3B3FA262FEBE100B41B38 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
 		24C1815626147B470008A858 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/dzenbot/DZNEmptyDataSet.git";
@@ -680,6 +692,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		24B3B3FB262FEBE100B41B38 /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24B3B3FA262FEBE100B41B38 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
 		24C1815726147B470008A858 /* DZNEmptyDataSet */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 24C1815626147B470008A858 /* XCRemoteSwiftPackageReference "DZNEmptyDataSet" */;

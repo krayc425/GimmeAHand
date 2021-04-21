@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import SwiftDate
 
 class MockDataStore: NSObject {
 
@@ -31,7 +32,7 @@ class MockDataStore: NSObject {
                        status: .submitted,
                        createDate: Date(),
                        startDate: Date(),
-                       endDate: Date(),
+                       endDate: MockDataStore.randomDate(),
                        category: .printing,
                        community: communityList[0],
                        creator: userList.randomElement()!,
@@ -49,6 +50,13 @@ class MockDataStore: NSObject {
     
     func randomOrder() -> OrderModel {
         return orderList.randomElement()!
+    }
+    
+    private static func randomDate() -> Date {
+        return Date()
+            + Int.random(in: 0...1).days
+            + Int.random(in: 0...23).hours
+            + Int.random(in: 1...59).minutes
     }
     
 }
