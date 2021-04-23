@@ -16,7 +16,7 @@ class UserHelper: NSObject {
     var currentUser: UserModel
     
     private override init() {
-        currentUser = UserModel()
+        currentUser = userDefaultsHelper.getCurrentUser() ?? UserModel()
         userList = []
     }
     
@@ -35,6 +35,19 @@ class UserHelper: NSObject {
     
     private func saveUserList() {
         userDefaultsHelper.saveUserList(userList)
+    }
+    
+    func loginUser(_ email: String, _ password: String) -> Bool {
+        guard let user = findUser(email, password) else {
+            return false
+        }
+        userDefaultsHelper.saveCurrentUser(user)
+        currentUser = user
+        return true
+    }
+    
+    func logout() {
+        userDefaultsHelper.clearCurrentUser()
     }
     
 }

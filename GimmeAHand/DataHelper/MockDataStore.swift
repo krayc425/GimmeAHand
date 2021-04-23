@@ -19,7 +19,7 @@ class MockDataStore: NSObject {
     
     private override init() {
         userList = [
-            UserModel("Kuixi", "Song", "k@s.com", "+14441234567"),
+            UserModel("Kuixi", "Song", "k@s.com", "+14441234567", "admin"),
         ]
         communityList = [
             CommunityModel("CMU SV", 37.4104, -122.0598),

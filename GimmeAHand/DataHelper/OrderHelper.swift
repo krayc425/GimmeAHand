@@ -39,7 +39,7 @@ class OrderHelper: NSObject {
         saveOrderList()
     }
     
-    func saveOrderList() {
+    private func saveOrderList() {
         userDefaultsHelper.saveOrderList(orderList)
     }
     

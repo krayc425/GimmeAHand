@@ -66,9 +66,23 @@ class RegisterTableViewController: AuthenticateTableViewController {
             mobileTextField.becomeFirstResponder()
             return
         }
+        guard let password = passwordTextField.text, !password.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter Password")
+            passwordTextField.becomeFirstResponder()
+            return
+        }
+        guard let password2 = confirmTextField.text, !password2.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter Confirm Password")
+            confirmTextField.becomeFirstResponder()
+            return
+        }
+        guard password == password2 else {
+            SVProgressHUD.showInfo(withStatus: "Passwords don't match")
+            return
+        }
         
         // Registration
-        let newUser = UserModel(firstName, lastName, email, phone)
+        let newUser = UserModel(firstName, lastName, email, phone, password)
         UserHelper.shared.addUser(newUser)
         UserHelper.shared.currentUser = newUser
         
@@ -171,6 +185,9 @@ extension RegisterTableViewController: UITextFieldDelegate {
         case firstNameTextField:
             firstNameTextField.resignFirstResponder()
             lastNameTextField.becomeFirstResponder()
+        case lastNameTextField:
+            lastNameTextField.resignFirstResponder()
+            mobileTextField.becomeFirstResponder()
         case mobileTextField:
             mobileTextField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()

@@ -74,4 +74,24 @@ class UserDefaultsHelper: NSObject {
         }
     }
     
+    func saveCurrentUser(_ user: UserModel) {
+        let encodedData: Data = try! NSKeyedArchiver.archivedData(withRootObject: user, requiringSecureCoding: true)
+        defaults.set(encodedData, forKey: "current_user")
+        defaults.synchronize()
+    }
+    
+    func getCurrentUser() -> UserModel? {
+        let decodedData = defaults.data(forKey: "current_user")
+        if let data = decodedData {
+            return try! NSKeyedUnarchiver.unarchivedObject(ofClasses: [UserModel.self], from: data) as! UserModel
+        } else {
+            return nil
+        }
+    }
+    
+    func clearCurrentUser() {
+        defaults.set(nil, forKey: "current_user")
+        defaults.synchronize()
+    }
+    
 }

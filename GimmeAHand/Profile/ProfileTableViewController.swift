@@ -98,6 +98,7 @@ class ProfileTableViewController: UITableViewController, UINavigationControllerD
     
     func logout() {
         UserDefaultsHelper.shared.saveFaceID(false)
+        UserHelper.shared.logout()
         UIView.transition(with: UIApplication.shared.windows.first!,
                           duration: GHConstant.kStoryboardTransitionDuration,
                           options: .transitionFlipFromLeft,

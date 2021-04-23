@@ -157,7 +157,7 @@ class OrderDetailTableViewController: UITableViewController {
             if model.creator == UserHelper.shared.currentUser {
                 // check whether this order is being viewed by order creator
                 actionButton.setTitle("Report a Problem", for: .normal)
-                actionButton.backgroundColor = .lightText
+                actionButton.backgroundColor = .clear
                 debugPrint("I wanna report a problem")
             }
         case .cancelled:
@@ -180,7 +180,7 @@ class OrderDetailTableViewController: UITableViewController {
         mapView.showAnnotations([targetAnnotation], animated: true)
     }
     
-    @IBAction func takeOrderAction(_ sender: UIButton) {
+    @IBAction func orderAction(_ sender: UIButton) {
         actionButtonHandler?()
     }
 

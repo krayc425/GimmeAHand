@@ -15,22 +15,25 @@ class UserModel: NSObject, NSSecureCoding {
     var lastName: String
     var email: String
     var phone: String
+    var password: String
     var rating: Double
     
     init(_ firstName: String,
          _ lastName: String,
          _ email: String,
          _ phone: String,
+         _ password: String,
          _ rating: Double = 0.0) {
         self.firstName = firstName
         self.lastName = lastName
         self.email = email
         self.phone = phone
+        self.password = password
         self.rating = rating
     }
     
     convenience override init() {
-        self.init("Admin", "Admin", "admin@admin.com", "+1234567890")
+        self.init("Admin", "Admin", "admin@admin.com", "+1234567890", "admin")
     }
     
     required convenience init(coder aDecoder: NSCoder) {
@@ -39,7 +42,8 @@ class UserModel: NSObject, NSSecureCoding {
         let email = aDecoder.decodeObject(forKey: "email") as! String
         let phone = aDecoder.decodeObject(forKey: "phone") as! String
         let rating = aDecoder.decodeDouble(forKey: "rating")
-        self.init(firstName, lastname, email, phone, rating)
+        let password = aDecoder.decodeObject(forKey: "password") as! String
+        self.init(firstName, lastname, email, phone, password, rating)
     }
 
     func encode(with aCoder: NSCoder) {
@@ -48,6 +52,7 @@ class UserModel: NSObject, NSSecureCoding {
         aCoder.encode(email, forKey: "email")
         aCoder.encode(phone, forKey: "phone")
         aCoder.encode(rating, forKey: "rating")
+        aCoder.encode(password, forKey: "password")
     }
     
     static func ==(_ lhs: UserModel, _ rhs: UserModel) -> Bool {
