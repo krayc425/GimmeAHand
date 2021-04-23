@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DZNEmptyDataSet
 
 enum OrderSelectionType: Int {
     
@@ -28,6 +29,8 @@ class OrderTableViewController: GHFilterViewTableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil),
                            forCellReuseIdentifier: OrderTableViewCell.reuseIdentifier)
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
         
         // Add a UISegmentedControl to choose between placed and taken orders
         let segmentedControl = UISegmentedControl(items: ["Placed", "Taken"])
@@ -126,4 +129,16 @@ class OrderTableViewController: GHFilterViewTableViewController {
         }
     }
 
+}
+
+extension OrderTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelegate {
+    
+    func emptyDataSetShouldDisplay(_ scrollView: UIScrollView) -> Bool {
+        return modelArray.isEmpty
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
+        return NSAttributedString(string: "Empty result")
+    }
+    
 }

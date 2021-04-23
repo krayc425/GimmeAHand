@@ -63,7 +63,7 @@ class CommunitySearchTableViewController: UITableViewController {
     let locationManager = MapHelper.shared.locationManager
     var currentLocation: CLLocation? = nil
     
-    let communities = MockDataStore.shared.communityList
+    var communities: [CommunityModel] = []
     var delegate: CommunitySearchTableViewControllerDelegate?
     var type: CommunitySearchType = .none
     var selectedCommunityIndexPath: IndexPath? {
@@ -91,6 +91,19 @@ class CommunitySearchTableViewController: UITableViewController {
         locationManager.startUpdatingLocation()
         locationManager.delegate = self
         locationManager.requestLocation()
+    }
+    
+    func reloadCommunites() {
+        guard let location = currentLocation else {
+            return
+        }
+        if type != .filter {
+            communities = MockDataStore.shared.communityList.filter {
+                $0.distanceFromLocation(location) <= 3.0
+            }
+        } else {
+            communities = MockDataStore.shared.communityList
+        }
     }
     
     @objc func dismissAction(_ sender: UIBarButtonItem) {
@@ -163,6 +176,7 @@ extension CommunitySearchTableViewController: CLLocationManagerDelegate {
             return
         }
         currentLocation = location
+        reloadCommunites()
         tableView.reloadData()
     }
     

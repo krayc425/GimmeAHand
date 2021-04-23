@@ -109,7 +109,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         })
         if let currentLocation = currentLocation {
         modelArray = modelArray.filter({ (model) -> Bool in
-            let distance = model.community.distanceFromLocation(currentLocation)
+            let distance = model.destinationDistanceFromLocation(currentLocation)
             return Double(selectDistanceRange.0) <= distance && distance <= Double(selectDistanceRange.1)
         })
         }

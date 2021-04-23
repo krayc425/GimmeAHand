@@ -7,7 +7,9 @@
 
 import UIKit
 
-class UserModel: NSObject, NSCoding {
+class UserModel: NSObject, NSSecureCoding {
+    
+    static var supportsSecureCoding = true
     
     var firstName: String
     var lastName: String
@@ -33,7 +35,7 @@ class UserModel: NSObject, NSCoding {
     
     required convenience init(coder aDecoder: NSCoder) {
         let firstName = aDecoder.decodeObject(forKey: "firstName") as! String
-        let lastname = aDecoder.decodeObject(forKey: "lastname") as! String
+        let lastname = aDecoder.decodeObject(forKey: "lastName") as! String
         let email = aDecoder.decodeObject(forKey: "email") as! String
         let phone = aDecoder.decodeObject(forKey: "phone") as! String
         let rating = aDecoder.decodeDouble(forKey: "rating")
