@@ -39,8 +39,8 @@ class ProfileTableViewController: UITableViewController {
         phoneLabel.text = currentUser.phone
         avatarImageView.setRoundCorner(avatarImageView.frame.width / 2.0)
         
-        var statisticString = "You have taken \(currentUser.takenOrderCount) orders\n"
-        statisticString = statisticString.appending("You have placed \(currentUser.placedOrderCount) orders\n")
+        var statisticString = "You have placed \(currentUser.placedOrderCount) orders\n"
+        statisticString = statisticString.appending("You have taken \(currentUser.takenOrderCount) orders\n")
         statisticString = statisticString.appending("You have earned \(GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: currentUser.earnedMoney)) ?? "$0.00")")
         
         func matchesForRegexInText(regex: String, text: String) -> [NSRange] {

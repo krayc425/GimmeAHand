@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class CustomerServiceTableViewController: UITableViewController {
 
@@ -14,7 +15,13 @@ class CustomerServiceTableViewController: UITableViewController {
     }
     
     @IBAction func submitAction(_ sender: UIButton) {
-        navigationController?.dismiss(animated: true)
+        SVProgressHUD.show(withStatus: "Submitting Request")
+        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
+            strongSelf.navigationController?.dismiss(animated: true)
+        }
     }
 
     // MARK: - Table view data source

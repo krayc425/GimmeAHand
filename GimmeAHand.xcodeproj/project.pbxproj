@@ -53,6 +53,7 @@
 		2496FFDB2634AF9E00B67215 /* GHCommunitySearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFDA2634AF9E00B67215 /* GHCommunitySearchType.swift */; };
 		2496FFDE2634AFC600B67215 /* GHOrderSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFDD2634AFC600B67215 /* GHOrderSelectionType.swift */; };
 		2496FFE12634B0EE00B67215 /* GHSortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFE02634B0EE00B67215 /* GHSortButton.swift */; };
+		2496FFE42634B59900B67215 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFE32634B59900B67215 /* UIButtonExtensions.swift */; };
 		24B3B3F8262FE42400B41B38 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */; };
 		24B3B3FC262FEBE100B41B38 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 24B3B3FB262FEBE100B41B38 /* SwiftDate */; };
 		24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C181412613E7790008A858 /* TimeIntervalExtensions.swift */; };
@@ -124,6 +125,7 @@
 		2496FFDA2634AF9E00B67215 /* GHCommunitySearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHCommunitySearchType.swift; sourceTree = "<group>"; };
 		2496FFDD2634AFC600B67215 /* GHOrderSelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderSelectionType.swift; sourceTree = "<group>"; };
 		2496FFE02634B0EE00B67215 /* GHSortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHSortButton.swift; sourceTree = "<group>"; };
+		2496FFE32634B59900B67215 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
 		24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		24C181412613E7790008A858 /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		24C1816D26147E160008A858 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				24C181412613E7790008A858 /* TimeIntervalExtensions.swift */,
 				240FBE5C262EAE5200213B9E /* DoubleExtensions.swift */,
 				24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */,
+				2496FFE32634B59900B67215 /* UIButtonExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */,
 				24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */,
 				24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */,
+				2496FFE42634B59900B67215 /* UIButtonExtensions.swift in Sources */,
 				24015A9F26044CE000AE95DD /* GHOrderCategory.swift in Sources */,
 				2496FFD22633F50800B67215 /* BasicInfoTableViewController.swift in Sources */,
 				244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */,

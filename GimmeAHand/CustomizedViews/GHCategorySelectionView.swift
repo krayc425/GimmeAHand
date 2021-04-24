@@ -62,19 +62,3 @@ class GHCategorySelectionView: UIStackView {
     }
     
 }
-
-extension UIButton {
-    
-    func updateSelectionColor(selected: Bool) {
-        if selected {
-            backgroundColor = .GHTint
-            setTitleColor(.white, for: .normal)
-            tintColor = .white
-        } else {
-            backgroundColor = .systemBackground
-            setTitleColor(.GHTint, for: .normal)
-            tintColor = .GHTint
-        }
-    }
-    
-}

@@ -149,11 +149,14 @@ class CreateOrderTableViewController: UITableViewController {
         
         // create order logic
         SVProgressHUD.show(withStatus: "Creating order")
-        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
+        SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) { [weak self] in
+            guard let strongSelf = self else {
+                return
+            }
             NotificationCenter.default.post(name: .GHRefreshHomepage, object: nil)
             NotificationCenter.default.post(name: .GHRefreshMyOrders, object: nil)
             NotificationCenter.default.post(name: .GHHomepageToDetail, object: nil, userInfo: ["order": newOrder])
-            self.navigationController?.dismiss(animated: true)
+            strongSelf.navigationController?.dismiss(animated: true)
         }
     }
     
