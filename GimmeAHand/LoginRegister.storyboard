@@ -3,6 +3,7 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -200,6 +201,69 @@
                                                 <constraint firstItem="6GW-Wx-3HL" firstAttribute="leading" secondItem="j1e-rJ-6Mw" secondAttribute="leading" id="r83-5w-QYQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection id="eso-0b-8JJ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="V73-Hq-sz8">
+                                        <rect key="frame" x="16" y="436" width="343" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="V73-Hq-sz8" id="dhw-FF-oeI">
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="7JT-DS-laL">
+                                                    <rect key="frame" x="16" y="6" width="311" height="38"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3rd Party Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSx-MK-LPe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="125" height="38"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="125" id="hQR-c9-Kid"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Auu-Nl-vcc">
+                                                            <rect key="frame" x="149" y="0.0" width="38" height="38"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Auu-Nl-vcc" secondAttribute="height" multiplier="1:1" id="pXT-Po-ZjF"/>
+                                                            </constraints>
+                                                            <state key="normal" image="google"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xz-rx-W56">
+                                                            <rect key="frame" x="211" y="0.0" width="38" height="38"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="2xz-rx-W56" secondAttribute="height" multiplier="1:1" id="NDI-XW-97S"/>
+                                                            </constraints>
+                                                            <state key="normal" image="facebook"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="spatial" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgn-Fx-C7I">
+                                                            <rect key="frame" x="273" y="0.0" width="38" height="38"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="vgn-Fx-C7I" secondAttribute="height" multiplier="1:1" id="29B-H2-X9I"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                            <color key="tintColor" systemColor="labelColor"/>
+                                                            <state key="normal">
+                                                                <imageReference key="image" image="applelogo" catalog="system" symbolScale="default"/>
+                                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font" scale="default">
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                                                </preferredSymbolConfiguration>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7JT-DS-laL" firstAttribute="top" secondItem="dhw-FF-oeI" secondAttribute="topMargin" constant="-5" id="T78-Tr-3nt"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7JT-DS-laL" secondAttribute="trailing" id="foJ-LZ-NtN"/>
+                                                <constraint firstItem="7JT-DS-laL" firstAttribute="leading" secondItem="dhw-FF-oeI" secondAttribute="leadingMargin" id="oKy-cL-Wba"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7JT-DS-laL" secondAttribute="bottom" constant="-5" id="yvF-i0-awB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -586,10 +650,16 @@
     </scenes>
     <color key="tintColor" name="GHTint"/>
     <resources>
+        <image name="applelogo" catalog="system" width="103" height="128"/>
+        <image name="facebook" width="48" height="48"/>
+        <image name="google" width="48" height="48"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="GHTint">
             <color red="0.20392156862745098" green="0.66666666666666663" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
