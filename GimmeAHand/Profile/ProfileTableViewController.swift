@@ -42,7 +42,19 @@ class ProfileTableViewController: UITableViewController {
         var statisticString = "You have taken \(currentUser.takenOrderCount) orders\n"
         statisticString = statisticString.appending("You have placed \(currentUser.placedOrderCount) orders\n")
         statisticString = statisticString.appending("You have earned \(GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: currentUser.earnedMoney)) ?? "$0.00")")
-        statisticsLabel.text = statisticString
+        
+        func matchesForRegexInText(regex: String, text: String) -> [NSRange] {
+            let regex = try! NSRegularExpression(pattern: regex, options: .caseInsensitive)
+            let nsString = text as NSString
+            let results: [NSTextCheckingResult] = regex.matches(in: text, options: .reportCompletion, range: NSMakeRange(0, nsString.length))
+            return results.map { $0.range }
+        }
+        
+        let mutableAttributedString = NSMutableAttributedString(string: statisticString)
+        for range in matchesForRegexInText(regex: "(\\d+)|(\\$\\d+\\.?\\d+)", text: statisticString) {
+            mutableAttributedString.addAttributes([.font : UIFont.preferredFont(forTextStyle: .largeTitle)], range: range)
+        }
+        statisticsLabel.attributedText = mutableAttributedString
     }
     
     @IBAction func addCommunityAction(_ sender: UIButton) {
