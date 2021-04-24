@@ -47,7 +47,7 @@ class OrderModel: NSObject, NSSecureCoding {
         return status == .inprogress || status == .finished
     }
     
-    override var description: String {
+    override var debugDescription: String {
         return "\(name), \(community.name), \(expireDateString)"
     }
     

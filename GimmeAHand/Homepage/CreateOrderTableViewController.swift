@@ -37,6 +37,14 @@ class CreateOrderTableViewController: UITableViewController {
     @IBOutlet weak var destinationButton2: UIButton!
     @IBOutlet weak var destinationStackView2: UIStackView!
     @IBOutlet weak var paymentLabel: UILabel!
+    @IBOutlet weak var feeTipLabel: UILabel!
+    @IBOutlet weak var feeServiceLabel: UILabel!
+    @IBOutlet weak var feeTotalLabel: UILabel!
+    
+    var selectedCategory: GHOrderCategory? = nil
+    var selectedCommunity: CommunityModel? = nil
+    var selectedDestination1: CLLocationCoordinate2D? = nil
+    var selectedDestination2: CLLocationCoordinate2D? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +63,31 @@ class CreateOrderTableViewController: UITableViewController {
         
         tipRecommendationLabel.text = "A recommended tip amount will be displayed here after you choose the category and destination."
         
+        tipTextField.addTarget(self, action: #selector(tipValueChanged), for: .editingChanged)
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
         
         let backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissAction))
         navigationItem.leftBarButtonItem = backBarButtonItem
+    }
+    
+    @objc func tipValueChanged(_ sender: UITextField) {
+        guard let amountString = sender.text, !amountString.isEmpty,
+              let amount = Double(amountString) else {
+            return
+        }
+        let serviceFee = NSNumber(floatLiteral: amount * 0.1)
+        let total = NSNumber(floatLiteral: amount * 1.1)
+        feeTipLabel.text = GHConstant.kAmountFormatter.string(from: NSNumber(floatLiteral: amount))
+        feeServiceLabel.text = GHConstant.kAmountFormatter.string(from: serviceFee)
+        let totalString = GHConstant.kAmountFormatter.string(from: total)
+        feeTotalLabel.text = totalString
+        if let totalString = totalString {
+            createButton.setTitle("Pay \(totalString) and Create Order", for: .normal)
+        } else {
+            createButton.setTitle("Create Order", for: .normal)
+        }
     }
     
     @objc func dismissAction(_ sender: UIBarButtonItem) {
@@ -79,11 +107,44 @@ class CreateOrderTableViewController: UITableViewController {
     }
     
     func createOrder() {
-        // TODO: Validation
+        // Validation
+        guard let title = titleTextField.text, !title.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter Title")
+            titleTextField.becomeFirstResponder()
+            return
+        }
+        guard let tip = tipTextField.text, !tip.isEmpty else {
+            SVProgressHUD.showInfo(withStatus: "Enter Tips")
+            tipTextField.becomeFirstResponder()
+            return
+        }
+        guard let category = selectedCategory else {
+            SVProgressHUD.showInfo(withStatus: "Select Category")
+            return
+        }
+        guard let community = selectedCommunity else {
+            SVProgressHUD.showInfo(withStatus: "Select Community")
+            return
+        }
+        guard let destination1 = selectedDestination1 else {
+            SVProgressHUD.showInfo(withStatus: "Select Destination")
+            return
+        }
         
-        // mock data
-        let randomCommunity = MockDataStore.shared.randomCommunity()
-        let newOrder = OrderModel(name: "haha", description: "haha", amount: 2.30, status: .submitted, createDate: Date(), startDate: Date(), endDate: Date(), category: .shipping, community: randomCommunity, creator: UserHelper.shared.currentUser, courier: nil, destination1: randomCommunity.coordinate, destination2: nil)
+        // construct new order
+        let newOrder = OrderModel(name: title,
+                                  description: descriptionTextView.text,
+                                  amount: Double(tip)!,
+                                  status: .submitted,
+                                  createDate: Date(),
+                                  startDate: startDateField.date,
+                                  endDate: endDateField.date,
+                                  category: category,
+                                  community: community,
+                                  creator: UserHelper.shared.currentUser,
+                                  courier: nil,
+                                  destination1: destination1,
+                                  destination2: nil)
         OrderHelper.shared.addOrder(newOrder)
         
         // create order logic
@@ -133,6 +194,8 @@ class CreateOrderTableViewController: UITableViewController {
 extension CreateOrderTableViewController: CategorySelectionTableViewControllerDelegate {
     
     func didSelectCategory(_ category: GHOrderCategory) {
+        selectedCategory = category
+        
         categoryLabel.text = category.rawValue
         category.fill(in: &categoryImageView)
         let destinations = category.getDestinations()
@@ -155,6 +218,7 @@ extension CreateOrderTableViewController: CategorySelectionTableViewControllerDe
 extension CreateOrderTableViewController: CommunitySearchTableViewControllerDelegate {
     
     func didSelectCommunity(_ community: CommunityModel) {
+        selectedCommunity = community
         communityLabel.text = community.name
     }
     
@@ -170,12 +234,14 @@ extension CreateOrderTableViewController: PaymentTableViewControllerDelegate {
 
 extension CreateOrderTableViewController: PreciseLocationSearchViewControllerDelegate {
     
-    func didSelectLocation(_ name: String, _ tag: DestinationButtonTag) {
+    func didSelectLocation(_ name: String, _ coordinate: CLLocationCoordinate2D, _ tag: DestinationButtonTag) {
         switch tag {
         case .first:
             destinationButton1.setTitle(name, for: .normal)
+            selectedDestination1 = coordinate
         case .second:
             destinationButton2.setTitle(name, for: .normal)
+            selectedDestination2 = coordinate
         default:
             return
         }

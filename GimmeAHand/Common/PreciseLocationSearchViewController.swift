@@ -10,7 +10,7 @@ import MapKit
 
 protocol PreciseLocationSearchViewControllerDelegate {
     
-    func didSelectLocation(_ name: String, _ tag: DestinationButtonTag)
+    func didSelectLocation(_ name: String, _ coordinate: CLLocationCoordinate2D, _ tag: DestinationButtonTag)
     
 }
 
@@ -85,7 +85,7 @@ class PreciseLocationSearchViewController: UIViewController {
               sender == doneBarButtonItem, sender.isEnabled else {
             return
         }
-        delegate?.didSelectLocation(selectedAnnotation.title ?? "", tag)
+        delegate?.didSelectLocation(selectedAnnotation.title ?? "", selectedAnnotation.coordinate, tag)
         navigationController?.popViewController(animated: true)
     }
     

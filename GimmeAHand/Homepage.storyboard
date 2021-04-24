@@ -415,10 +415,87 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="SiO-XN-KCN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6kj-RM-S6t">
+                                        <rect key="frame" x="20" y="502" width="374" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6kj-RM-S6t" id="4hU-yN-sbb">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="4iq-YQ-Gob">
+                                                    <rect key="frame" x="20" y="11" width="334" height="21.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="rho-N2-8h9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="6"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG2-gz-xvQ">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="26" height="6"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-.--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJf-rK-pcl">
+                                                                    <rect key="frame" x="312" y="0.0" width="22" height="6"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="r2U-Jr-hKV">
+                                                            <rect key="frame" x="0.0" y="8" width="334" height="5.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Fee (10%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSD-iq-wln">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="110.5" height="5.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-.--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgG-5j-sV8">
+                                                                    <rect key="frame" x="312" y="0.0" width="22" height="5.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Sh7-rO-fXm">
+                                                            <rect key="frame" x="0.0" y="15.5" width="334" height="6"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab4-3v-grO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="39" height="6"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-.--" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRf-I8-AM2">
+                                                                    <rect key="frame" x="305.5" y="0.0" width="28.5" height="6"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="4iq-YQ-Gob" secondAttribute="trailing" id="Ajk-Yd-Jrb"/>
+                                                <constraint firstItem="4iq-YQ-Gob" firstAttribute="top" secondItem="4hU-yN-sbb" secondAttribute="topMargin" id="ERE-6Q-3Uj"/>
+                                                <constraint firstItem="4iq-YQ-Gob" firstAttribute="leading" secondItem="4hU-yN-sbb" secondAttribute="leadingMargin" id="jCL-Qb-Ybp"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4iq-YQ-Gob" secondAttribute="bottom" id="zyw-0v-mI5"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection id="84h-b0-hli">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="50" id="qwc-Ts-oIu">
-                                        <rect key="frame" x="20" y="502" width="374" height="50"/>
+                                        <rect key="frame" x="20" y="588" width="374" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qwc-Ts-oIu" id="YsJ-m4-KHr">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -465,6 +542,9 @@
                         <outlet property="destinationLabel2" destination="ZV6-MX-FRP" id="XEc-BG-YxT"/>
                         <outlet property="destinationStackView2" destination="UNu-e1-oWb" id="Iev-5w-srj"/>
                         <outlet property="endDateField" destination="Vpm-mp-zc7" id="9sc-yc-oaj"/>
+                        <outlet property="feeServiceLabel" destination="zgG-5j-sV8" id="yTS-Fw-pnw"/>
+                        <outlet property="feeTipLabel" destination="NJf-rK-pcl" id="7Mx-n2-oxs"/>
+                        <outlet property="feeTotalLabel" destination="NRf-I8-AM2" id="daS-8U-S5k"/>
                         <outlet property="paymentLabel" destination="fQp-yd-BFV" id="g6Z-iQ-bZz"/>
                         <outlet property="startDateField" destination="8QV-LF-PxD" id="NST-hM-Ttm"/>
                         <outlet property="timeLabel1" destination="b1T-Pa-eSF" id="N4X-Bv-qgG"/>
