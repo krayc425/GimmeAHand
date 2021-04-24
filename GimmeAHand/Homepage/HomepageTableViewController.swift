@@ -14,6 +14,8 @@ typealias RangePair = (CGFloat, CGFloat)
 
 class HomepageTableViewController: GHFilterViewTableViewController {
     
+    @IBOutlet weak var communityBarButtonItem: UIBarButtonItem!
+    
     let locationManager = MapHelper.shared.locationManager
     var currentLocation: CLLocation? = nil
     
@@ -22,7 +24,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     
     var selectedCommunity: CommunityModel? {
         didSet {
-            navigationItem.title = "Orders in \(selectedCommunity?.name ?? "")"
+            communityBarButtonItem.title = selectedCommunity?.name ?? "All Communities"
             filterOrders()
         }
     }
@@ -83,6 +85,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         
         // notifications
         NotificationCenter.default.addObserver(self, selector: #selector(reloadOrders), name: .GHRefreshHomepage, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(viewOrderDetail(_:)), name: .GHHomepageToDetail, object: nil)
         
         // reload orders
         reloadOrders()
@@ -90,11 +93,19 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .GHRefreshHomepage, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .GHHomepageToDetail, object: nil)
     }
     
     @objc func reloadOrders() {
         originalModelArray = OrderHelper.shared.getOrderList().filter { $0.status == .submitted }
         filterOrders()
+    }
+    
+    @objc func viewOrderDetail(_ notification: Notification) {
+        guard let order = notification.userInfo?["order"] else {
+            return
+        }
+        performSegue(withIdentifier: "orderDetailSegue", sender: order)
     }
     
     func filterOrders() {
@@ -197,7 +208,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as! OrderTableViewCell
 
-        cell.config(modelArray[indexPath.row], true, currentLocation)
+        cell.config(modelArray[indexPath.row], currentLocation)
 
         return cell
     }
@@ -226,7 +237,6 @@ extension HomepageTableViewController: CommunitySearchTableViewControllerDelegat
     
     func didSelectCommunity(_ community: CommunityModel) {
         selectedCommunity = community
-        // TODO: load orders based on the community
     }
     
 }

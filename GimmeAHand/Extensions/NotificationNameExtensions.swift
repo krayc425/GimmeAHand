@@ -11,5 +11,6 @@ extension Notification.Name {
     
     static let GHRefreshHomepage = Notification.Name.init("gh_refresh_homepage")
     static let GHRefreshMyOrders = Notification.Name.init("gh_refresh_my_orders")
+    static let GHHomepageToDetail = Notification.Name.init("gh_homepage_to_detail")
     
 }

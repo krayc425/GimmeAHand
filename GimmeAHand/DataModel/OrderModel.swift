@@ -30,10 +30,13 @@ class OrderModel: NSObject, NSSecureCoding {
         return amount.amountString
     }
     var validDateString: String {
-        return GHConstant.kOrderDateFormatter.string(from: endDate)
+        return GHConstant.kExpireDateFormatter.string(from: endDate)
+    }
+    var createDateString: String {
+        return "Created on \(GHConstant.kCreateDateFormatter.string(from: createDate))"
     }
     var expireDateString: String {
-        return "Expire on \(GHConstant.kOrderDateFormatter.string(from: endDate))"
+        return "Expire on \(validDateString)"
     }
     
     var isInProgress: Bool {

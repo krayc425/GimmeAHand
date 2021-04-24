@@ -28,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-149" y="159"/>
         </scene>
-        <!--All Available Orders-->
+        <!--Available Orders-->
         <scene sceneID="NyU-ue-dIE">
             <objects>
                 <tableViewController id="2H8-Do-LVL" customClass="HomepageTableViewController" customModule="GimmeAHand" customModuleProvider="target" sceneMemberID="viewController">
@@ -50,8 +50,8 @@
                             <outlet property="delegate" destination="2H8-Do-LVL" id="vJs-fk-ufF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="All Available Orders" id="R6P-Zj-4Qr">
-                        <barButtonItem key="leftBarButtonItem" image="person.3" catalog="system" id="uex-S1-eVu">
+                    <navigationItem key="navigationItem" title="Available Orders" id="R6P-Zj-4Qr">
+                        <barButtonItem key="leftBarButtonItem" title="All Communities" id="uex-S1-eVu">
                             <connections>
                                 <action selector="communityAction:" destination="2H8-Do-LVL" id="saa-Qy-de3"/>
                             </connections>
@@ -63,6 +63,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="communityBarButtonItem" destination="uex-S1-eVu" id="oLB-Vc-V7G"/>
                         <segue destination="gaQ-m3-hpu" kind="show" identifier="orderDetailSegue" id="yLf-Yo-MVL"/>
                     </connections>
                 </tableViewController>
@@ -543,7 +544,6 @@
     <color key="tintColor" name="GHTint"/>
     <resources>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="person.3" catalog="system" width="128" height="62"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="GHTint">
             <color red="0.20392156862745098" green="0.66666666666666663" blue="0.85882352941176465" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

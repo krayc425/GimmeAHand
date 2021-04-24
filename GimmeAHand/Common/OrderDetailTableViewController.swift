@@ -209,7 +209,7 @@ class OrderDetailTableViewController: UITableViewController {
                 return 0
             }
         case 3:
-            return 1
+            return model.status == .finished ? 0 : 1
         default:
             return 0
         }

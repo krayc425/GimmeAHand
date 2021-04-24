@@ -8,10 +8,19 @@
 import UIKit
 import DZNEmptyDataSet
 
-enum OrderSelectionType: Int {
+enum OrderSelectionType: Int, CaseIterable {
     
     case placed = 0
     case taken = 1
+    
+    var description: String {
+        switch self {
+        case .placed:
+            return "Created by Me"
+        case .taken:
+            return "Taken by Me"
+        }
+    }
     
 }
 
@@ -23,7 +32,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "My Placed Orders"
+        navigationItem.title = "Orders \(OrderSelectionType.placed.description)"
         
         // Make sure that there is a path top to bottom, that can determine the height of current cell
         tableView.rowHeight = UITableView.automaticDimension
@@ -33,7 +42,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
         tableView.emptyDataSetDelegate = self
         
         // Add a UISegmentedControl to choose between placed and taken orders
-        let segmentedControl = UISegmentedControl(items: ["Placed", "Taken"])
+        let segmentedControl = UISegmentedControl(items: OrderSelectionType.allCases.map { $0.description })
         segmentedControl.frame = CGRect(x: 0, y: 0, width: 300.0, height: segmentedControl.frame.height)
         segmentedControl.selectedSegmentIndex = 0
         navigationItem.titleView = segmentedControl
@@ -64,7 +73,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
     }
     
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
-        navigationItem.title = "My \(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "") Orders"
+        navigationItem.title = "Orders \(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "")"
         currentType = OrderSelectionType(rawValue: sender.selectedSegmentIndex)!
         reloadOrders()
     }
@@ -102,7 +111,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: OrderTableViewCell.reuseIdentifier, for: indexPath) as! OrderTableViewCell
 
         // Configure the cell...
-        cell.config(modelArray[indexPath.row], false)
+        cell.config(modelArray[indexPath.row])
 
         return cell
     }

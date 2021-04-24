@@ -91,6 +91,7 @@ class CreateOrderTableViewController: UITableViewController {
         SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) {
             NotificationCenter.default.post(name: .GHRefreshHomepage, object: nil)
             NotificationCenter.default.post(name: .GHRefreshMyOrders, object: nil)
+            NotificationCenter.default.post(name: .GHHomepageToDetail, object: nil, userInfo: ["order": newOrder])
             self.navigationController?.dismiss(animated: true)
         }
     }

@@ -22,12 +22,12 @@ struct GHConstant {
     
     /// Formatters
     
-    static let kDateFormatter: DateFormatter = {
+    static let kCreateDateFormatter: DateFormatter = {
         let fmt = DateFormatter()
-        fmt.dateFormat = "MMM dd, yyyy"
+        fmt.dateFormat = "MMM dd, yyyy HH:mm"
         return fmt
     }()
-    static let kOrderDateFormatter: DateFormatter = {
+    static let kExpireDateFormatter: DateFormatter = {
         let fmt = DateFormatter()
         fmt.dateFormat = "HH:mm"
         return fmt
