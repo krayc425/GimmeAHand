@@ -169,13 +169,14 @@ class OrderDetailTableViewController: UITableViewController {
         if userLocation == oldUserLocation {
             return
         }
+        guard let model = orderModel else {
+            return
+        }
         oldUserLocation = userLocation
         mapView.removeAnnotations(mapView.annotations)
         
-        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + randomized.0,
-                                                 longitude: userLocation.coordinate.longitude + randomized.1)
-        let targetAnnotation = GHTargetAnnotation(targetName: orderModel?.name ?? "",
-                                                  coordinate: destination)
+        let targetAnnotation = GHTargetAnnotation(targetName: model.name,
+                                                  coordinate: model.destination1)
         mapView.addAnnotation(targetAnnotation)
         mapView.showAnnotations([targetAnnotation], animated: true)
     }

@@ -44,7 +44,7 @@ class MockDataStore: NSObject {
                        category: .printing,
                        community: communityList[0],
                        creator: userList.randomElement()!,
-                       destination1: CLLocationCoordinate2D(latitude: 37.0, longitude: -120.0)),
+                       destination1: MockDataStore.randomCoordinate(communityList[0].coordinate)),
             OrderModel(name: "Takeout",
                        description: "Buy a Sweet and Sour chicken for lunch",
                        amount: 4,
@@ -55,7 +55,7 @@ class MockDataStore: NSObject {
                        category: .takeout,
                        community: communityList[2],
                        creator: userList.randomElement()!,
-                       destination1: CLLocationCoordinate2D(latitude: 37.0, longitude: -120.0)),
+                       destination1: MockDataStore.randomCoordinate(communityList[2].coordinate)),
             OrderModel(name: "Shipping",
                        description: "Ship my package",
                        amount: 4.5,
@@ -66,7 +66,7 @@ class MockDataStore: NSObject {
                        category: .shipping,
                        community: communityList[3],
                        creator: userList.randomElement()!,
-                       destination1: CLLocationCoordinate2D(latitude: 37.0, longitude: -120.0)),
+                       destination1: MockDataStore.randomCoordinate(communityList[3].coordinate)),
             OrderModel(name: "Shopping",
                        description: "Buy a tuna sandwich from the supermarket",
                        amount: 3,
@@ -77,7 +77,8 @@ class MockDataStore: NSObject {
                        category: .supermarket,
                        community: communityList[1],
                        creator: userList.randomElement()!,
-                       destination1: CLLocationCoordinate2D(latitude: 37.0, longitude: -120.0)),
+                       destination1: MockDataStore.randomCoordinate(communityList[1].coordinate),
+                       destination2: MockDataStore.randomCoordinate(communityList[1].coordinate)),
         ]
     }
     
@@ -98,6 +99,11 @@ class MockDataStore: NSObject {
             + Int.random(in: 0...1).days
             + Int.random(in: 0...23).hours
             + Int.random(in: 1...59).minutes
+    }
+    
+    private static func randomCoordinate(_ coordinate: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: coordinate.latitude + Double.random(in: -0.001...0.001),
+                                      longitude: coordinate.longitude + Double.random(in: -0.001...0.001))
     }
     
 }

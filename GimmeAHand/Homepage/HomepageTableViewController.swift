@@ -130,7 +130,6 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     
     @objc func refreshAction(_ sender: UIRefreshControl) {
         if sender.isRefreshing {
-            // TODO: pull latest data
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) { [weak self] in
                 guard let strongSelf = self else {
                     return

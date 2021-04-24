@@ -49,7 +49,11 @@ class OrderMapViewController: UIViewController {
     let locationManager = MapHelper.shared.locationManager
     
     var orderModel: OrderModel?
-    let randomized = (Double.random(in: -1...1) / 10.0, Double.random(in: -1...1) / 10.0)
+    var totalETA: Double = 0.0 {
+        didSet {
+            navigationItem.title = "ETA: \(totalETA.formattedETAString)"
+        }
+    }
     var oldUserLocation: MKUserLocation = MKUserLocation()
 
     override func viewDidLoad() {
@@ -69,20 +73,29 @@ class OrderMapViewController: UIViewController {
         if userLocation == oldUserLocation {
             return
         }
+        guard let model = orderModel else {
+            return
+        }
         oldUserLocation = userLocation
         mapView.removeAnnotations(mapView.annotations)
         mapView.removeOverlays(mapView.overlays)
         
-        // mock destination
-        let destination = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude + randomized.0,
-                                                 longitude: userLocation.coordinate.longitude + randomized.1)
-        let targetAnnotation = GHTargetAnnotation(targetName: orderModel?.name ?? "",
-                                                  coordinate: destination)
-        mapView.addAnnotation(targetAnnotation)
-        mapView.showAnnotations([targetAnnotation, userLocation], animated: true)
-        
-        // add route
-        addRoute(source: userLocation.coordinate, destination: destination)
+        if let destination2 = model.destination2 {
+            let targetAnnotation = GHTargetAnnotation(targetName: model.name,
+                                                      coordinate: model.destination1)
+            let targetAnnotation2 = GHTargetAnnotation(targetName: model.name,
+                                                       coordinate: destination2)
+            mapView.addAnnotations([targetAnnotation, targetAnnotation2])
+            mapView.showAnnotations([targetAnnotation, targetAnnotation2, userLocation], animated: true)
+            addRoute(source: userLocation.coordinate, destination: model.destination1)
+            addRoute(source: model.destination1, destination: destination2)
+        } else {
+            let targetAnnotation = GHTargetAnnotation(targetName: model.name,
+                                                      coordinate: model.destination1)
+            mapView.addAnnotation(targetAnnotation)
+            mapView.showAnnotations([targetAnnotation, userLocation], animated: true)
+            addRoute(source: userLocation.coordinate, destination: model.destination1)
+        }
     }
     
     func addRoute(source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
@@ -118,7 +131,7 @@ class OrderMapViewController: UIViewController {
                 guard let response = response else {
                     return
                 }
-                strongSelf.navigationItem.title = "ETA: \(response.expectedTravelTime.formattedETAString)"
+                strongSelf.totalETA += response.expectedTravelTime
             }
         }
     }
@@ -127,7 +140,7 @@ class OrderMapViewController: UIViewController {
         guard let model = orderModel else {
             return
         }
-        MapHelper.shared.navigate(37.0, -122.0, model.name)
+        MapHelper.shared.navigate(model.destination1.latitude, model.destination1.longitude, model.name)
     }
     
 }
