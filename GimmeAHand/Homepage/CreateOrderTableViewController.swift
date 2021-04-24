@@ -61,8 +61,7 @@ class CreateOrderTableViewController: UITableViewController {
         destinationButton2.tag = GHDestinationButtonTag.second.rawValue
         destinationStackView2.isHidden = true
         
-        tipRecommendationLabel.text = "A recommended tip amount will be displayed here after you choose the category and destination."
-        
+        tipRecommendationLabel.text = "Recommend Tips: $2.00 ~ $10.00"
         tipTextField.addTarget(self, action: #selector(tipValueChanged), for: .editingChanged)
         
         tableView.rowHeight = UITableView.automaticDimension
@@ -96,7 +95,6 @@ class CreateOrderTableViewController: UITableViewController {
 
     @IBAction func createAction(_ sender: UIButton) {
         guard sender == createButton else {
-            debugPrint("Invalid Button!")
             return
         }
         createOrder()

@@ -56,7 +56,6 @@ class LoginTableViewController: AuthenticateTableViewController {
     
     @IBAction func loginAction(_ sender: UIButton) {
         guard sender == loginButton else {
-            debugPrint("Invalid Button!")
             return
         }
         login()
@@ -101,7 +100,7 @@ class LoginTableViewController: AuthenticateTableViewController {
         let reason = "Face ID authentication"
         context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { isAuthorized, error in
             guard isAuthorized else {
-                return debugPrint(error?.localizedDescription ?? "")
+                return SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }
             DispatchQueue.main.async {
                 super.transitionToMain()

@@ -162,7 +162,6 @@ class OrderDetailTableViewController: UITableViewController {
                 // check whether this order is being viewed by order creator
                 actionButton.setTitle("Report a Problem", for: .normal)
                 actionButton.backgroundColor = .clear
-                debugPrint("I wanna report a problem")
             }
         case .cancelled:
             break

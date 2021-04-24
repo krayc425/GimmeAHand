@@ -159,7 +159,7 @@ class OrderModel: NSObject, NSSecureCoding {
     
     func destinationDistanceFromLocation(_ location: CLLocation) -> Double {
         let rawDistance = Double(CLLocation(latitude: destination1.latitude, longitude: destination1.longitude).distance(from: location))
-        return rawDistance / 1609.344
+        return rawDistance / GHConstant.mileUnit
     }
     
 }

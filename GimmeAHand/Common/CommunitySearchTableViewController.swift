@@ -44,14 +44,14 @@ class CommunitySearchTableViewController: UITableViewController {
         
         navigationItem.title = type.title
         
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "communitySearchTableViewCellId")
+        tableView.tableFooterView = UIView()
+        
         let backBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(dismissAction))
         navigationItem.leftBarButtonItem = backBarButtonItem
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         navigationItem.rightBarButtonItem = doneBarButtonItem
         doneBarButtonItem.isEnabled = false
-        
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "communitySearchTableViewCellId")
-        tableView.tableFooterView = UIView()
         
         doneBarButtonItem.addObserver(self, forKeyPath: "selectedCommunityIndexPath", options: .new, context: nil)
         
@@ -139,7 +139,7 @@ extension CommunitySearchTableViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
-            debugPrint("No Locations found")
+            SVProgressHUD.showError(withStatus: "No locations found")
             return
         }
         currentLocation = location

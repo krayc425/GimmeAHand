@@ -47,7 +47,7 @@ class CommunityModel: NSObject, NSSecureCoding {
     
     func distanceFromLocation(_ location: CLLocation) -> Double {
         let rawDistance = Double(CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude).distance(from: location))
-        return rawDistance / 1609.344
+        return rawDistance / GHConstant.mileUnit
     }
     
 }

@@ -37,19 +37,6 @@ enum GHOrderSortMethod: Equatable {
         }
     }
     
-    var tag: Int {
-        switch self {
-        case .latest:
-            return 0
-        case .expireSoon:
-            return 1
-        case .highestTips:
-            return 2
-        case .nearest(_):
-            return 3
-        }
-    }
-    
     var description: String {
         switch self {
         case .latest:

@@ -72,7 +72,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                                             UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "LoginRegister", bundle: nil).instantiateInitialViewController()
                         })
                     }
-                    return debugPrint(error?.localizedDescription ?? "")
+                    debugPrint(error?.localizedDescription ?? "")
+                    return
                 }
                 DispatchQueue.main.async {
                     blurEffectView.removeFromSuperview()

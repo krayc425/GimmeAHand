@@ -178,7 +178,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Profile" id="ICB-eZ-lcD">
-                        <barButtonItem key="rightBarButtonItem" image="kefu" style="plain" id="8oH-jq-p4Z">
+                        <barButtonItem key="rightBarButtonItem" image="kefu" id="8oH-jq-p4Z">
                             <connections>
                                 <segue destination="JLj-R9-5r3" kind="presentation" id="tBG-dc-4hh"/>
                             </connections>

@@ -60,11 +60,6 @@ class BasicInfoTableViewController: UITableViewController, UINavigationControlle
         }
     }
     
-//    @IBAction func addCommunityAction(_ sender: UIButton) {
-//        let communityViewController = CommunitySearchTableViewController.embeddedInNavigationController(self, .add)
-//        present(communityViewController, animated: true)
-//    }
-    
     @IBAction func changePasswordAction(_ sender: UIButton) {
         let ac = UIAlertController(title: "Change Password", message: "Please specify a new password.", preferredStyle: .alert)
         
@@ -113,35 +108,6 @@ class BasicInfoTableViewController: UITableViewController, UINavigationControlle
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if section == CellPositions.Section.community {
-//            return 1 + selectedCommunities.count
-//        } else {
-            return super.tableView(tableView, numberOfRowsInSection: section)
-//        }
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if isCommunityIndexPath(indexPath) {
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCommunityTableViewCell", for: indexPath)
-//            cell.textLabel?.text = selectedCommunities[indexPath.row - 1].name
-//            return cell
-//        } else {
-            return super.tableView(tableView, cellForRowAt: indexPath)
-//        }
-    }
-    
-//    override func tableView(_ tableView: UITableView, indentationLevelForRowAt indexPath: IndexPath) -> Int {
-//        if isCommunityIndexPath(indexPath) {
-//            return super.tableView(tableView, indentationLevelForRowAt: IndexPath(row: 0, section: RegisterTableViewController.communitySection))
-//        }
-//        return super.tableView(tableView, indentationLevelForRowAt: indexPath)
-//    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == CellPositions.Section.photo && indexPath.row == CellPositions.Row.photo {
@@ -235,15 +201,6 @@ class BasicInfoTableViewController: UITableViewController, UINavigationControlle
     }
 
 }
-
-//extension BasicInfoTableViewController: CommunitySearchTableViewControllerDelegate {
-//
-//    func didSelectCommunity(_ community: CommunityModel) {
-//        selectedCommunities.append(community)
-//        tableView.reloadData()
-//    }
-//
-//}
 
 extension BasicInfoTableViewController: UIImagePickerControllerDelegate {
     

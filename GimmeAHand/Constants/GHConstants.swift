@@ -9,16 +9,20 @@ import UIKit
 
 struct GHConstant {
     
+    /// Utilities
+    
+    static let mileUnit: Double = 1609.344
+    
     /// Durations
     
     static let kHUDDuration: TimeInterval = 2.0
     static let kFilterViewTransitionDuration: TimeInterval = 0.2
+    static let kFilterViewAnimationDuration: TimeInterval = 0.1
     static let kStoryboardTransitionDuration: TimeInterval = 0.5
     
     /// UI
     
     static let kCornerRadius: CGFloat = 10.0
-    static let kFilterViewAnimationDuration: TimeInterval = 0.1
     static let kPasswordRuleString: String = "Enter 10-20 charaters of letters/digits/(!@#$%^&*)"
     
     /// Formatters

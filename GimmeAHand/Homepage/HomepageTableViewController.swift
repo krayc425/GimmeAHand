@@ -54,7 +54,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         }
         let allMethods: [GHOrderSortMethod] = [.latest, .expireSoon, .highestTips, .nearest(currentLocation)]
         var buttons: [GHSortButton] = []
-        for (idx, method) in allMethods.enumerated() {
+        for method in allMethods {
             let button = GHSortButton(method)
             button.setTitle(method.description, for: .normal)
             button.setRoundCorner()
@@ -81,7 +81,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70.0))
         let stackView = UIStackView(frame: CGRect(x: 18.0, y: 10.0, width: containerView.frame.width - 36.0, height: 40.0))
         for (idx, title) in ["Filter Orders", "Sort Orders"].enumerated() {
-            let button = UIButton(frame: CGRect(x: 0, y: 0, width: stackView.frame.width / 3.0, height: stackView.frame.height))
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: stackView.frame.width / 2.0, height: stackView.frame.height))
             button.setTitle(title, for: .normal)
             button.setTitleColor(.white, for: .normal)
             button.backgroundColor = .GHTint
@@ -323,7 +323,7 @@ extension HomepageTableViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else {
-            debugPrint("No Locations found")
+            SVProgressHUD.showError(withStatus: "No locations found")
             return
         }
         currentLocation = location

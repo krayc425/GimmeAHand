@@ -38,7 +38,6 @@ class RegisterTableViewController: AuthenticateTableViewController {
     
     @IBAction func registerAction(_ sender: UIButton) {
         guard sender == registerButton else {
-            debugPrint("Invalid Button!")
             return
         }
         register()

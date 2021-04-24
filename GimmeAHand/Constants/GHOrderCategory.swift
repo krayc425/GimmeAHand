@@ -54,21 +54,4 @@ enum GHOrderCategory: String, CaseIterable {
         }
     }
     
-    func getTimeLabels() -> (String, String) {
-        switch self {
-        case .printing:
-            return ("Earliest at", "Latest at")
-        case .carpool:
-            return ("Earliest at", "Latest at")
-        case .supermarket:
-            return ("Earliest at", "Latest at")
-        case .shipping:
-            return ("Earliest at", "Latest at")
-        case .umbrella:
-            return ("Earliest at", "Latest at")
-        case .takeout:
-            return ("Earliest at", "Latest at")
-        }
-    }
-    
 }

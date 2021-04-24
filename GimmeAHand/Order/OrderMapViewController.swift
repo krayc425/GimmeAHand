@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import SVProgressHUD
 
 class GHTargetMarkerView: MKMarkerAnnotationView {
     
@@ -109,7 +110,7 @@ class OrderMapViewController: UIViewController {
         let direction = MKDirections(request: directionRequest)
         direction.calculate { [weak self] (response, error) in
             if let error = error {
-                debugPrint(error.localizedDescription)
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
             } else {
                 guard let route = response?.routes.first else {
                     return
@@ -126,7 +127,7 @@ class OrderMapViewController: UIViewController {
                 return
             }
             if let error = error {
-                debugPrint(error.localizedDescription)
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
             } else {
                 guard let response = response else {
                     return
