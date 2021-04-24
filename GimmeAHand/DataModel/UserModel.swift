@@ -18,6 +18,20 @@ class UserModel: NSObject, NSSecureCoding {
     var password: String
     var rating: Double
     
+    var takenOrderCount: Int {
+        let orders = OrderHelper.shared.getOrderList()
+        return orders.filter { $0.courier != nil && $0.courier == self }.count
+    }
+    var placedOrderCount: Int {
+        let orders = OrderHelper.shared.getOrderList()
+        return orders.filter { $0.creator == self }.count
+    }
+    var earnedMoney: Double {
+        let orders = OrderHelper.shared.getOrderList()
+        let myOrders = orders.filter { $0.courier != nil && $0.courier == self && $0.status == .finished }
+        return myOrders.map { $0.amount }.reduce(0, +)
+    }
+    
     init(_ firstName: String,
          _ lastName: String,
          _ email: String,

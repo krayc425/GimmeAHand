@@ -73,6 +73,10 @@ class OrderDetailTableViewController: UITableViewController {
         amountLabel.text = model.amountString
         orderCreaterLabel.text = model.creator.firstName
         
+        if let courier = model.courier {
+            orderReceiverLabel.text = courier.firstName
+        }
+        
         switch model.status {
         case .submitted:
             // check whether this order is being viewed by order creator or courier
