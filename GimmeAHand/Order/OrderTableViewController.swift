@@ -8,31 +8,15 @@
 import UIKit
 import DZNEmptyDataSet
 
-enum OrderSelectionType: Int, CaseIterable {
-    
-    case placed = 0
-    case taken = 1
-    
-    var description: String {
-        switch self {
-        case .placed:
-            return "Created by Me"
-        case .taken:
-            return "Taken by Me"
-        }
-    }
-    
-}
-
 class OrderTableViewController: GHFilterViewTableViewController {
 
-    var currentType: OrderSelectionType = .placed
+    var currentType: GHOrderSelectionType = .placed
     var modelArray: [OrderModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Orders \(OrderSelectionType.placed.description)"
+        navigationItem.title = "Orders \(GHOrderSelectionType.placed.description)"
         
         // Make sure that there is a path top to bottom, that can determine the height of current cell
         tableView.rowHeight = UITableView.automaticDimension
@@ -42,7 +26,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
         tableView.emptyDataSetDelegate = self
         
         // Add a UISegmentedControl to choose between placed and taken orders
-        let segmentedControl = UISegmentedControl(items: OrderSelectionType.allCases.map { $0.description })
+        let segmentedControl = UISegmentedControl(items: GHOrderSelectionType.allCases.map { $0.description })
         segmentedControl.frame = CGRect(x: 0, y: 0, width: 300.0, height: segmentedControl.frame.height)
         segmentedControl.selectedSegmentIndex = 0
         navigationItem.titleView = segmentedControl
@@ -74,7 +58,7 @@ class OrderTableViewController: GHFilterViewTableViewController {
     
     @objc func segmentValueChanged(_ sender: UISegmentedControl) {
         navigationItem.title = "Orders \(sender.titleForSegment(at: sender.selectedSegmentIndex) ?? "")"
-        currentType = OrderSelectionType(rawValue: sender.selectedSegmentIndex)!
+        currentType = GHOrderSelectionType(rawValue: sender.selectedSegmentIndex)!
         reloadOrders()
     }
     
@@ -83,17 +67,25 @@ class OrderTableViewController: GHFilterViewTableViewController {
         stackView.axis = .vertical
         stackView.spacing = 10.0
         stackView.alignment = .fill
-        stackView.distribution = .fill
-        let label = UILabel()
+        stackView.distribution = .fillProportionally
+        let label = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: view.frame.width, height: 20.0)))
         label.text = "The status of an order means this order..."
         label.font = UIFont.preferredFont(forTextStyle: .body)
         label.textColor = .secondaryLabel
         stackView.addArrangedSubview(label)
+        let subStackView = UIStackView()
+        subStackView.axis = .vertical
+        subStackView.alignment = .fill
+        subStackView.distribution = .fillEqually
+        subStackView.spacing = 10.0
         for status in GHOrderStatus.allCases {
-            var label = GHStatusLabel()
-            status.decorate(&label, withDescription: true)
-            stackView.addArrangedSubview(label)
+            let label = UILabel()
+            label.text = "\(status.rawValue): \(status.description)"
+            label.textColor = status.color
+            label.numberOfLines = 0
+            subStackView.addArrangedSubview(label)
         }
+        stackView.addArrangedSubview(subStackView)
         showFilterView("Order Status Info", stackView)
     }
     

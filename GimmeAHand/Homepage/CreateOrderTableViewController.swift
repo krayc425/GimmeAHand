@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 import SVProgressHUD
 
-enum DestinationButtonTag: Int {
+enum GHDestinationButtonTag: Int {
     
     case none = 0
     case first = 1
@@ -57,8 +57,8 @@ class CreateOrderTableViewController: UITableViewController {
         startDateField.minimumDate = Date()
         endDateField.minimumDate = Date()
         
-        destinationButton1.tag = DestinationButtonTag.first.rawValue
-        destinationButton2.tag = DestinationButtonTag.second.rawValue
+        destinationButton1.tag = GHDestinationButtonTag.first.rawValue
+        destinationButton2.tag = GHDestinationButtonTag.second.rawValue
         destinationStackView2.isHidden = true
         
         tipRecommendationLabel.text = "A recommended tip amount will be displayed here after you choose the category and destination."
@@ -180,7 +180,7 @@ class CreateOrderTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "preciseSegue" {
-            guard let tagInteger = sender as? Int, let tag = DestinationButtonTag(rawValue: tagInteger) else {
+            guard let tagInteger = sender as? Int, let tag = GHDestinationButtonTag(rawValue: tagInteger) else {
                 return
             }
             let destinationViewController = segue.destination as! PreciseLocationSearchViewController
@@ -234,7 +234,7 @@ extension CreateOrderTableViewController: PaymentTableViewControllerDelegate {
 
 extension CreateOrderTableViewController: PreciseLocationSearchViewControllerDelegate {
     
-    func didSelectLocation(_ name: String, _ coordinate: CLLocationCoordinate2D, _ tag: DestinationButtonTag) {
+    func didSelectLocation(_ name: String, _ coordinate: CLLocationCoordinate2D, _ tag: GHDestinationButtonTag) {
         switch tag {
         case .first:
             destinationButton1.setTitle(name, for: .normal)

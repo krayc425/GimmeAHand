@@ -10,7 +10,7 @@ import UIKit
 class GHFilterViewTableViewController: UITableViewController {
     
     lazy var containerView: UIView = {
-        let containerView = UIView(frame: CGRect(x: 0.0, y: tableView.frame.height, width: tableView.frame.width, height: 350.0))
+        let containerView = UIView(frame: CGRect(x: 0.0, y: tableView.frame.height, width: tableView.frame.width, height: 500.0))
         containerView.backgroundColor = .systemBackground
         containerView.setRoundCorner(20.0)
         return containerView
@@ -110,6 +110,5 @@ class GHFilterViewTableViewController: UITableViewController {
             }
         }
     }
-    
     
 }

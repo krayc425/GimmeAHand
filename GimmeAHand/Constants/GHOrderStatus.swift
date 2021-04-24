@@ -14,14 +14,14 @@ enum GHOrderStatus: String, CaseIterable {
     case cancelled = "Cancelled"
     case finished = "Finished"
     
-    func decorate(_ label: inout GHStatusLabel, withDescription: Bool = false) {
-        if withDescription {
-            label.text = "\(rawValue): \(description)"
-        } else {
-            label.text = rawValue
-        }
-        label.backgroundColor = UIColor(named: rawValue)
+    func decorate(_ label: inout GHStatusLabel) {
+        label.text = rawValue
+        label.backgroundColor = color
         label.setRoundCorner(7.5)
+    }
+    
+    var color: UIColor? {
+        return UIColor(named: rawValue)
     }
     
     var description: String {

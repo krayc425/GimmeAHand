@@ -7,7 +7,9 @@
 
 import UIKit
 
-enum RangeSliderTag: Int {
+typealias RangePair = (CGFloat, CGFloat)
+
+enum GHRangeSliderTag: Int {
     
     case amount
     case distance

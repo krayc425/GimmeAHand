@@ -49,6 +49,10 @@
 		244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */; };
 		2496FFD22633F50800B67215 /* BasicInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFD12633F50800B67215 /* BasicInfoTableViewController.swift */; };
 		2496FFD52633FEBD00B67215 /* CustomerServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFD42633FEBD00B67215 /* CustomerServiceTableViewController.swift */; };
+		2496FFD82634AF6900B67215 /* GHOrderSortMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFD72634AF6900B67215 /* GHOrderSortMethod.swift */; };
+		2496FFDB2634AF9E00B67215 /* GHCommunitySearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFDA2634AF9E00B67215 /* GHCommunitySearchType.swift */; };
+		2496FFDE2634AFC600B67215 /* GHOrderSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFDD2634AFC600B67215 /* GHOrderSelectionType.swift */; };
+		2496FFE12634B0EE00B67215 /* GHSortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFE02634B0EE00B67215 /* GHSortButton.swift */; };
 		24B3B3F8262FE42400B41B38 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */; };
 		24B3B3FC262FEBE100B41B38 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 24B3B3FB262FEBE100B41B38 /* SwiftDate */; };
 		24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C181412613E7790008A858 /* TimeIntervalExtensions.swift */; };
@@ -116,6 +120,10 @@
 		244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 		2496FFD12633F50800B67215 /* BasicInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewController.swift; sourceTree = "<group>"; };
 		2496FFD42633FEBD00B67215 /* CustomerServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceTableViewController.swift; sourceTree = "<group>"; };
+		2496FFD72634AF6900B67215 /* GHOrderSortMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderSortMethod.swift; sourceTree = "<group>"; };
+		2496FFDA2634AF9E00B67215 /* GHCommunitySearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHCommunitySearchType.swift; sourceTree = "<group>"; };
+		2496FFDD2634AFC600B67215 /* GHOrderSelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderSelectionType.swift; sourceTree = "<group>"; };
+		2496FFE02634B0EE00B67215 /* GHSortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHSortButton.swift; sourceTree = "<group>"; };
 		24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		24C181412613E7790008A858 /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		24C1816D26147E160008A858 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
@@ -212,6 +220,9 @@
 				24015A962604417100AE95DD /* GHOrderStatus.swift */,
 				24FE7A5425FC4052005B965A /* GHConstants.swift */,
 				24015B32260AD7E500AE95DD /* GHPaymentType.swift */,
+				2496FFD72634AF6900B67215 /* GHOrderSortMethod.swift */,
+				2496FFDA2634AF9E00B67215 /* GHCommunitySearchType.swift */,
+				2496FFDD2634AFC600B67215 /* GHOrderSelectionType.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -236,6 +247,7 @@
 				24C1817626147E400008A858 /* RangeSeekSlider */,
 				24015B13260AC0EA00AE95DD /* GHCategorySelectionView.swift */,
 				24015B07260818CE00AE95DD /* GHStatusLabel.swift */,
+				2496FFE02634B0EE00B67215 /* GHSortButton.swift */,
 			);
 			path = CustomizedViews;
 			sourceTree = "<group>";
@@ -447,15 +459,19 @@
 				24C1817B2615652D0008A858 /* PreciseLocationSearchViewController.swift in Sources */,
 				24015AC726069FF900AE95DD /* UIViewExtensions.swift in Sources */,
 				24144CD9261135750051721D /* UIViewControllerExtensions.swift in Sources */,
+				2496FFD82634AF6900B67215 /* GHOrderSortMethod.swift in Sources */,
 				24FBC8C5260024870015238A /* OrderModel.swift in Sources */,
+				2496FFE12634B0EE00B67215 /* GHSortButton.swift in Sources */,
 				24015AE8260719BD00AE95DD /* RangeSliderExtensions.swift in Sources */,
 				24015ACB2606A09D00AE95DD /* OrderMapViewController.swift in Sources */,
+				2496FFDE2634AFC600B67215 /* GHOrderSelectionType.swift in Sources */,
 				24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */,
 				24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */,
 				24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */,
 				24015A9F26044CE000AE95DD /* GHOrderCategory.swift in Sources */,
 				2496FFD22633F50800B67215 /* BasicInfoTableViewController.swift in Sources */,
 				244B0BD425F99E38001A71EB /* SceneDelegate.swift in Sources */,
+				2496FFDB2634AF9E00B67215 /* GHCommunitySearchType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,42 +15,9 @@ protocol CommunitySearchTableViewControllerDelegate {
     
 }
 
-enum CommunitySearchType {
-    
-    case none
-    case add
-    case filter
-    case select
-    
-    var title: String {
-        switch self {
-        case .add:
-            return "Add a Community"
-        case .filter:
-            return "Filter by Community"
-        case .select:
-            return "Select a Community"
-        case .none:
-            return ""
-        }
-    }
-    
-    var description: String? {
-        switch self {
-        case .add:
-            return "We only display available communities within 3 miles of your current location."
-        case .filter, .select:
-            return nil
-        case .none:
-            return nil
-        }
-    }
-    
-}
-
 class CommunitySearchTableViewController: UITableViewController {
     
-    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?, _ type: CommunitySearchType = .none) -> UINavigationController {
+    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?, _ type: GHCommunitySearchType = .none) -> UINavigationController {
         let communitySearchTableViewController = CommunitySearchTableViewController(style: .grouped)
         communitySearchTableViewController.delegate = parent
         communitySearchTableViewController.type = type
@@ -65,7 +32,7 @@ class CommunitySearchTableViewController: UITableViewController {
     
     var communities: [CommunityModel] = []
     var delegate: CommunitySearchTableViewControllerDelegate?
-    var type: CommunitySearchType = .none
+    var type: GHCommunitySearchType = .none
     var selectedCommunityIndexPath: IndexPath? {
         didSet {
             navigationItem.rightBarButtonItem?.isEnabled = selectedCommunityIndexPath != nil

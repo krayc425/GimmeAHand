@@ -10,7 +10,7 @@ import MapKit
 
 protocol PreciseLocationSearchViewControllerDelegate {
     
-    func didSelectLocation(_ name: String, _ coordinate: CLLocationCoordinate2D, _ tag: DestinationButtonTag)
+    func didSelectLocation(_ name: String, _ coordinate: CLLocationCoordinate2D, _ tag: GHDestinationButtonTag)
     
 }
 
@@ -22,7 +22,7 @@ class PreciseLocationSearchViewController: UIViewController {
     
     let locationManager = MapHelper.shared.locationManager
     var delegate: PreciseLocationSearchViewControllerDelegate?
-    var tag: DestinationButtonTag = .none
+    var tag: GHDestinationButtonTag = .none
     
     var selectedAnnotation: MKPointAnnotation? = nil {
         didSet {

@@ -10,8 +10,6 @@ import CoreLocation
 import DZNEmptyDataSet
 import SVProgressHUD
 
-typealias RangePair = (CGFloat, CGFloat)
-
 class HomepageTableViewController: GHFilterViewTableViewController {
     
     @IBOutlet weak var communityBarButtonItem: UIBarButtonItem!
@@ -25,24 +23,45 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     var selectedCommunity: CommunityModel? {
         didSet {
             communityBarButtonItem.title = selectedCommunity?.name ?? "All Communities"
-            filterOrders()
+            filterAndSortOrders()
         }
     }
     var selectedCategories = Set<String>(GHOrderCategory.allCases.map { $0.rawValue }) {
         didSet {
-            filterOrders()
+            filterAndSortOrders()
         }
     }
     var selectAmountRange: RangePair = (0.0, 10.0) {
         didSet {
-            filterOrders()
+            filterAndSortOrders()
         }
     }
     var selectDistanceRange: RangePair = (0.0, 10.0) {
         didSet {
-            filterOrders()
+            filterAndSortOrders()
         }
     }
+    var selectedSortMethod: GHOrderSortMethod = .latest {
+        didSet {
+            filterAndSortOrders()
+        }
+    }
+    
+    lazy var sortButtons: [GHSortButton] = {
+        guard let currentLocation = currentLocation else {
+            SVProgressHUD.showInfo(withStatus: "Waiting to determine your location")
+            return []
+        }
+        let allMethods: [GHOrderSortMethod] = [.latest, .expireSoon, .highestTips, .nearest(currentLocation)]
+        var buttons: [GHSortButton] = []
+        for (idx, method) in allMethods.enumerated() {
+            let button = GHSortButton(method)
+            button.setTitle(method.description, for: .normal)
+            button.setRoundCorner()
+            buttons.append(button)
+        }
+        return buttons
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +80,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         // table view header
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70.0))
         let stackView = UIStackView(frame: CGRect(x: 18.0, y: 10.0, width: containerView.frame.width - 36.0, height: 40.0))
-        for (idx, title) in ["Categories", "Amount", "Distance"].enumerated() {
+        for (idx, title) in ["Filter Orders", "Sort Orders"].enumerated() {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: stackView.frame.width / 3.0, height: stackView.frame.height))
             button.setTitle(title, for: .normal)
             button.setTitleColor(.white, for: .normal)
@@ -98,7 +117,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     
     @objc func reloadOrders() {
         originalModelArray = OrderHelper.shared.getOrderList().filter { $0.status == .submitted }
-        filterOrders()
+        filterAndSortOrders()
     }
     
     @objc func viewOrderDetail(_ notification: Notification) {
@@ -108,7 +127,7 @@ class HomepageTableViewController: GHFilterViewTableViewController {
         performSegue(withIdentifier: "orderDetailSegue", sender: order)
     }
     
-    func filterOrders() {
+    func filterAndSortOrders() {
         modelArray = originalModelArray
         
         if let selectCommunity = selectedCommunity {
@@ -124,6 +143,8 @@ class HomepageTableViewController: GHFilterViewTableViewController {
             return Double(selectDistanceRange.0) <= distance && distance <= Double(selectDistanceRange.1)
         })
         }
+        
+        modelArray.sort(by: selectedSortMethod.handler)
         
         tableView.reloadData()
     }
@@ -150,13 +171,18 @@ class HomepageTableViewController: GHFilterViewTableViewController {
     @objc func filterAction(_ sender: UIButton) {
         switch sender.tag {
         case 0:
+            let stackView = UIStackView()
+            stackView.axis = .vertical
+            stackView.distribution = .fillProportionally
+            stackView.alignment = .fill
+            
             let categorySelectionView = GHCategorySelectionView(selectedCategories) { [weak self] action in
                 guard let strongSelf = self,
                       let button = action.sender as? UIButton,
                       let currentCategoryString = button.title(for: .normal) else {
                     return
                 }
-                UIView.animate(withDuration: 0.1) {
+                UIView.animate(withDuration: GHConstant.kFilterViewAnimationDuration) {
                     if strongSelf.selectedCategories.contains(currentCategoryString) {
                         strongSelf.selectedCategories.remove(currentCategoryString)
                         button.updateSelectionColor(selected: false)
@@ -166,29 +192,55 @@ class HomepageTableViewController: GHFilterViewTableViewController {
                     }
                 }
             }
-            showFilterView("Filter by Categories", categorySelectionView)
+            stackView.addArrangedSubview(categorySelectionView)
+            
+            let rangeSlider1 = RangeSeekSlider()
+            rangeSlider1.setupGHStyle()
+            rangeSlider1.numberFormatter = GHConstant.kAmountFormatter
+            rangeSlider1.selectedMinValue = selectAmountRange.0
+            rangeSlider1.selectedMaxValue = selectAmountRange.1
+            rangeSlider1.minValue = 0.0
+            rangeSlider1.maxValue = 10.0
+            rangeSlider1.tag = GHRangeSliderTag.amount.rawValue
+            rangeSlider1.delegate = self
+            stackView.addArrangedSubview(rangeSlider1)
+            
+            let rangeSlider2 = RangeSeekSlider()
+            rangeSlider2.setupGHStyle()
+            rangeSlider2.numberFormatter = GHConstant.kDistanceFormatter
+            rangeSlider2.selectedMinValue = selectDistanceRange.0
+            rangeSlider2.selectedMaxValue = selectDistanceRange.1
+            rangeSlider2.minValue = 0.0
+            rangeSlider2.maxValue = 10.0
+            rangeSlider2.tag = GHRangeSliderTag.distance.rawValue
+            rangeSlider2.delegate = self
+            stackView.addArrangedSubview(rangeSlider2)
+            
+            showFilterView("Filter Orders", stackView)
         case 1:
-            let rangeSlider = RangeSeekSlider()
-            rangeSlider.setupGHStyle()
-            rangeSlider.numberFormatter = GHConstant.kAmountFormatter
-            rangeSlider.selectedMinValue = selectAmountRange.0
-            rangeSlider.selectedMaxValue = selectAmountRange.1
-            rangeSlider.minValue = 0.0
-            rangeSlider.maxValue = 10.0
-            rangeSlider.tag = RangeSliderTag.amount.rawValue
-            rangeSlider.delegate = self
-            showFilterView("Filter by Amount", rangeSlider)
-        case 2:
-            let rangeSlider = RangeSeekSlider()
-            rangeSlider.setupGHStyle()
-            rangeSlider.numberFormatter = GHConstant.kDistanceFormatter
-            rangeSlider.selectedMinValue = selectDistanceRange.0
-            rangeSlider.selectedMaxValue = selectDistanceRange.1
-            rangeSlider.minValue = 0.0
-            rangeSlider.maxValue = 10.0
-            rangeSlider.tag = RangeSliderTag.distance.rawValue
-            rangeSlider.delegate = self
-            showFilterView("Filter by Distance", rangeSlider)
+            let stackView = UIStackView()
+            stackView.axis = .vertical
+            stackView.distribution = .fillEqually
+            stackView.alignment = .fill
+            stackView.spacing = 20.0
+            
+            for button in sortButtons {
+                button.updateSelectionColor(selected: button.sortMethod == selectedSortMethod)
+                button.addAction(UIAction(handler: { [weak self] _ in
+                    guard let strongSelf = self else {
+                        return
+                    }
+                    strongSelf.selectedSortMethod = button.sortMethod
+                    UIView.animate(withDuration: GHConstant.kFilterViewAnimationDuration) {
+                        for btn in strongSelf.sortButtons {
+                            btn.updateSelectionColor(selected: btn.sortMethod == strongSelf.selectedSortMethod)
+                        }
+                    }
+                }) , for: .touchUpInside)
+                stackView.addArrangedSubview(button)
+            }
+            
+            showFilterView("Sort Orders", stackView)
         default:
             break
         }
@@ -243,7 +295,7 @@ extension HomepageTableViewController: CommunitySearchTableViewControllerDelegat
 extension HomepageTableViewController: RangeSeekSliderDelegate {
     
     func rangeSeekSlider(_ slider: RangeSeekSlider, didChange minValue: CGFloat, maxValue: CGFloat) {
-        switch RangeSliderTag(rawValue: slider.tag) {
+        switch GHRangeSliderTag(rawValue: slider.tag) {
         case .amount:
             selectAmountRange = (minValue, maxValue)
         case .distance:
@@ -275,7 +327,7 @@ extension HomepageTableViewController: CLLocationManagerDelegate {
             return
         }
         currentLocation = location
-        filterOrders()
+        filterAndSortOrders()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -283,4 +335,3 @@ extension HomepageTableViewController: CLLocationManagerDelegate {
     }
     
 }
-
