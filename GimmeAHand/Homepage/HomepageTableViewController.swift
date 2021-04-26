@@ -314,7 +314,7 @@ extension HomepageTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDel
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return NSAttributedString(string: "Empty result")
+        return NSAttributedString(string: "No result")
     }
     
 }

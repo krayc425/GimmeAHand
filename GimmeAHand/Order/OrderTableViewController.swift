@@ -139,7 +139,7 @@ extension OrderTableViewController: DZNEmptyDataSetSource, DZNEmptyDataSetDelega
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView) -> NSAttributedString? {
-        return NSAttributedString(string: "Empty result")
+        return NSAttributedString(string: "No result")
     }
     
 }
