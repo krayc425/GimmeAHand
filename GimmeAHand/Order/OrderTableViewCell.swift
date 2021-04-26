@@ -23,9 +23,11 @@ class OrderTableViewCell: UITableViewCell {
         nameLabel.text = model.name
         if let location = currentLocation {
             // From homepage
+            statusLabel.isHidden = true
             dateLabel.text = "\(model.expireDateString)\n\(model.community.distanceFromLocation(location).distanceString) from you"
         } else {
             // From order history
+            statusLabel.isHidden = false
             dateLabel.text = model.createDateString
         }
         amountLabel.text = model.amountString

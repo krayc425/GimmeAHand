@@ -34,7 +34,7 @@ struct GHConstant {
     }()
     static let kExpireDateFormatter: DateFormatter = {
         let fmt = DateFormatter()
-        fmt.dateFormat = "HH:mm"
+        fmt.dateFormat = "MMM dd, yyyy HH:mm"
         return fmt
     }()
     static let kAmountFormatter: NumberFormatter = {
