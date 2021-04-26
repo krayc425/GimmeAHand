@@ -24,6 +24,9 @@ class MockDataStore: NSObject {
             UserModel("Lily", "Yan", "l@y.com", "+14367464978", "admin"),
             UserModel("Jess", "Duncan", "j@d.com", "+13985670273", "admin"),
             UserModel("Helena", "Williams", "h@w.com", "+13879253099", "admin"),
+            UserModel("Linxiao", "Cui", "lc@gmail.com", "+14128881234", "Cgc1VlpIVt"),
+            UserModel("Octavius", "Jerram", "ojerram1@soup.io", "+16995965946", "JQ3z34dkRk"),
+            UserModel("Panchito", "Eastment", "peastment4@deviantart.com", "+12689225988", "pbg8GW1qr9pP"),
         ]
         communityList = [
             CommunityModel("CMU SV", 37.4104, -122.0598),
@@ -32,6 +35,11 @@ class MockDataStore: NSObject {
             CommunityModel("Amberson Plaza", 40.4539, -79.9430),
             CommunityModel("Coda On Centre", 40.4579, -79.9323),
             CommunityModel("Kenmawr Apartments", 40.4552, -79.9211),
+            CommunityModel("Avalon Mountain View", 37.3985, -122.0872),
+            CommunityModel("Eaves Mountain View", 37.3993, -122.0719),
+            CommunityModel("Facebook Headquarter", 37.4530, -122.1817),
+            CommunityModel("Googleplex", 37.4221, -122.0841),
+            CommunityModel("Apple Park", 37.3330, -122.0090),
         ]
         orderList = [
             OrderModel(name: "Printing",
@@ -79,6 +87,28 @@ class MockDataStore: NSObject {
                        creator: userList.randomElement()!,
                        destination1: MockDataStore.randomCoordinate(communityList[1].coordinate),
                        destination2: MockDataStore.randomCoordinate(communityList[1].coordinate)),
+            OrderModel(name: "Boba Milk Tea takeout",
+                       description: "Please help bring a boba milk tea. Any store's is fine. No ice and half sugar. Thx!!! <3",
+                       amount: 2,
+                       status: .submitted,
+                       createDate: Date(),
+                       startDate: Date(),
+                       endDate: MockDataStore.randomDate(),
+                       category: .takeout,
+                       community: communityList[9],
+                       creator: userList.randomElement()!,
+                       destination1: MockDataStore.randomCoordinate(communityList[9].coordinate)),
+            OrderModel(name: "Printing a 5 page document",
+                       description: "Anyone living at Avalon mtv can help print a few pages of document? Urgently needed tonight!!!",
+                       amount: 5,
+                       status: .submitted,
+                       createDate: Date(),
+                       startDate: Date(),
+                       endDate: MockDataStore.randomDate(),
+                       category: .printing,
+                       community: communityList[6],
+                       creator: userList.randomElement()!,
+                       destination1: MockDataStore.randomCoordinate(communityList[6].coordinate)),
         ]
     }
     
