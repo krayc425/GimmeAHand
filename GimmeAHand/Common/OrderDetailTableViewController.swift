@@ -20,7 +20,8 @@ class OrderDetailTableViewController: UITableViewController {
     @IBOutlet weak var orderCreaterLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var creatorPhoneLabel: UILabel!
+    @IBOutlet weak var receiverPhoneLabel: UILabel!
     @IBOutlet weak var fullMapButton: UIButton!
     @IBOutlet weak var actionButton: UIButton!
     
@@ -72,9 +73,11 @@ class OrderDetailTableViewController: UITableViewController {
         validDateLabel.text = model.validDateString
         amountLabel.text = model.amountString
         orderCreaterLabel.text = model.creator.firstName
+        creatorPhoneLabel.text = model.creator.phone
         
         if let courier = model.courier {
             orderReceiverLabel.text = courier.firstName
+            receiverPhoneLabel.text = courier.phone
         }
         
         switch model.status {
@@ -202,18 +205,31 @@ class OrderDetailTableViewController: UITableViewController {
         case 0:
             return 1
         case 1:
-            return 6
+            if model.status == .inprogress && model.creator != UserHelper.shared.currentUser {
+                return 7
+            } else {
+                return 6
+            }
         case 2:
             switch model.status {
             case .finished:
-                return 2
+                return 1
             case .inprogress:
-                return 3
+                if let courier = model.courier, courier == UserHelper.shared.currentUser {
+                    return 1
+                } else {
+                    return 2
+                }
             default:
                 return 0
             }
         case 3:
-            return model.status == .finished ? 0 : 1
+            switch model.status {
+            case .finished, .cancelled:
+                return 0
+            case .inprogress, .submitted:
+                return 1
+            }
         default:
             return 0
         }
@@ -229,12 +245,21 @@ class OrderDetailTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if indexPath.section == 2 && indexPath.row == 2 {
-            guard let phone = phoneLabel.text, !phone.isEmpty,
+        switch (indexPath.section, indexPath.row) {
+        case (1, 6):
+            guard let phone = creatorPhoneLabel.text, !phone.isEmpty,
                   let url = URL(string: "tel://\(phone)") else {
                 return
             }
             UIApplication.shared.open(url, options: [:])
+        case (2, 1):
+            guard let phone = receiverPhoneLabel.text, !phone.isEmpty,
+                  let url = URL(string: "tel://\(phone)") else {
+                return
+            }
+            UIApplication.shared.open(url, options: [:])
+        default:
+            break
         }
     }
     

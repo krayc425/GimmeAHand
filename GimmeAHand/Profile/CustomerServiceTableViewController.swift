@@ -26,6 +26,10 @@ class CustomerServiceTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 44.0
     }
     
+    @IBAction func dismissAction(_ sender: UIBarButtonItem) {
+        navigationController?.dismiss(animated: true)
+    }
+    
     @IBAction func submitAction(_ sender: UIButton) {
         // Validation
         guard let _ = selectedIndexPath else {
