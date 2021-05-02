@@ -39,14 +39,6 @@ class OrderModel: NSObject, NSSecureCoding {
         return "Expire on \(validDateString)"
     }
     
-    var isInProgress: Bool {
-        return status == .inprogress
-    }
-    
-    var shouldDisplayCourier: Bool {
-        return status == .inprogress || status == .finished
-    }
-    
     override var debugDescription: String {
         return "\(name), \(community.name), \(expireDateString)"
     }

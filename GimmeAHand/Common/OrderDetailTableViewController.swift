@@ -236,7 +236,7 @@ class OrderDetailTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if let model = orderModel, section == 0 && !model.isInProgress {
+        if let model = orderModel, section == 0 && model.status == .submitted {
             return "This map only shows an approximate location of the order destination. \nA precise location will be displayed after you take this order."
         } else {
             return nil
