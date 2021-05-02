@@ -44,13 +44,13 @@ enum GHOrderCategory: String, CaseIterable {
         case .carpool:
             return ["Destination"]
         case .supermarket:
-            return ["Market Location", "Destination"]
+            return ["Market Location", "Delivery Destination"]
         case .shipping:
             return ["Pickup Location"]
         case .umbrella:
             return ["Destination"]
         case .takeout:
-            return ["Restaurant Location", "Destination"]
+            return ["Restaurant Location", "Delivery Destination"]
         }
     }
     
