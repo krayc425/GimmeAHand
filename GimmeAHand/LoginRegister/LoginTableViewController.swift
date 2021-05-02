@@ -83,7 +83,7 @@ class LoginTableViewController: AuthenticateTableViewController {
             return
         }
         SVProgressHUD.show(withStatus: "Login")
-        guard UserHelper.shared.loginUser(email, password) else {
+        guard UserHelper.shared.loginUser(email, CryptoHelper.encrypt(password)) else {
             SVProgressHUD.showError(withStatus: "Wrong email and password combination")
             return
         }

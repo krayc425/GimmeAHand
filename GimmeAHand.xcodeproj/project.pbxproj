@@ -54,6 +54,7 @@
 		2496FFDE2634AFC600B67215 /* GHOrderSelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFDD2634AFC600B67215 /* GHOrderSelectionType.swift */; };
 		2496FFE12634B0EE00B67215 /* GHSortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFE02634B0EE00B67215 /* GHSortButton.swift */; };
 		2496FFE42634B59900B67215 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFE32634B59900B67215 /* UIButtonExtensions.swift */; };
+		249D53E5263E8E84001DD00B /* CryptoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249D53E4263E8E84001DD00B /* CryptoHelper.swift */; };
 		24B3B3F8262FE42400B41B38 /* NotificationNameExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */; };
 		24B3B3FC262FEBE100B41B38 /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 24B3B3FB262FEBE100B41B38 /* SwiftDate */; };
 		24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C181412613E7790008A858 /* TimeIntervalExtensions.swift */; };
@@ -126,6 +127,7 @@
 		2496FFDD2634AFC600B67215 /* GHOrderSelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderSelectionType.swift; sourceTree = "<group>"; };
 		2496FFE02634B0EE00B67215 /* GHSortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHSortButton.swift; sourceTree = "<group>"; };
 		2496FFE32634B59900B67215 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
+		249D53E4263E8E84001DD00B /* CryptoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoHelper.swift; sourceTree = "<group>"; };
 		24B3B3F7262FE42400B41B38 /* NotificationNameExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameExtensions.swift; sourceTree = "<group>"; };
 		24C181412613E7790008A858 /* TimeIntervalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalExtensions.swift; sourceTree = "<group>"; };
 		24C1816D26147E160008A858 /* TapticEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapticEngine.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				240FBE59262EA8F700213B9E /* MockDataStore.swift */,
 				240FBE60262FDB4C00213B9E /* UserHelper.swift */,
 				240FBE64262FDDA100213B9E /* OrderHelper.swift */,
+				249D53E4263E8E84001DD00B /* CryptoHelper.swift */,
 			);
 			path = DataHelper;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				240FBE5A262EA8F700213B9E /* MockDataStore.swift in Sources */,
 				240FBE56262EA82F00213B9E /* CommunityModel.swift in Sources */,
 				24144CD2260F20B40051721D /* UIColorExtensions.swift in Sources */,
+				249D53E5263E8E84001DD00B /* CryptoHelper.swift in Sources */,
 				240FBE5D262EAE5200213B9E /* DoubleExtensions.swift in Sources */,
 				240FBE4D262CF58300213B9E /* GHFilterViewTableViewController.swift in Sources */,
 				24FBC8CA2600260B0015238A /* OrderTableViewCell.swift in Sources */,

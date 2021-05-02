@@ -19,16 +19,16 @@ class MockDataStore: NSObject {
     
     private override init() {
         userList = [
-            UserModel("Kuixi", "Song", "k@s.com", "+14441234567", "admin"),
-            UserModel("Nathan", "Lu", "n@l.com", "+14126794835", "admin"),
-            UserModel("Lily", "Yan", "l@y.com", "+14367464978", "admin"),
-            UserModel("Jess", "Duncan", "j@d.com", "+13985670273", "admin"),
-            UserModel("Helena", "Williams", "h@w.com", "+13879253099", "admin"),
-            UserModel("Linxiao", "Cui", "lc@gmail.com", "+14128881234", "Cgc1VlpIVt"),
-            UserModel("Octavius", "Jerram", "ojerram1@soup.io", "+16995965946", "JQ3z34dkRk"),
-            UserModel("Panchito", "Eastment", "peastment4@deviantart.com", "+12689225988", "pbg8GW1qr9pP"),
-            UserModel("Yifan", "Huang", "yifan@huang.com", "+14841234567", "admin"),
-            UserModel("Evan", "Huang", "evan@huang.com", "+14847890123", "admin"),
+            UserModel("Kuixi", "Song", "k@s.com", "+14441234567", CryptoHelper.encrypt("password")),
+            UserModel("Nathan", "Lu", "n@l.com", "+14129794835", CryptoHelper.encrypt("password")),
+            UserModel("Lily", "Yan", "l@y.com", "+14363464978", CryptoHelper.encrypt("password")),
+            UserModel("Jess", "Duncan", "j@d.com", "+13985670273", CryptoHelper.encrypt("password")),
+            UserModel("Helena", "Williams", "h@w.com", "+13879253099", CryptoHelper.encrypt("password")),
+            UserModel("Linxiao", "Cui", "lc@gmail.com", "+14128881234", CryptoHelper.encrypt("password")),
+            UserModel("Octavius", "Jerram", "ojerram1@soup.io", "+16995965946", CryptoHelper.encrypt("password")),
+            UserModel("Panchito", "Eastment", "p@d.com", "+12689225988", CryptoHelper.encrypt("password")),
+            UserModel("Yifan", "Huang", "yifan@huang.com", "+14841234567", CryptoHelper.encrypt("password")),
+            UserModel("Evan", "Huang", "evan@huang.com", "+14847890123", CryptoHelper.encrypt("password")),
         ]
         communityList = [
             CommunityModel("CMU SV", 37.4104, -122.0598),

@@ -81,7 +81,7 @@ class RegisterTableViewController: AuthenticateTableViewController {
         }
         
         // Registration
-        let newUser = UserModel(firstName, lastName, email, phone, password)
+        let newUser = UserModel(firstName, lastName, email, phone, CryptoHelper.encrypt(password))
         UserHelper.shared.addUser(newUser)
         UserHelper.shared.currentUser = newUser
         

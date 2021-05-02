@@ -25,7 +25,9 @@ class UserHelper: NSObject {
     }
     
     func findUser(_ email: String, _ password: String) -> UserModel? {
-        return getUserList().filter { $0.email == email }.first
+        return getUserList().filter {
+            $0.email == email && $0.password == password
+        }.first
     }
     
     func addUser(_ user: UserModel) {
