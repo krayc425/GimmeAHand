@@ -64,14 +64,11 @@ class CommunitySearchTableViewController: UITableViewController {
         guard let location = currentLocation else {
             return
         }
-        communities = MockDataStore.shared.communityList.sorted(by: { model1, model2 in
+        communities = MockDataStore.shared.communityList.filter {
+            $0.distanceFromLocation(location) <= 3.0
+        }.sorted(by: { model1, model2 in
             model1.distanceFromLocation(location) < model2.distanceFromLocation(location)
         })
-        if type != .filter {
-            communities = communities.filter {
-                $0.distanceFromLocation(location) <= 3.0
-            }
-        }
     }
     
     @objc func dismissAction(_ sender: UIBarButtonItem) {

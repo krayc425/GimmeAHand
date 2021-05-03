@@ -77,14 +77,15 @@ class LoginTableViewController: AuthenticateTableViewController {
         if rememberMeSwitch.isOn {
             userDefaultsHelper.saveEmail(email)
         }
-        // TODO: Add login logic
-        if faceIDSwitch.isOn {
-            beginFaceID()
-            return
-        }
+        
+        // login logic
         SVProgressHUD.show(withStatus: "Login")
         guard UserHelper.shared.loginUser(email, CryptoHelper.encrypt(password)) else {
             SVProgressHUD.showError(withStatus: "Wrong email and password combination")
+            return
+        }
+        if faceIDSwitch.isOn {
+            beginFaceID()
             return
         }
         SVProgressHUD.dismiss(withDelay: GHConstant.kStoryboardTransitionDuration) {

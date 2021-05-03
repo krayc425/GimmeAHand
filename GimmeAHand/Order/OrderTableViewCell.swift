@@ -24,7 +24,7 @@ class OrderTableViewCell: UITableViewCell {
         if let location = currentLocation {
             // From homepage
             statusLabel.isHidden = true
-            dateLabel.text = "\(model.expireDateString)\n\(model.community.distanceFromLocation(location).distanceString) from you"
+            dateLabel.text = "\(model.expireDateString)\n\(model.destinationDistanceFromLocation(location).distanceString) from you"
         } else {
             // From order history
             statusLabel.isHidden = false

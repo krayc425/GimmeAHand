@@ -47,14 +47,14 @@ class OrderMapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var navigateButton: UIButton!
     
-    let locationManager = MapHelper.shared.locationManager
-    
     var orderModel: OrderModel?
     var totalETA: Double = 0.0 {
         didSet {
             navigationItem.title = "ETA: \(totalETA.formattedETAString)"
         }
     }
+    
+    let locationManager = MapHelper.shared.locationManager
     var oldUserLocation: MKUserLocation = MKUserLocation()
 
     override func viewDidLoad() {
@@ -81,21 +81,21 @@ class OrderMapViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations)
         mapView.removeOverlays(mapView.overlays)
         
-        if let destination2 = model.destination2 {
+        if let randomizedDestination2 = model.randomizedDestination2 {
             let targetAnnotation = GHTargetAnnotation(targetName: model.name,
-                                                      coordinate: model.destination1)
+                                                      coordinate: model.randomizedDestination1)
             let targetAnnotation2 = GHTargetAnnotation(targetName: model.name,
-                                                       coordinate: destination2)
+                                                       coordinate: randomizedDestination2)
             mapView.addAnnotations([targetAnnotation, targetAnnotation2])
             mapView.showAnnotations([targetAnnotation, targetAnnotation2, userLocation], animated: true)
-            addRoute(source: userLocation.coordinate, destination: model.destination1)
-            addRoute(source: model.destination1, destination: destination2)
+            addRoute(source: userLocation.coordinate, destination: model.randomizedDestination1)
+            addRoute(source: model.randomizedDestination1, destination: randomizedDestination2)
         } else {
             let targetAnnotation = GHTargetAnnotation(targetName: model.name,
-                                                      coordinate: model.destination1)
+                                                      coordinate: model.randomizedDestination1)
             mapView.addAnnotation(targetAnnotation)
             mapView.showAnnotations([targetAnnotation, userLocation], animated: true)
-            addRoute(source: userLocation.coordinate, destination: model.destination1)
+            addRoute(source: userLocation.coordinate, destination: model.randomizedDestination1)
         }
     }
     

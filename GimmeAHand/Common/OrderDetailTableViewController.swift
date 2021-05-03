@@ -29,7 +29,6 @@ class OrderDetailTableViewController: UITableViewController {
     var isFromHomepage: Bool = false
     let locationManager = MapHelper.shared.locationManager
     
-    let randomized = (Double.random(in: -1...1) / 10.0, Double.random(in: -1...1) / 10.0)
     var oldUserLocation: MKUserLocation = MKUserLocation()
     
     var actionButtonHandler: (() -> ())? = nil
@@ -182,7 +181,7 @@ class OrderDetailTableViewController: UITableViewController {
         mapView.removeAnnotations(mapView.annotations)
         
         let targetAnnotation = GHTargetAnnotation(targetName: model.name,
-                                                  coordinate: model.destination1)
+                                                  coordinate: model.randomizedDestination1)
         mapView.addAnnotation(targetAnnotation)
         mapView.showAnnotations([targetAnnotation], animated: true)
     }

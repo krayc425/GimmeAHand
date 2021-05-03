@@ -11,6 +11,7 @@ import CoreLocation
 class OrderModel: NSObject, NSSecureCoding {
     
     static var supportsSecureCoding = true
+    let randomized = (Double.random(in: -1...1) / 1000.0, Double.random(in: -1...1) / 1000.0)
     
     var name: String
     var orderDescription: String
@@ -37,6 +38,26 @@ class OrderModel: NSObject, NSSecureCoding {
     }
     var expireDateString: String {
         return "Expire on \(validDateString)"
+    }
+    var randomizedDestination1: CLLocationCoordinate2D {
+        if status == .submitted {
+            return CLLocationCoordinate2D(latitude: destination1.latitude + randomized.0,
+                                          longitude: destination1.longitude + randomized.1)
+        } else {
+            return destination1
+        }
+    }
+    var randomizedDestination2: CLLocationCoordinate2D? {
+        if let destination2 = destination2 {
+            if status == .submitted {
+                return CLLocationCoordinate2D(latitude: destination2.latitude + randomized.0,
+                                              longitude: destination2.longitude + randomized.1)
+            } else {
+                return destination2
+            }
+        } else {
+            return nil
+        }
     }
     
     override var debugDescription: String {

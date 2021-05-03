@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import SwiftDate
 import SVProgressHUD
 
 enum GHDestinationButtonTag: Int {
@@ -128,6 +129,10 @@ class CreateOrderTableViewController: UITableViewController {
             SVProgressHUD.showInfo(withStatus: "Select Destination")
             return
         }
+        guard startDateField.date.isInRange(date: Date(), and: endDateField.date) else {
+            SVProgressHUD.showInfo(withStatus: "Start date must be later than current date and earlier than end date")
+            return
+        }
         
         // construct new order
         let newOrder = OrderModel(name: title,
@@ -142,10 +147,11 @@ class CreateOrderTableViewController: UITableViewController {
                                   creator: UserHelper.shared.currentUser,
                                   courier: nil,
                                   destination1: destination1,
-                                  destination2: nil)
-        OrderHelper.shared.addOrder(newOrder)
+                                  destination2: selectedDestination2)
         
         // create order logic
+        OrderHelper.shared.addOrder(newOrder)
+        
         SVProgressHUD.show(withStatus: "Creating order")
         SVProgressHUD.dismiss(withDelay: GHConstant.kHUDDuration) { [weak self] in
             guard let strongSelf = self else {
