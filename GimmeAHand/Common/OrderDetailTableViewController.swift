@@ -180,10 +180,19 @@ class OrderDetailTableViewController: UITableViewController {
         oldUserLocation = userLocation
         mapView.removeAnnotations(mapView.annotations)
         
-        let targetAnnotation = GHTargetAnnotation(targetName: model.name,
-                                                  coordinate: model.randomizedDestination1)
-        mapView.addAnnotation(targetAnnotation)
-        mapView.showAnnotations([targetAnnotation], animated: true)
+        if let randomizedDestination2 = model.randomizedDestination2 {
+            let targetAnnotation = GHTargetAnnotation(targetName: model.category.getDestinations()[0],
+                                                      coordinate: model.randomizedDestination1)
+            let targetAnnotation2 = GHTargetAnnotation(targetName: model.category.getDestinations()[1],
+                                                       coordinate: randomizedDestination2)
+            mapView.addAnnotations([targetAnnotation, targetAnnotation2])
+            mapView.showAnnotations([targetAnnotation, targetAnnotation2, userLocation], animated: true)
+        } else {
+            let targetAnnotation = GHTargetAnnotation(targetName: model.category.getDestinations()[0],
+                                                      coordinate: model.randomizedDestination1)
+            mapView.addAnnotation(targetAnnotation)
+            mapView.showAnnotations([targetAnnotation, userLocation], animated: true)
+        }
     }
     
     @IBAction func orderAction(_ sender: UIButton) {

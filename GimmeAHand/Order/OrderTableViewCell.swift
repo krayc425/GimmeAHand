@@ -17,6 +17,7 @@ class OrderTableViewCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var statusLabel: GHStatusLabel!
+    @IBOutlet weak var statusStackView: UIStackView!
     @IBOutlet weak var communityLabel: UILabel!
 
     func config(_ model: OrderModel, _ currentLocation: CLLocation? = nil) {
@@ -24,10 +25,12 @@ class OrderTableViewCell: UITableViewCell {
         if let location = currentLocation {
             // From homepage
             statusLabel.isHidden = true
+            statusStackView.isHidden = true
             dateLabel.text = "\(model.expireDateString)\n\(model.destinationDistanceFromLocation(location).distanceString) from you"
         } else {
             // From order history
             statusLabel.isHidden = false
+            statusStackView.isHidden = false
             dateLabel.text = model.createDateString
         }
         amountLabel.text = model.amountString

@@ -82,16 +82,16 @@ class OrderMapViewController: UIViewController {
         mapView.removeOverlays(mapView.overlays)
         
         if let randomizedDestination2 = model.randomizedDestination2 {
-            let targetAnnotation = GHTargetAnnotation(targetName: model.name,
+            let targetAnnotation = GHTargetAnnotation(targetName: model.category.getDestinations()[0],
                                                       coordinate: model.randomizedDestination1)
-            let targetAnnotation2 = GHTargetAnnotation(targetName: model.name,
+            let targetAnnotation2 = GHTargetAnnotation(targetName: model.category.getDestinations()[1],
                                                        coordinate: randomizedDestination2)
             mapView.addAnnotations([targetAnnotation, targetAnnotation2])
             mapView.showAnnotations([targetAnnotation, targetAnnotation2, userLocation], animated: true)
             addRoute(source: userLocation.coordinate, destination: model.randomizedDestination1)
             addRoute(source: model.randomizedDestination1, destination: randomizedDestination2)
         } else {
-            let targetAnnotation = GHTargetAnnotation(targetName: model.name,
+            let targetAnnotation = GHTargetAnnotation(targetName: model.category.getDestinations()[0],
                                                       coordinate: model.randomizedDestination1)
             mapView.addAnnotation(targetAnnotation)
             mapView.showAnnotations([targetAnnotation, userLocation], animated: true)
