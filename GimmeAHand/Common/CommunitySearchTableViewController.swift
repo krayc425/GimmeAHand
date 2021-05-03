@@ -71,7 +71,7 @@ class CommunitySearchTableViewController: UITableViewController {
             communities = communities.filter {
                 $0.distanceFromLocation(location) <= 3.0
             }
-        } 
+        }
     }
     
     @objc func dismissAction(_ sender: UIBarButtonItem) {

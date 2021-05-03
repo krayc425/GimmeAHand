@@ -32,7 +32,7 @@ A folder-level app strcture is described in the following tree (only folders are
     ├── Constants                   # constants and enumerations used across the app
     ├── CustomizedViews             # common reusable views
     ├── DataHelper                  # helpers to get/save data models on device
-    ├── DataModel					# data models (Order, User, Community)
+    ├── DataModel                   # data models (Order, User, Community)
     ├── Extensions                  # extensions for UIView, UIViewController, etc.
     ├── Homepage                    # all view controllers related to homepage module
     ├── LoginRegister               # all view controllers related to login and register module

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import CoreLocation
+import SVProgressHUD
 
 class ProfileTableViewController: UITableViewController {
     
@@ -19,6 +21,8 @@ class ProfileTableViewController: UITableViewController {
     @IBOutlet weak var phoneVerifyLabel: UILabel!
     @IBOutlet weak var statisticsLabel: UILabel!
     
+    let locationManager = MapHelper.shared.locationManager
+    
     var selectedCommunities: [CommunityModel] = []
 
     override func viewDidLoad() {
@@ -27,6 +31,10 @@ class ProfileTableViewController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 44.0
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ProfileCommunityTableViewCell")
+        
+        locationManager.startUpdatingLocation()
+        locationManager.delegate = self
+        locationManager.requestLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -150,8 +158,33 @@ class ProfileTableViewController: UITableViewController {
 extension ProfileTableViewController: CommunitySearchTableViewControllerDelegate {
     
     func didSelectCommunity(_ community: CommunityModel) {
-        selectedCommunities.append(community)
-        tableView.reloadData()
+        if !selectedCommunities.contains(community) {
+            selectedCommunities.append(community)
+            tableView.reloadData()
+        } else {
+            SVProgressHUD.showInfo(withStatus: "You already belong to this community")
+        }
     }
     
 }
+
+extension ProfileTableViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.first else {
+            SVProgressHUD.showError(withStatus: "No locations found")
+            return
+        }
+        
+        selectedCommunities = MockDataStore.shared.communityList.filter {
+            $0.distanceFromLocation(location) <= 3.0
+        }
+        tableView.reloadData()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        SVProgressHUD.showError(withStatus: error.localizedDescription)
+    }
+    
+}
+
