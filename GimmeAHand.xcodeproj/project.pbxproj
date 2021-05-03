@@ -47,6 +47,7 @@
 		244B0BEE25F9DC72001A71EB /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BED25F9DC72001A71EB /* Homepage.storyboard */; };
 		244B0BF125F9DC7D001A71EB /* Orders.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF025F9DC7D001A71EB /* Orders.storyboard */; };
 		244B0BF525F9E12B001A71EB /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */; };
+		2461481D2640B61200B01B4A /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2461481C2640B61200B01B4A /* PrivacyPolicyViewController.swift */; };
 		2496FFD22633F50800B67215 /* BasicInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFD12633F50800B67215 /* BasicInfoTableViewController.swift */; };
 		2496FFD52633FEBD00B67215 /* CustomerServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFD42633FEBD00B67215 /* CustomerServiceTableViewController.swift */; };
 		2496FFD82634AF6900B67215 /* GHOrderSortMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496FFD72634AF6900B67215 /* GHOrderSortMethod.swift */; };
@@ -120,6 +121,7 @@
 		244B0BED25F9DC72001A71EB /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
 		244B0BF025F9DC7D001A71EB /* Orders.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Orders.storyboard; sourceTree = "<group>"; };
 		244B0BF425F9E12B001A71EB /* LoginRegister.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
+		2461481C2640B61200B01B4A /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		2496FFD12633F50800B67215 /* BasicInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewController.swift; sourceTree = "<group>"; };
 		2496FFD42633FEBD00B67215 /* CustomerServiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerServiceTableViewController.swift; sourceTree = "<group>"; };
 		2496FFD72634AF6900B67215 /* GHOrderSortMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHOrderSortMethod.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				24015AD12606AFB700AE95DD /* AuthenticateTableViewController.swift */,
 				24FE7A5025FC3674005B965A /* LoginTableViewController.swift */,
 				FD4290EC260571D50015847B /* RegisterTableViewController.swift */,
+				2461481C2640B61200B01B4A /* PrivacyPolicyViewController.swift */,
 			);
 			path = LoginRegister;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				24015AE8260719BD00AE95DD /* RangeSliderExtensions.swift in Sources */,
 				24015ACB2606A09D00AE95DD /* OrderMapViewController.swift in Sources */,
 				2496FFDE2634AFC600B67215 /* GHOrderSelectionType.swift in Sources */,
+				2461481D2640B61200B01B4A /* PrivacyPolicyViewController.swift in Sources */,
 				24FE7A5525FC4052005B965A /* GHConstants.swift in Sources */,
 				24C181422613E7790008A858 /* TimeIntervalExtensions.swift in Sources */,
 				24FBC8C1260024590015238A /* OrderTableViewController.swift in Sources */,
