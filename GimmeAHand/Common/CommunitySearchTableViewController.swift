@@ -9,15 +9,19 @@ import UIKit
 import CoreLocation
 import SVProgressHUD
 
-protocol CommunitySearchTableViewControllerDelegate {
+
+@objc protocol CommunitySearchTableViewControllerDelegate {
     
     func didSelectCommunity(_ community: CommunityModel)
+    
+    @objc optional func didSelectAllCommunities()
     
 }
 
 class CommunitySearchTableViewController: UITableViewController {
     
-    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?, _ type: GHCommunitySearchType = .none) -> UINavigationController {
+    static func embeddedInNavigationController(_ parent: CommunitySearchTableViewControllerDelegate?,
+                                               _ type: GHCommunitySearchType = .none) -> UINavigationController {
         let communitySearchTableViewController = CommunitySearchTableViewController(style: .grouped)
         communitySearchTableViewController.delegate = parent
         communitySearchTableViewController.type = type
@@ -35,7 +39,9 @@ class CommunitySearchTableViewController: UITableViewController {
     var type: GHCommunitySearchType = .none
     var selectedCommunityIndexPath: IndexPath? {
         didSet {
-            navigationItem.rightBarButtonItem?.isEnabled = selectedCommunityIndexPath != nil
+            if type != .filter {
+                navigationItem.rightBarButtonItem?.isEnabled = selectedCommunityIndexPath != nil
+            }
         }
     }
     
@@ -51,7 +57,7 @@ class CommunitySearchTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = backBarButtonItem
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneAction))
         navigationItem.rightBarButtonItem = doneBarButtonItem
-        doneBarButtonItem.isEnabled = false
+        doneBarButtonItem.isEnabled = type == .filter
         
         doneBarButtonItem.addObserver(self, forKeyPath: "selectedCommunityIndexPath", options: .new, context: nil)
         
@@ -77,11 +83,16 @@ class CommunitySearchTableViewController: UITableViewController {
     
     @objc func doneAction(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true) { [weak self] in
-            guard let strongSelf = self,
-                  let selectedIndexPath = strongSelf.selectedCommunityIndexPath else {
+            guard let strongSelf = self else {
                 return
             }
-            strongSelf.delegate?.didSelectCommunity(strongSelf.communities[selectedIndexPath.row])
+            if let selectedIndexPath = strongSelf.selectedCommunityIndexPath {
+                strongSelf.delegate?.didSelectCommunity(strongSelf.communities[selectedIndexPath.row])
+            } else {
+                if strongSelf.type == .filter {
+                    strongSelf.delegate?.didSelectAllCommunities?()
+                }
+            }
         }
     }
 

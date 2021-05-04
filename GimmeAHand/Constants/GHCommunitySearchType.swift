@@ -31,7 +31,9 @@ enum GHCommunitySearchType {
         switch self {
         case .add:
             return "We only display available communities within 3 miles of your current location."
-        case .filter, .select, .none:
+        case .filter:
+            return "Your communities"
+        case .select, .none:
             return nil
         }
     }

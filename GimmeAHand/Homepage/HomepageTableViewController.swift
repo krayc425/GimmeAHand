@@ -290,6 +290,10 @@ extension HomepageTableViewController: CommunitySearchTableViewControllerDelegat
         selectedCommunity = community
     }
     
+    func didSelectAllCommunities() {
+        selectedCommunity = nil
+    }
+    
 }
 
 extension HomepageTableViewController: RangeSeekSliderDelegate {
