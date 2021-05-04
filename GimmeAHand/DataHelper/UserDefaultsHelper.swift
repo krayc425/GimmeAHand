@@ -90,6 +90,7 @@ class UserDefaultsHelper: NSObject {
     }
     
     func clearCurrentUser() {
+        saveFaceID(false)
         defaults.set(nil, forKey: "current_user")
         defaults.synchronize()
     }
