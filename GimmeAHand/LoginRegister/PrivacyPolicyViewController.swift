@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol PrivacyPolicyViewControllerDelegate {
+    
+    func didReadPrivacyPolicy()
+    
+}
+
 class PrivacyPolicyViewController: UIViewController {
     
     @IBOutlet weak var ppTextView: UITextView!
+    var delegate: PrivacyPolicyViewControllerDelegate? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +25,7 @@ class PrivacyPolicyViewController: UIViewController {
     }
     
     @IBAction func dismissAction(_ sender: UIBarButtonItem) {
+        delegate?.didReadPrivacyPolicy()
         navigationController?.popViewController(animated: true)
     }
     

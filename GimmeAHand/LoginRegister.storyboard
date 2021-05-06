@@ -566,7 +566,7 @@
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                             <state key="normal" title="Privacy Policy"/>
                                                             <connections>
-                                                                <segue destination="MrF-Ex-O4X" kind="show" id="jkN-hz-Qom"/>
+                                                                <segue destination="MrF-Ex-O4X" kind="show" identifier="privacyPolicySegue" id="jkN-hz-Qom"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>

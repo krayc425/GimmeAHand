@@ -34,6 +34,8 @@ class RegisterTableViewController: AuthenticateTableViewController {
         [emailTextField, firstNameTextField, lastNameTextField, mobileTextField, passwordTextField, confirmTextField].forEach { (textField) in
             textField?.delegate = self
         }
+        registerButton.backgroundColor = .lightGray
+        registerButton.isEnabled = false
     }
     
     @IBAction func registerAction(_ sender: UIButton) {
@@ -163,6 +165,14 @@ class RegisterTableViewController: AuthenticateTableViewController {
         return isCommunityIndexPath(indexPath)
     }
     
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "privacyPolicySegue" {
+            let privacyPolicyViewController = segue.destination as! PrivacyPolicyViewController
+            privacyPolicyViewController.delegate = self
+        }
+    }
 }
 
 extension RegisterTableViewController: CommunitySearchTableViewControllerDelegate {
@@ -199,6 +209,15 @@ extension RegisterTableViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+    
+}
+
+extension RegisterTableViewController: PrivacyPolicyViewControllerDelegate {
+    
+    func didReadPrivacyPolicy() {
+        registerButton.backgroundColor = .GHTint
+        registerButton.isEnabled = true
     }
     
 }
